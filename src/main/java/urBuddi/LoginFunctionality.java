@@ -98,6 +98,12 @@ public class LoginFunctionality {
 		} else {
 			System.out.println("Expected Error Message is not showing");
 		}
+		
+		//loginToApplication()
+		//verifyLoginSuccessful()
+		//navigateToAddEmployee()
+		//addEmployee()
+		//verifyNewEmployeeAddedSuccessfully
 
 		// TC_011 Verify the Login functionality with Valid Email and Invalid Password
 		System.out.println("****************************************");
