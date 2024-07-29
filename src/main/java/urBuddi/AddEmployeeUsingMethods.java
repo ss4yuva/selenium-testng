@@ -3,26 +3,21 @@ package urBuddi;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Random;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddEmployeeUsingMethods {
 	
 	static WebDriver driver;
-	static WebDriver wait;
-	static WebDriver random;
+	static WebDriverWait wait;
 		
 				// Locators
-		By emailInputfield = By.id("userEmail");
+	    By emailInputfield = By.id("userEmail");
 		By passwordInputfield = By.id("userPassword");
 		By loginButton = By.xpath("//*[@type='submit']");
 
@@ -63,87 +58,88 @@ public class AddEmployeeUsingMethods {
 		}
 		
 		public void addEmployeeLinks() {
+			wait.until(ExpectedConditions.elementToBeClickable(employeesLink));
 		driver.findElement(employeesLink).click();
-
+		wait.until(ExpectedConditions.elementToBeClickable(addEmployeeButton));
 		driver.findElement(addEmployeeButton).click();
 		}
 		public void addEmployeeDetails(String firstName, String lastName, int employeeID, String email, String roleValue, String qualificationsValue,
 				String department, String genderValue, int mobileNumber,String bloodGroupValue, String designation, 
 				int salary, String location, String reportingValue) throws InterruptedException {
-  //      wait.until(ExpectedConditions.elementToBeClickable(firstNameInputfield));
+        wait.until(ExpectedConditions.elementToBeClickable(firstNameInputfield));
 		driver.findElement(firstNameInputfield).click();
 		driver.findElement(firstNameInputfield).sendKeys(firstName);
 
-//		wait.until(ExpectedConditions.elementToBeClickable(lastNameInputfield));
+		wait.until(ExpectedConditions.elementToBeClickable(lastNameInputfield));
 		driver.findElement(lastNameInputfield).click();
 		driver.findElement(lastNameInputfield).sendKeys(lastName);
 
-//		wait.until(ExpectedConditions.elementToBeClickable(employeeIDInputfield));
+		wait.until(ExpectedConditions.elementToBeClickable(employeeIDInputfield));
 		driver.findElement(employeeIDInputfield).click();
-		driver.findElement(employeeIDInputfield).sendKeys("" +employeeID);
+		driver.findElement(employeeIDInputfield).sendKeys(""+employeeID);
 
-//		wait.until(ExpectedConditions.elementToBeClickable(addEmployeeEmailInputfield));
+		wait.until(ExpectedConditions.elementToBeClickable(addEmployeeEmailInputfield));
 		driver.findElement(addEmployeeEmailInputfield).click();
 		driver.findElement(addEmployeeEmailInputfield).sendKeys(email);
 
-//		wait.until(ExpectedConditions.elementToBeClickable(roleDropdown));
+		wait.until(ExpectedConditions.elementToBeClickable(roleDropdown));
 		Select selectRoleDropdown = new Select(driver.findElement(roleDropdown));
 		selectRoleDropdown.selectByVisibleText(roleValue);
 		
 
-//		wait.until(ExpectedConditions.elementToBeClickable(addEmployeePasswordInputfield));
+		wait.until(ExpectedConditions.elementToBeClickable(addEmployeePasswordInputfield));
 		driver.findElement(addEmployeePasswordInputfield).click();
 		driver.findElement(addEmployeePasswordInputfield).sendKeys("ss@1234");
 
-//		wait.until(ExpectedConditions.elementToBeClickable(dateOfBirth));
+		wait.until(ExpectedConditions.elementToBeClickable(dateOfBirth));
 		WebElement dob = driver.findElement(dateOfBirth);
 		dob.sendKeys("28-08-1992");
 
-//		wait.until(ExpectedConditions.elementToBeClickable(joiningDate));
+		wait.until(ExpectedConditions.elementToBeClickable(joiningDate));
 		 LocalDate currentDate = LocalDate.now();
 	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 	        String formattedDate = currentDate.format(formatter);
 	        System.out.println("Today Date: " +formattedDate);
 		driver.findElement(joiningDate).sendKeys(formattedDate);
 		
-//		wait.until(ExpectedConditions.elementToBeClickable(qualificationsDropdown));
+		wait.until(ExpectedConditions.elementToBeClickable(qualificationsDropdown));
 		Select selectQualificationsDropdown = new Select(driver.findElement(qualificationsDropdown));
 		selectQualificationsDropdown.selectByVisibleText(qualificationsValue);
 		
 
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(departmentInputfield));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(departmentInputfield));
 		driver.findElement(departmentInputfield).click();
 		driver.findElement(departmentInputfield).sendKeys(department);
 
 
-//		wait.until(ExpectedConditions.elementToBeClickable(genderDropdown));
+		wait.until(ExpectedConditions.elementToBeClickable(genderDropdown));
 		Select selectGenderDropdown = new Select(driver.findElement(genderDropdown));
 		selectGenderDropdown.selectByVisibleText(genderValue);
 
 
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(mobileNumberInputfield));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(mobileNumberInputfield));
 		driver.findElement(mobileNumberInputfield).click();
 		driver.findElement(mobileNumberInputfield).sendKeys(""+mobileNumber);
 		
-//		wait.until(ExpectedConditions.elementToBeClickable(bloodGroupDropdown));
+		wait.until(ExpectedConditions.elementToBeClickable(bloodGroupDropdown));
 		Select selectBloodGroupDropdown = new Select(driver.findElement(bloodGroupDropdown));
 		selectBloodGroupDropdown.selectByVisibleText(bloodGroupValue);
 		
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(designationInputfield));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(designationInputfield));
 		driver.findElement(designationInputfield).click();
 		driver.findElement(designationInputfield).sendKeys(designation);
 
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(salaryInputfield));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(salaryInputfield));
 		driver.findElement(salaryInputfield).click();
 		driver.findElement(salaryInputfield).sendKeys(""+salary);
 
 
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(locationInputfield));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locationInputfield));
 		driver.findElement(locationInputfield).click();
 		driver.findElement(locationInputfield).sendKeys(location);
 		
 		Thread.sleep(10000);
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(reportingToDropdown));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(reportingToDropdown));
 		Select selectReportingToDropdown = new Select(driver.findElement(reportingToDropdown));
 		selectReportingToDropdown.selectByVisibleText(reportingValue);
 		
@@ -156,20 +152,18 @@ public class AddEmployeeUsingMethods {
 
 public static void main(String[] args) throws InterruptedException {
 	// TODO Auto-generated method stub
-	WebDriver driver = new ChromeDriver();
+	driver = new ChromeDriver();
 	System.setProperty("webdriver.chrome.driver",
 			"D:\\Sruthi\\Automation Practice\\Files\\Drivers\\chromedriver-win32\\chromedriver.exe");
 	driver.manage().window().maximize();
 	driver.get("https://dev.urbuddi.com/login");
 
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10000));
-
-	Random random = new Random();
-	int x = random.nextInt(100);
+	wait = new WebDriverWait(driver, Duration.ofSeconds(10000));
 	
 	AddEmployeeUsingMethods obj=new AddEmployeeUsingMethods();
 	obj.loginTOApplication("govardhan.gottemukkula@openskale.com", "Govardhan_123");
-	obj.addEmployeeDetails("SS", "ABC", 01234, "ss@gmail.com", "Employee", "B.Tech", "Software", "Female",1234567890, "O+", "QA Lead", 25000, 
+	obj.addEmployeeLinks();
+	obj.addEmployeeDetails("SS", "ABC", 0124, "ss@gmail.com", "Employee", "B.Tech", "Software", "Female", 1234567890, "O+", "QA Lead", 25000, 
 			"Hyderabad", "test58@gmail.com");
 }
 }
