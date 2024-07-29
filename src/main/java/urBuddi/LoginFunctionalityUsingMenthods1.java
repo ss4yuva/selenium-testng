@@ -60,7 +60,6 @@ public class LoginFunctionalityUsingMenthods1 {
 		obj.loginToApplication("govardhan.gottemukkula@openskale.com", "Govardhan_123");
 		obj.loginToApplicationWithBlank();
 		obj.loginWithInvalid("ss4yuvan@gmail.com", "sruthi@123");
-
 	}
 	
 
