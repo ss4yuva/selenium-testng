@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AddEmployeeWithIndividualMethods {
+public class TC009AddEmployeeMethodCallingWithinMethod {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
@@ -103,10 +103,10 @@ public class AddEmployeeWithIndividualMethods {
 		driver.findElement(addEmployeePasswordInputfield).sendKeys(employeePassword);
 	}
 
-	public void dob() {
+	public void dob(String birthDate) {
 		wait.until(ExpectedConditions.elementToBeClickable(dateOfBirth));
 		WebElement dob = driver.findElement(dateOfBirth);
-		dob.sendKeys("28-08-1992");
+		dob.sendKeys(birthDate);
 	}
 
 	public void joiningDate() {
@@ -171,6 +171,31 @@ public class AddEmployeeWithIndividualMethods {
 		selectReportingToDropdown.selectByVisibleText(reportingDetails);
 	}
 
+	public void addEmployeeDetails(String firstNameValue, String lastNameValue, int employeeIDValue, String emailValue,
+			String roleValue, String passwordValue, String dobValue, String qualificationsValue, String departmentValue,
+			String genderValue, int mobileNumberValue, String bloodGroupValue, String designationValue, int salaryValue,
+			String locationValueValue, String reportingValue) {
+
+		firstName(firstNameValue);
+		lastName(lastNameValue);
+		employeeID(employeeIDValue);
+		email(emailValue);
+		role(roleValue);
+		password(passwordValue);
+		dob(dobValue);
+		joiningDate();
+		qualifications(qualificationsValue);
+		department(departmentValue);
+		gender(genderValue);
+		mobileNumber(mobileNumberValue);
+		bloodGroup(bloodGroupValue);
+		designation(designationValue);
+		salary(salaryValue);
+		location(locationValueValue);
+		reporting(reportingValue);
+
+	}
+
 	public static void main(String[] args) {
 
 		driver = new ChromeDriver();
@@ -182,28 +207,12 @@ public class AddEmployeeWithIndividualMethods {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10000));
 
-		AddEmployeeWithIndividualMethods obj = new AddEmployeeWithIndividualMethods();
+		TC009AddEmployeeMethodCallingWithinMethod obj = new TC009AddEmployeeMethodCallingWithinMethod();
 
 		obj.loginToApplication("govardhan.gottemukkula@openskale.com", "Govardhan_123");
 		obj.addEmployeeLinks();
-
-		obj.firstName("SS");
-		obj.lastName("ABC");
-		obj.employeeID(123);
-		obj.email("ss@gmail.com");
-		obj.role("Employee");
-		obj.password("ss@1234");
-		obj.dob();
-		obj.joiningDate();
-		obj.qualifications("B.Tech");
-		obj.department("Software");
-		obj.gender("Female");
-		obj.mobileNumber(1234567890);
-		obj.bloodGroup("O+");
-		obj.designation("QA Lead");
-		obj.salary(25000);
-		obj.location("Hyderabad");
-		obj.reporting("test58@gmail.com");
+		obj.addEmployeeDetails("SS", "ABC", 123, "ss@gmail.com", "Employee", "ss@1234", "28-08-1992", "B.Tech",
+				"Software", "Female", 1234567890, "O+", "QA Lead", 25000, "Hyderabad", "test58@gmail.com");
 
 	}
 

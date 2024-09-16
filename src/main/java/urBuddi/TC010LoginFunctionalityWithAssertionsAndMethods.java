@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class LoginFunctionalityWithAssertionsAndMethods {
+public class TC010LoginFunctionalityWithAssertionsAndMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
@@ -155,7 +155,7 @@ public class LoginFunctionalityWithAssertionsAndMethods {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
-		LoginFunctionalityWithAssertionsAndMethods obj = new LoginFunctionalityWithAssertionsAndMethods();
+		TC010LoginFunctionalityWithAssertionsAndMethods obj = new TC010LoginFunctionalityWithAssertionsAndMethods();
 
 		obj.loginToApplication("govardhan.gottemukkula@openskale.com", "Govardhan_123");
 		obj.loginWithBlankCredentials();

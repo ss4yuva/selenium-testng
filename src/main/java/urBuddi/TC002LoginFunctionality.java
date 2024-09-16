@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginFunctionality {
+public class TC002LoginFunctionality {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -39,6 +39,7 @@ public class LoginFunctionality {
 		By forgotPasswordGenerateOTPError = By.xpath("//*[text()='Email not found']");
 
 		// TC_008 Verify the Login functionality with Valid Credentials
+		System.out.println("TC_008");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(emailInputfield));
 		driver.findElement(emailInputfield).click();
 		driver.findElement(emailInputfield).sendKeys("govardhan.gottemukkula@openskale.com");
@@ -59,6 +60,7 @@ public class LoginFunctionality {
 
 		// TC_009 Verify the Login functionality with blank of User name and Password
 		System.out.println("****************************************");
+		System.out.println("TC_009");
 		driver.findElement(loginButton).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(passwordError));
 		WebElement emailErrorMessage = driver.findElement(emailError);
@@ -80,6 +82,7 @@ public class LoginFunctionality {
 
 		// TC_010 Verify the Login functionality with InValid Credentials
 		System.out.println("****************************************");
+		System.out.println("TC_010");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(emailInputfield));
 		driver.findElement(emailInputfield).click();
 		driver.findElement(emailInputfield).sendKeys("ss4yuvan@gmail.com");
@@ -98,15 +101,10 @@ public class LoginFunctionality {
 		} else {
 			System.out.println("Expected Error Message is not showing");
 		}
-		
-		//loginToApplication()
-		//verifyLoginSuccessful()
-		//navigateToAddEmployee()
-		//addEmployee()
-		//verifyNewEmployeeAddedSuccessfully
 
 		// TC_011 Verify the Login functionality with Valid Email and Invalid Password
 		System.out.println("****************************************");
+		System.out.println("TC_011");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(emailInputfield));
 		driver.findElement(emailInputfield).click();
 		driver.findElement(emailInputfield).clear();
@@ -127,6 +125,7 @@ public class LoginFunctionality {
 
 		// TC_012 Verify the Login functionality with InValid Email and valid Password
 		System.out.println("****************************************");
+		System.out.println("TC_012");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(emailInputfield));
 		driver.findElement(emailInputfield).click();
 		driver.findElement(emailInputfield).clear();
@@ -147,6 +146,7 @@ public class LoginFunctionality {
 
 		// TC_013 Verify the functionality of Forgot Password with invalid email
 		System.out.println("****************************************");
+		System.out.println("TC_013");
 		driver.findElement(forgotPasswordLink).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(forgotPasswordHeaderText));
 		WebElement forgotPasswordHeader = driver.findElement(forgotPasswordHeaderText);

@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AddEmployee {
+public class TC003AddEmployeeWithRandom {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -93,6 +93,7 @@ public class AddEmployee {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(roleDropdown));
 		wait.until(ExpectedConditions.elementToBeClickable(roleDropdown));
 		driver.findElement(roleDropdown).click();
+		Thread.sleep(2000);
 		int r = random.nextInt(3);
 		Select selectRoleDropdown = new Select(driver.findElement(roleDropdown));
 		selectRoleDropdown.selectByIndex(r);
@@ -113,6 +114,7 @@ public class AddEmployee {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(qualificationsDropdown));
 		wait.until(ExpectedConditions.elementToBeClickable(qualificationsDropdown));
 		driver.findElement(qualificationsDropdown).click();
+		Thread.sleep(2000);
 		int q = random.nextInt(2);
 		Select selectQualificationDropdown = new Select(driver.findElement(qualificationsDropdown));
 		selectQualificationDropdown.selectByIndex(q);
@@ -126,6 +128,7 @@ public class AddEmployee {
 		wait.until(ExpectedConditions.elementToBeClickable(genderDropdown));
 		driver.findElement(genderDropdown).click();
 		int g = random.nextInt(3);
+		Thread.sleep(2000);
 		Select selectGenderDropdown = new Select(driver.findElement(genderDropdown));
 		selectGenderDropdown.selectByIndex(g);
 		Thread.sleep(5000);
@@ -136,6 +139,7 @@ public class AddEmployee {
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(bloodGroupDropdown));
 		wait.until(ExpectedConditions.elementToBeClickable(bloodGroupDropdown));
+		Thread.sleep(2000);
 		int b = random.nextInt(7);
 		driver.findElement(bloodGroupDropdown).click();
 		Select selectBloodGroupDropdown = new Select(driver.findElement(bloodGroupDropdown));
@@ -157,23 +161,25 @@ public class AddEmployee {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(reportingToDropdown));
 		wait.until(ExpectedConditions.elementToBeClickable(reportingToDropdown));
 		driver.findElement(reportingToDropdown).click();
+		Thread.sleep(2000);
 		int rp = random.nextInt(10);
 		Select selectReportingDropdown = new Select(driver.findElement(reportingToDropdown));
 		selectReportingDropdown.selectByIndex(rp);
 		Thread.sleep(5000);
 
-//		wait.until(ExpectedConditions.elementToBeClickable(certificatesDropdown));
-//		driver.findElement(certificatesDropdown).click();
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(certificateDropdownValue));
-//		driver.findElement(certificateDropdownValue).click();
-//		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(certificatesDropdown));
+		driver.findElement(certificatesDropdown).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(certificateDropdownValue));
+		driver.findElement(certificateDropdownValue).click();
+		Thread.sleep(5000);
+		driver.findElement(certificatesDropdown).click();
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(addButton));
 		wait.until(ExpectedConditions.elementToBeClickable(addButton));
 		driver.findElement(addButton).click();
 		Thread.sleep(5000);
 
-		driver.close();
+//		driver.close();
 
 	}
 
