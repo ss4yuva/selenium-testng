@@ -15,11 +15,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class TC013DeleteAndVerifyTheAddEmployee {
-	
+
 	static WebDriver driver;
 	static WebDriverWait wait;
 	static Random random, randomNumber;
 	int employeeIDRadomNumber;
+	String empIDInput;
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -30,7 +31,7 @@ public class TC013DeleteAndVerifyTheAddEmployee {
 
 		driver.get("https://dev.urbuddi.com/login");
 
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10000));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		random = new Random();
 		randomNumber = new Random();
@@ -44,9 +45,13 @@ public class TC013DeleteAndVerifyTheAddEmployee {
 		obj.verifyAddEmployeePage();
 		obj.addEmployeeInputs();
 		Thread.sleep(10000);
-		obj.verifyAddEmployeeSuccessful(obj.employeeIDRadomNumber);
+		obj.verifyAddEmployeeSuccessful(obj.empIDInput);
 		obj.DeleteAddEmployee();
+		obj.verifyAddEmployeeAfterDelete(obj.empIDInput);
+
+		driver.close();
 	}
+
 	public static String generateRandomString(int length) {
 		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		StringBuilder randomText = new StringBuilder(length);
@@ -93,8 +98,8 @@ public class TC013DeleteAndVerifyTheAddEmployee {
 	By addButton = By.xpath("//*[text()='Add']");
 
 	By employeeIDSearchField = By.xpath("//*[@aria-label='EMP ID Filter Input']");
-	
-	By employeeIDCheckBox = By.xpath("(//*[@class='ag-cell-wrapper'])[1]");
+
+	By employeeIDCheckBox = By.xpath("//*[@class='ag-selection-checkbox']");
 	By deleteIcon = By.xpath("//*[@class='deleteIcon']");
 
 	public void loginToApplication(String userName, String password) {
@@ -137,10 +142,10 @@ public class TC013DeleteAndVerifyTheAddEmployee {
 		driver.findElement(lastNameInputfield).sendKeys(employeeLastName);
 	}
 
-	public void employeeID(int employeeIDNumber) {
+	public void employeeID(String employeeIDNumber) {
 		wait.until(ExpectedConditions.elementToBeClickable(employeeIDInputfield));
 		driver.findElement(employeeIDInputfield).click();
-		driver.findElement(employeeIDInputfield).sendKeys("" + employeeIDNumber);
+		driver.findElement(employeeIDInputfield).sendKeys(employeeIDNumber);
 
 	}
 
@@ -244,10 +249,13 @@ public class TC013DeleteAndVerifyTheAddEmployee {
 		lastName(lastNameRandomText);
 
 		employeeIDRadomNumber = randomNumber.nextInt(10000);
-		employeeID(employeeIDRadomNumber);
+		empIDInput = "OW" + employeeIDRadomNumber;
+		employeeID(empIDInput);
 
-		int emailRandom = randomNumber.nextInt(100);
-		email("qa" + emailRandom + "@gmail.com");
+		int emailRandom = randomNumber.nextInt(1000);
+
+		String inputEmail = "qa" + emailRandom + "@gmail.com";
+		email(inputEmail);
 
 		role("Employee");
 
@@ -284,25 +292,52 @@ public class TC013DeleteAndVerifyTheAddEmployee {
 		addButton();
 	}
 
-	public void verifyAddEmployeeSuccessful(int empID) {
+	public void verifyAddEmployeeSuccessful(String empID) throws InterruptedException {
 
-		By employeeSearchIDValue = By.xpath("//*[text()='" + Integer.toString(empID) + "']");
+		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
+		System.out.println("ID IS--->" + empID);
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
-		Assert.assertTrue(true, "Login is Successful");
 		driver.findElement(employeeIDSearchField).click();
-		driver.findElement(employeeIDSearchField).sendKeys("" + empID);
+		driver.findElement(employeeIDSearchField).sendKeys(empID);
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeSearchIDValue));
-		driver.findElement(employeeSearchIDValue).click();
+
+		Boolean empRecordPresent = isElementDisplayed(employeeSearchIDValue);
+		System.out.println("Employee Created==" + empRecordPresent);
+		Assert.assertTrue(empRecordPresent, "Employee Record is not created");
 
 	}
 
 	public void DeleteAddEmployee() throws InterruptedException {
-		wait.until(ExpectedConditions.elementToBeClickable(employeeIDCheckBox));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDCheckBox));
 		driver.findElement(employeeIDCheckBox).click();
 		wait.until(ExpectedConditions.elementToBeClickable(deleteIcon));
 		driver.findElement(deleteIcon).click();
 		Thread.sleep(1500);
 	}
 
+	public void verifyAddEmployeeAfterDelete(String empID) {
+
+		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
+		driver.findElement(employeeIDSearchField).click();
+		driver.findElement(employeeIDSearchField).sendKeys(empID);
+
+		Boolean empRecordPresent = this.isElementDisplayed(employeeSearchIDValue);
+		System.out.println("Employee present fter Delete==" + empRecordPresent);
+		Assert.assertFalse(empRecordPresent, "Employee Record is not deleted");
+
+	}
+
+	public boolean isElementDisplayed(By loc) {
+		Boolean empRecordPresent;
+		try {
+			empRecordPresent = driver.findElement(loc).isDisplayed();
+		} catch (Exception e) {
+			empRecordPresent = false;
+		}
+		return empRecordPresent;
+
+	}
 }
