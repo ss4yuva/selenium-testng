@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class L01EMployeeAddAndDeleteMainMethod {
-	
+
 	static WebDriver driver;
 	static WebDriverWait wait;
 	static Random random, randomNumber;
@@ -25,18 +25,15 @@ public class L01EMployeeAddAndDeleteMainMethod {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		random = new Random();
-		randomNumber = new Random();
-
-		TC013DeleteAndVerifyTheAddEmployee obj = new TC013DeleteAndVerifyTheAddEmployee();
+		L01EmployeeAddAndDeleteMethods obj = new L01EmployeeAddAndDeleteMethods(wait, driver);
 
 		obj.loginToApplication("govardhan.gottemukkula@openskale.com", "Govardhan_123");
 		obj.verifyLoginIsSuccessful();
 		obj.addEmployeeLinks();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		obj.verifyAddEmployeePage();
 		obj.addEmployeeInputs();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		obj.verifyAddEmployeeSuccessful(obj.empIDInput);
 		obj.DeleteAddEmployee();
 		obj.verifyAddEmployeeAfterDelete(obj.empIDInput);
