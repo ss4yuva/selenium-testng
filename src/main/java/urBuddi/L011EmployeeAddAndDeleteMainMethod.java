@@ -7,11 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class L01EMployeeAddAndDeleteMainMethod {
+public class L011EmployeeAddAndDeleteMainMethod {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
-	static Random random, randomNumber;
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -25,7 +24,7 @@ public class L01EMployeeAddAndDeleteMainMethod {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		L01EmployeeAddAndDeleteMethods obj = new L01EmployeeAddAndDeleteMethods(wait, driver);
+		L012EmployeeAddAndDeleteMethods obj = new L012EmployeeAddAndDeleteMethods(wait, driver);
 
 		obj.loginToApplication("govardhan.gottemukkula@openskale.com", "Govardhan_123");
 		obj.verifyLoginIsSuccessful();

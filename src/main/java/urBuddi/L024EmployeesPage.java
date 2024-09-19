@@ -1,6 +1,5 @@
 package urBuddi;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -13,16 +12,19 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class L01EmployeeAddAndDeleteMethods {
+public class L024EmployeesPage {
+
 	static WebDriver driver;
 	static WebDriverWait wait;
 	static Random random, randomNumber;
 	int employeeIDRadomNumber;
 	String empIDInput;
+	CommonMethods cm;
 
-	L01EmployeeAddAndDeleteMethods(WebDriverWait w, WebDriver d) {
-		this.driver = d;
+	L024EmployeesPage(WebDriverWait w, WebDriver d) {
 		this.wait = w;
+		this.driver = d;
+		cm = new CommonMethods(wait, driver);
 		random = new Random();
 		randomNumber = new Random();
 
@@ -38,14 +40,7 @@ public class L01EmployeeAddAndDeleteMethods {
 		return randomText.toString();
 	}
 
-	// Locators
-	By emailInputfield = By.id("userEmail");
-	By passwordInputfield = By.id("userPassword");
-	By loginButton = By.xpath("//*[@type='submit']");
-
-	By profileIcon = By.xpath("//*[@class='profile-icon-container']");
-
-	By employeesLink = By.xpath("//*[text()='Employees']");
+	// Add Employee PopupPage Locators
 	By addEmployeeButton = By.xpath("//*[text()='Add Employee']");
 	By addEmployeePageText = By.xpath("//*[@class='modal-heading']");
 
@@ -72,37 +67,25 @@ public class L01EmployeeAddAndDeleteMethods {
 	By certificateDropdownValue = By.name("Intermediate");
 	By addButton = By.xpath("//*[text()='Add']");
 
+	// After Add Employee Login Success Message
+	By loginSuccessMessage = By.id("root");
+
+	// After Add Employee Search And Delete Locators
 	By employeeIDSearchField = By.xpath("//*[@aria-label='EMP ID Filter Input']");
 
 	By employeeIDCheckBox = By.xpath("//*[@class='ag-selection-checkbox']");
 	By deleteIcon = By.xpath("//*[@class='deleteIcon']");
 
-	public void loginToApplication(String userName, String password) {
-		wait.until(ExpectedConditions.elementToBeClickable(emailInputfield));
-		driver.findElement(emailInputfield).click();
-		driver.findElement(emailInputfield).sendKeys(userName);
-		driver.findElement(passwordInputfield).click();
-		driver.findElement(passwordInputfield).sendKeys(password);
-		driver.findElement(loginButton).click();
-	}
-
-	public void verifyLoginIsSuccessful() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(profileIcon));
-		Assert.assertTrue(true, "Login is Successful");
-	}
-
-	public void addEmployeeLinks() {
-		wait.until(ExpectedConditions.elementToBeClickable(employeesLink));
-		driver.findElement(employeesLink).click();
+	public void addEmployeeButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(addEmployeeButton));
 		driver.findElement(addEmployeeButton).click();
 	}
 
-	public void verifyAddEmployeePage() {
-		wait.until(ExpectedConditions.elementToBeClickable(addEmployeePageText));
-		WebElement employeePageText = driver.findElement(addEmployeePageText);
-		String employeePageT = employeePageText.getText();
-		Assert.assertEquals(employeePageT, "Add Employee");
+	public void verifyAddEmployeePage() throws InterruptedException {
+		Thread.sleep(5000);
+		Boolean addEMployeeTextDisplayed = cm.isElementDisplayed(addEmployeePageText);
+		System.out.println("Add Employee Text Is Displayed?==" + addEMployeeTextDisplayed);
+		Assert.assertTrue(addEMployeeTextDisplayed, "Add Employee Button Is Not Clicked");
 	}
 
 	public void firstName(String employeefirstName) {
@@ -216,7 +199,7 @@ public class L01EmployeeAddAndDeleteMethods {
 		driver.findElement(addButton).click();
 	}
 
-	public void addEmployeeInputs() {
+	public void addEmployeePageTestData() {
 		String firstnameRandomText = generateRandomString(6);
 		firstName(firstnameRandomText);
 
@@ -267,24 +250,23 @@ public class L01EmployeeAddAndDeleteMethods {
 		addButton();
 	}
 
-	public void verifyAddEmployeeSuccessful(String empID) throws InterruptedException {
+	public void verifyNewEmployeeIsAddedSuccessful() throws InterruptedException {
+		Thread.sleep(5000);
+		Boolean loginPopUpDisplayed = cm.isElementDisplayed(loginSuccessMessage);
+		System.out.println("Login Success PopUp Is Displayed?==" + loginPopUpDisplayed);
+		Assert.assertTrue(loginPopUpDisplayed, "Login Success PopUp Is Not Displayed");
+	}
 
+	public void searchNewEmployee(String empID) throws InterruptedException {
+		Thread.sleep(5000);
 		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
-		System.out.println("ID IS--->" + empID);
-
+		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeSearchIDValue));
-
-		Boolean empRecordPresent = isElementDisplayed(employeeSearchIDValue);
-		System.out.println("Employee Created==" + empRecordPresent);
-		Assert.assertTrue(empRecordPresent, "Employee Record is not created");
-
 	}
 
-	public void DeleteAddEmployee() throws InterruptedException {
+	public void deleteNewlyAddedEmployee() throws InterruptedException {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDCheckBox));
 		driver.findElement(employeeIDCheckBox).click();
 		wait.until(ExpectedConditions.elementToBeClickable(deleteIcon));
@@ -292,28 +274,15 @@ public class L01EmployeeAddAndDeleteMethods {
 		Thread.sleep(1500);
 	}
 
-	public void verifyAddEmployeeAfterDelete(String empID) {
-
+	public void verifyNewlyAddedEmployeeDelettionIsSuccessful(String empID) throws InterruptedException {
+		Thread.sleep(5000);
 		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 
-		Boolean empRecordPresent = this.isElementDisplayed(employeeSearchIDValue);
-		System.out.println("Employee present fter Delete==" + empRecordPresent);
-		Assert.assertFalse(empRecordPresent, "Employee Record is not deleted");
-
+		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(employeeSearchIDValue);
+		System.out.println("Employee Record Deleted Successful?==" + eemployeeRecordIsPresent);
+		Assert.assertTrue(eemployeeRecordIsPresent, "Employee Record is not deleted");
 	}
-
-	public boolean isElementDisplayed(By loc) {
-		Boolean empRecordPresent;
-		try {
-			empRecordPresent = driver.findElement(loc).isDisplayed();
-		} catch (Exception e) {
-			empRecordPresent = false;
-		}
-		return empRecordPresent;
-
-	}
-
 }
