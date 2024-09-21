@@ -26,18 +26,26 @@ public class L021MainMethod {
 		L022LoginPage loginPage = new L022LoginPage(wait, driver);
 		L023DashBoardPage dashBoardPage = new L023DashBoardPage(wait, driver);
 		L024EmployeesPage employeePage = new L024EmployeesPage(wait, driver);
+		L025EditEmployeePage editEmployeePage = new L025EditEmployeePage(wait, driver);
 
 		loginPage.loginToApplication("govardhan.gottemukkula@openskale.com", "Govardhan_123");
 		loginPage.verifyLoginIsSuccessful();
-		dashBoardPage.employeesButton();
-		employeePage.addEmployeeButton();
+		dashBoardPage.clickOnEmployeesButton();
+		employeePage.clickOnAddEmployeeButton();
 		employeePage.verifyAddEmployeePage();
-		employeePage.addEmployeePageTestData();
+		employeePage.enterAddEmployeePageTestData();
 		employeePage.verifyNewEmployeeIsAddedSuccessful();
-		employeePage.searchNewEmployee(employeePage.empIDInput);
-		employeePage.deleteNewlyAddedEmployee();
-		employeePage.verifyNewlyAddedEmployeeDelettionIsSuccessful(employeePage.empIDInput);
+		employeePage.searchNewEmployeeWithEmpID(employeePage.empIDInput);
+	//	employeePage.deleteNewlyAddedEmployeeWithEmployeeID();
+	//	employeePage.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(employeePage.empIDInput);
 		Thread.sleep(5000);
+		
+		editEmployeePage.clickOnEditButton();
+		editEmployeePage.verifyEditEmployeePage();
+		editEmployeePage.enterEditEmployeePageTestData();
+		editEmployeePage.searchEditEmployeeDetailsWithEditeedFirstAndLastName();
+		editEmployeePage.verifyEditEmployeeDetailsWithEditeedFirstAndLastName();
+		editEmployeePage.deleteEditEmployeeWithSearchedFirstAndLastName();
 		
 		driver.close();
 	}

@@ -19,7 +19,7 @@ public class L023DashBoardPage {
 	// DashBoardPage Locators
 	By employeesLink = By.xpath("//*[text()='Employees']");
 
-	public void employeesButton() {
+	public void clickOnEmployeesButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(employeesLink));
 		driver.findElement(employeesLink).click();
 

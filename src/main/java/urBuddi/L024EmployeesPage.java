@@ -27,7 +27,6 @@ public class L024EmployeesPage {
 		cm = new CommonMethods(wait, driver);
 		random = new Random();
 		randomNumber = new Random();
-
 	}
 
 	public static String generateRandomString(int length) {
@@ -76,7 +75,7 @@ public class L024EmployeesPage {
 	By employeeIDCheckBox = By.xpath("//*[@class='ag-selection-checkbox']");
 	By deleteIcon = By.xpath("//*[@class='deleteIcon']");
 
-	public void addEmployeeButton() {
+	public void clickOnAddEmployeeButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(addEmployeeButton));
 		driver.findElement(addEmployeeButton).click();
 	}
@@ -88,50 +87,50 @@ public class L024EmployeesPage {
 		Assert.assertTrue(addEMployeeTextDisplayed, "Add Employee Button Is Not Clicked");
 	}
 
-	public void firstName(String employeefirstName) {
+	public void enterFirstName(String employeefirstName) {
 		wait.until(ExpectedConditions.elementToBeClickable(firstNameInputfield));
 		driver.findElement(firstNameInputfield).click();
 		driver.findElement(firstNameInputfield).sendKeys(employeefirstName);
 	}
 
-	public void lastName(String employeeLastName) {
+	public void enterLastName(String employeeLastName) {
 		wait.until(ExpectedConditions.elementToBeClickable(lastNameInputfield));
 		driver.findElement(lastNameInputfield).click();
 		driver.findElement(lastNameInputfield).sendKeys(employeeLastName);
 	}
 
-	public void employeeID(String employeeIDNumber) {
+	public void enterEmployeeID(String employeeIDNumber) {
 		wait.until(ExpectedConditions.elementToBeClickable(employeeIDInputfield));
 		driver.findElement(employeeIDInputfield).click();
 		driver.findElement(employeeIDInputfield).sendKeys(employeeIDNumber);
 
 	}
 
-	public void email(String employeeEmail) {
+	public void enterEmail(String employeeEmail) {
 		wait.until(ExpectedConditions.elementToBeClickable(addEmployeeEmailInputfield));
 		driver.findElement(addEmployeeEmailInputfield).click();
 		driver.findElement(addEmployeeEmailInputfield).sendKeys(employeeEmail);
 	}
 
-	public void role(String employeeRole) {
+	public void enterRole(String employeeRole) {
 		wait.until(ExpectedConditions.elementToBeClickable(roleDropdown));
 		Select selectRoleDropdown = new Select(driver.findElement(roleDropdown));
 		selectRoleDropdown.selectByVisibleText(employeeRole);
 	}
 
-	public void password(String employeePassword) {
+	public void enterPassword(String employeePassword) {
 		wait.until(ExpectedConditions.elementToBeClickable(addEmployeePasswordInputfield));
 		driver.findElement(addEmployeePasswordInputfield).click();
 		driver.findElement(addEmployeePasswordInputfield).sendKeys(employeePassword);
 	}
 
-	public void dob(String birthDate) {
+	public void enterDOB(String birthDate) {
 		wait.until(ExpectedConditions.elementToBeClickable(dateOfBirth));
 		WebElement dob = driver.findElement(dateOfBirth);
 		dob.sendKeys(birthDate);
 	}
 
-	public void joiningDate() {
+	public void enterJoiningDate() {
 		wait.until(ExpectedConditions.elementToBeClickable(joiningDate));
 		LocalDate currentDate = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -139,115 +138,116 @@ public class L024EmployeesPage {
 		driver.findElement(joiningDate).sendKeys(formattedDate);
 	}
 
-	public void qualifications(String employeeQualifications) {
+	public void enterQualifications(String employeeQualifications) {
 		wait.until(ExpectedConditions.elementToBeClickable(qualificationsDropdown));
 		Select selectQualificationsDropdown = new Select(driver.findElement(qualificationsDropdown));
 		selectQualificationsDropdown.selectByVisibleText(employeeQualifications);
 	}
 
-	public void department(String employeeDepartment) {
+	public void enterDepartment(String employeeDepartment) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(departmentInputfield));
 		driver.findElement(departmentInputfield).click();
 		driver.findElement(departmentInputfield).sendKeys(employeeDepartment);
 	}
 
-	public void gender(String employeeGender) {
+	public void enterGender(String employeeGender) {
 		wait.until(ExpectedConditions.elementToBeClickable(genderDropdown));
 		Select selectGenderDropdown = new Select(driver.findElement(genderDropdown));
 		selectGenderDropdown.selectByVisibleText(employeeGender);
 	}
 
-	public void mobileNumber(int employeeMobileNumber) {
+	public void enterMobileNumber(String employeeMobileNumber) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(mobileNumberInputfield));
 		driver.findElement(mobileNumberInputfield).click();
-		driver.findElement(mobileNumberInputfield).sendKeys("1" + employeeMobileNumber);
+		driver.findElement(mobileNumberInputfield).sendKeys(employeeMobileNumber);
 	}
 
-	public void bloodGroup(String employeeBloodGroup) {
+	public void enterBloodGroup(String employeeBloodGroup) {
 		wait.until(ExpectedConditions.elementToBeClickable(bloodGroupDropdown));
 		Select selectBloodGroupDropdown = new Select(driver.findElement(bloodGroupDropdown));
 		selectBloodGroupDropdown.selectByVisibleText(employeeBloodGroup);
 	}
 
-	public void designation(String employeeDesignation) {
+	public void enterDesignation(String employeeDesignation) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(designationInputfield));
 		driver.findElement(designationInputfield).click();
 		driver.findElement(designationInputfield).sendKeys(employeeDesignation);
 	}
 
-	public void salary(int employeeSalary) {
+	public void enterSalary(int employeeSalary) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(salaryInputfield));
 		driver.findElement(salaryInputfield).click();
 		driver.findElement(salaryInputfield).sendKeys("" + employeeSalary);
 	}
 
-	public void location(String employeeLocation) {
+	public void enterLocation(String employeeLocation) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locationInputfield));
 		driver.findElement(locationInputfield).click();
 		driver.findElement(locationInputfield).sendKeys(employeeLocation);
 	}
 
-	public void reporting(String reportingDetails) {
+	public void enterReportingTo(String reportingDetails) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(reportingToDropdown));
 		Select selectReportingToDropdown = new Select(driver.findElement(reportingToDropdown));
 		selectReportingToDropdown.selectByVisibleText(reportingDetails);
 	}
 
-	public void addButton() {
+	public void clickOnAddButton() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(addButton));
 		wait.until(ExpectedConditions.elementToBeClickable(addButton));
 		driver.findElement(addButton).click();
 	}
 
-	public void addEmployeePageTestData() {
+	public void enterAddEmployeePageTestData() {
 		String firstnameRandomText = generateRandomString(6);
-		firstName(firstnameRandomText);
+		enterFirstName(firstnameRandomText);
 
 		String lastNameRandomText = generateRandomString(6);
-		lastName(lastNameRandomText);
+		enterLastName(lastNameRandomText);
 
 		employeeIDRadomNumber = randomNumber.nextInt(10000);
 		empIDInput = "OW" + employeeIDRadomNumber;
-		employeeID(empIDInput);
+		enterEmployeeID(empIDInput);
 
 		int emailRandom = randomNumber.nextInt(1000);
-
 		String inputEmail = "qa" + emailRandom + "@gmail.com";
-		email(inputEmail);
+		enterEmail(inputEmail);
 
-		role("Employee");
+		enterRole("Employee");
 
 		int randomPassword = randomNumber.nextInt(100);
-		password("abcd@" + randomPassword);
+		String inputPassword = "abcd@" + randomPassword;
+		enterPassword(inputPassword);
 
-		dob("28-08-1992");
+		enterDOB("28-08-1992");
 
-		joiningDate();
+		enterJoiningDate();
 
-		qualifications("B.Tech");
+		enterQualifications("B.Tech");
 
 		String departmentRandomText = generateRandomString(6);
-		department(departmentRandomText);
+		enterDepartment(departmentRandomText);
 
-		gender("Female");
+		enterGender("Female");
 
 		int mobileNumberRadomNumber = randomNumber.nextInt(1000000000);
-		mobileNumber(mobileNumberRadomNumber);
+		String mobileNumnerinput = "1" + mobileNumberRadomNumber;
+		enterMobileNumber(mobileNumnerinput);
 
-		bloodGroup("O+");
+		enterBloodGroup("O+");
 
 		String designationRandomText = generateRandomString(6);
-		designation(designationRandomText);
+		enterDesignation(designationRandomText);
 
 		int salaryRadomNumber = randomNumber.nextInt(100000);
-		salary(salaryRadomNumber);
+		enterSalary(salaryRadomNumber);
 
 		String locationRandomText = generateRandomString(10);
-		location(locationRandomText);
+		enterLocation(locationRandomText);
 
-		reporting("test58@gmail.com");
+		enterReportingTo("test58@gmail.com");
 
-		addButton();
+		clickOnAddButton();
 	}
 
 	public void verifyNewEmployeeIsAddedSuccessful() throws InterruptedException {
@@ -257,16 +257,16 @@ public class L024EmployeesPage {
 		Assert.assertTrue(loginPopUpDisplayed, "Login Success PopUp Is Not Displayed");
 	}
 
-	public void searchNewEmployee(String empID) throws InterruptedException {
+	public void searchNewEmployeeWithEmpID(String empID) throws InterruptedException {
 		Thread.sleep(5000);
 		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
-		
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 	}
 
-	public void deleteNewlyAddedEmployee() throws InterruptedException {
+	public void deleteNewlyAddedEmployeeWithEmployeeID() throws InterruptedException {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDCheckBox));
 		driver.findElement(employeeIDCheckBox).click();
 		wait.until(ExpectedConditions.elementToBeClickable(deleteIcon));
@@ -274,7 +274,7 @@ public class L024EmployeesPage {
 		Thread.sleep(1500);
 	}
 
-	public void verifyNewlyAddedEmployeeDelettionIsSuccessful(String empID) throws InterruptedException {
+	public void verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(String empID) throws InterruptedException {
 		Thread.sleep(5000);
 		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
