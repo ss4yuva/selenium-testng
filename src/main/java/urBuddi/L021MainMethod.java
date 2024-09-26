@@ -36,17 +36,17 @@ public class L021MainMethod {
 		employeePage.enterAddEmployeePageTestData();
 		employeePage.verifyNewEmployeeIsAddedSuccessful();
 		employeePage.searchNewEmployeeWithEmpID(employeePage.empIDInput);
-	//	employeePage.deleteNewlyAddedEmployeeWithEmployeeID();
-	//	employeePage.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(employeePage.empIDInput);
+		// employeePage.deleteNewlyAddedEmployeeWithEmployeeID();
+		// employeePage.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(employeePage.empIDInput);
 		Thread.sleep(5000);
-		
+
 		editEmployeePage.clickOnEditButton();
 		editEmployeePage.verifyEditEmployeePage();
 		editEmployeePage.enterEditEmployeePageTestData();
 		editEmployeePage.searchEditEmployeeDetailsWithEditeedFirstAndLastName();
 		editEmployeePage.verifyEditEmployeeDetailsWithEditeedFirstAndLastName();
 		editEmployeePage.deleteEditEmployeeWithSearchedFirstAndLastName();
-		
+
 		driver.close();
 	}
 

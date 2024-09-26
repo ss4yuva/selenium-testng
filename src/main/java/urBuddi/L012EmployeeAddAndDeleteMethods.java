@@ -43,14 +43,14 @@ public class L012EmployeeAddAndDeleteMethods {
 	By passwordInputfield = By.id("userPassword");
 	By loginButton = By.xpath("//*[@type='submit']");
 
-	//HomePage Locators
+	// HomePage Locators
 	By profileIcon = By.xpath("//*[@class='profile-icon-container']");
 
 	By employeesLink = By.xpath("//*[text()='Employees']");
 	By addEmployeeButton = By.xpath("//*[text()='Add Employee']");
 	By addEmployeePageText = By.xpath("//*[@class='modal-heading']");
 
-	//Add Employee PopupPage Locators
+	// Add Employee PopupPage Locators
 	By firstNameInputfield = By.name("firstName");
 	By lastNameInputfield = By.name("lastName");
 	By employeeIDInputfield = By.id("employeeID");

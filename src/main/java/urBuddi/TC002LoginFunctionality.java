@@ -27,8 +27,10 @@ public class TC002LoginFunctionality {
 		By passwordInputfield = By.id("userPassword");
 		By loginButton = By.xpath("//*[@type='submit']");
 		By dashboard = By.xpath("(//*[text()='Dashboard'])[2]");
+		
 		By lagoutButton = By.xpath("//*[@class='logout-btn-nav']");
 		By logoutPopupYes = By.xpath("//*[text()='Yes']");
+		
 		By invalidCredentialsError = By.xpath("//*[@class='err-msg-display mt-3']");
 		By forgotPasswordLink = By.xpath("//*[@class='forgot-pswd']");
 		By emailError = By.xpath("(//*[text()='*required'])[1]");

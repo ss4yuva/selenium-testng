@@ -13,14 +13,14 @@ public class LoginFunctionalityUsingMenthods1 {
 
 	static WebDriver driver;
 	static WebDriver wait;
-	
+
 	// Locators
 	By emailInputfield = By.id("userEmail");
 	By passwordInputfield = By.id("userPassword");
 	By loginButton = By.xpath("//*[@type='submit']");
 	By lagoutButton = By.xpath("//*[@class='logout-btn-nav']");
 	By logoutPopupYes = By.xpath("//*[text()='Yes']");
-	
+
 	public void loginToApplication(String userName, String password) throws InterruptedException {
 		driver.findElement(emailInputfield).click();
 		driver.findElement(emailInputfield).sendKeys(userName);
@@ -29,12 +29,12 @@ public class LoginFunctionalityUsingMenthods1 {
 		driver.findElement(loginButton).click();
 		Thread.sleep(15000);
 	}
-	
+
 	public void loginToApplicationWithBlank() throws InterruptedException {
 		driver.findElement(loginButton).click();
 		Thread.sleep(15000);
 	}
-	
+
 	public void loginWithInvalid(String userName, String password) throws InterruptedException {
 		driver.findElement(emailInputfield).click();
 		driver.findElement(emailInputfield).sendKeys(userName);
@@ -45,8 +45,8 @@ public class LoginFunctionalityUsingMenthods1 {
 		driver.findElement(lagoutButton).click();
 		driver.findElement(logoutPopupYes).click();
 	}
-	
-	public static void main(String[] args) throws InterruptedException  {
+
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		driver = new ChromeDriver();
 		System.setProperty("webdriver.chrome.driver",
@@ -55,12 +55,11 @@ public class LoginFunctionalityUsingMenthods1 {
 		driver.get("https://dev.urbuddi.com/login");
 
 		WebDriver wait = (WebDriver) new WebDriverWait(driver, Duration.ofSeconds(1000));
-	
-		LoginFunctionalityUsingMenthods1 obj=new LoginFunctionalityUsingMenthods1();
+
+		LoginFunctionalityUsingMenthods1 obj = new LoginFunctionalityUsingMenthods1();
 		obj.loginToApplication("govardhan.gottemukkula@openskale.com", "Govardhan_123");
 		obj.loginToApplicationWithBlank();
 		obj.loginWithInvalid("ss4yuvan@gmail.com", "sruthi@123");
 	}
-	
 
 }
