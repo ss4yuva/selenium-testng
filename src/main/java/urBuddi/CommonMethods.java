@@ -9,7 +9,7 @@ public class CommonMethods {
 	static WebDriver driver;
 	static WebDriverWait wait;
 
-	CommonMethods(WebDriverWait w, WebDriver d) {
+	public CommonMethods(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 	}
