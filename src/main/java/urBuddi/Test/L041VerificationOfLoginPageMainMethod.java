@@ -32,7 +32,7 @@ public class L041VerificationOfLoginPageMainMethod {
 		loginPage.verifyPasswordInputField();
 		loginPage.verifyLoginButton();
 		loginPage.verifyForgotPasswordLink();
-		
+
 		driver.close();
 	}
 

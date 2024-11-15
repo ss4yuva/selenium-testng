@@ -213,7 +213,8 @@ public class TC009AddEmployeeMethodCallingWithinMethod {
 		obj.addEmployeeLinks();
 		obj.addEmployeeDetails("SS", "ABC", 123, "ss@gmail.com", "Employee", "ss@1234", "28-08-1992", "B.Tech",
 				"Software", "Female", 1234567890, "O+", "QA Lead", 25000, "Hyderabad", "user@openskale.com");
-
+		
+		driver.close();
 	}
 
 }

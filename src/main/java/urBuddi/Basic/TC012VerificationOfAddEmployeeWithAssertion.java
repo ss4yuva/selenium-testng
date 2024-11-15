@@ -46,7 +46,7 @@ public class TC012VerificationOfAddEmployeeWithAssertion {
 		obj.addEmployeeInputs();
 		Thread.sleep(10000);
 		obj.verifyAddEmployeeSuccessful(obj.employeeIDRadomNumber);
-		
+
 		driver.close();
 	}
 

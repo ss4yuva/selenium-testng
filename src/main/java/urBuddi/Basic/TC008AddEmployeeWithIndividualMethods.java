@@ -205,6 +205,7 @@ public class TC008AddEmployeeWithIndividualMethods {
 		obj.location("Hyderabad");
 		obj.reporting("user@openskale.com");
 
+		driver.close();
 	}
 
 }

@@ -2,6 +2,7 @@ package urBuddi.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -11,12 +12,13 @@ import urBuddi.CommonMethods;
 public class L022LoginPage {
 	static WebDriver driver;
 	static WebDriverWait wait;
+	
 	CommonMethods cm;
 
 	public L022LoginPage(WebDriverWait w, WebDriver d) {
-		this.driver = d;
-		this.wait = w;
-		cm = new CommonMethods(wait, driver);
+	this.driver = d;
+	this.wait = w;
+	cm = new CommonMethods(wait, driver);
 	}
 
 	// Login Page Locators
@@ -41,7 +43,6 @@ public class L022LoginPage {
 		Boolean profileIconDisplayed = cm.isElementDisplayed(profileIcon);
 		System.out.println("Profile Icon Displayed?==" + profileIconDisplayed);
 		Assert.assertTrue(profileIconDisplayed, "Login is failed");
-
 	}
 
 }

@@ -292,7 +292,7 @@ public class L012EmployeeAddAndDeleteMethods {
 		driver.findElement(employeeIDCheckBox).click();
 		wait.until(ExpectedConditions.elementToBeClickable(deleteIcon));
 		driver.findElement(deleteIcon).click();
-		Thread.sleep(1500);
+		Thread.sleep(2000);
 	}
 
 	public void verifyAddEmployeeAfterDelete(String empID) {
@@ -313,7 +313,7 @@ public class L012EmployeeAddAndDeleteMethods {
 		try {
 			empRecordPresent = driver.findElement(loc).isDisplayed();
 		} catch (Exception e) {
-			empRecordPresent = false;
+			empRecordPresent = true;
 		}
 		return empRecordPresent;
 

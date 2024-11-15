@@ -82,6 +82,8 @@ public class TC011AddEmployeeUsingWithMethodsAndAasertions {
 		obj.addEmployeeDetails(firstNameRandomText, lastNameRandomText, employeeID, "qa" + randomEmail + "@gmail.com",
 				"Employee", "abcd@" + randomPassword, "28-08-1992", "B.Tech", "Software", "Female", mobileNumber, "O+",
 				"QA Lead", salary, "Hyderabad", "user@openskale.com");
+
+		driver.close();
 	}
 
 	// Locators

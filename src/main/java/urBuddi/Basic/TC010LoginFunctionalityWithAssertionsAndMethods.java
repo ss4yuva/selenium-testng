@@ -163,10 +163,7 @@ public class TC010LoginFunctionalityWithAssertionsAndMethods {
 		obj.loginWithValidEmailAndInvalidPassword("suresh.salloju@openskale.com", "Sruthi@123");
 		obj.loginWithInvalidEmailAndValidPassword("ss4yuvan@gmail.com", "suresh_123");
 		obj.verificationOfForgotPasswordLink();
-	
+
 		driver.close();
 	}
-	
-	
-
 }

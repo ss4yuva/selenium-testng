@@ -325,7 +325,7 @@ public class TC013DeleteAndVerifyTheAddEmployee {
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 
 		Boolean empRecordPresent = this.isElementDisplayed(employeeSearchIDValue);
-		System.out.println("Employee present fter Delete==" + empRecordPresent);
+		System.out.println("Employee present After Delete==" + empRecordPresent);
 		Assert.assertFalse(empRecordPresent, "Employee Record is not deleted");
 
 	}

@@ -156,6 +156,7 @@ public class TC007AddEmployeeUsingMethods {
 		obj.addEmployeeDetails("SS", "ABC", 0124, "ss@gmail.com", "Employee", "B.Tech", "Software", "Female",
 				1234567890, "O+", "QA Lead", 25000, "Hyderabad", "user@openskale.com");
 
+		driver.close();
 	}
 
 }
