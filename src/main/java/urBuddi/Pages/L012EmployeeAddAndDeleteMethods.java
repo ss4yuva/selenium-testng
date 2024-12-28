@@ -265,7 +265,7 @@ public class L012EmployeeAddAndDeleteMethods {
 		String locationRandomText = generateRandomString(10);
 		location(locationRandomText);
 
-		reporting("user@openskale.com");
+		reporting("lead@optimworks.com");
 
 		addButton();
 	}

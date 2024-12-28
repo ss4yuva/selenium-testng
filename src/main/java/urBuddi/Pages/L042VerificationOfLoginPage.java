@@ -2,6 +2,7 @@ package urBuddi.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -11,11 +12,13 @@ public class L042VerificationOfLoginPage {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
+	static ChromeDriver chrome;
 	CommonMethods cm;
 
-	public L042VerificationOfLoginPage(WebDriverWait w, WebDriver d) {
+	public L042VerificationOfLoginPage(WebDriverWait w, WebDriver d, ChromeDriver c) {
 		this.driver = d;
 		this.wait = w;
+		this.chrome = c;
 		cm = new CommonMethods(wait, driver);
 	}
 

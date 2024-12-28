@@ -247,7 +247,7 @@ public class L024EmployeesPage {
 		String locationRandomText = generateRandomString(10);
 		enterLocation(locationRandomText);
 
-		enterReportingTo("user@openskale.com");
+		enterReportingTo("lead@optimworks.com");
 
 		clickOnAddButton();
 	}

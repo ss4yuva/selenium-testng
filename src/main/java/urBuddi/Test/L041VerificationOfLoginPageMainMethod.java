@@ -6,11 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import urBuddi.ChromeInitialization;
 import urBuddi.Pages.L042VerificationOfLoginPage;
 
 public class L041VerificationOfLoginPageMainMethod {
 	static WebDriver driver;
 	static WebDriverWait wait;
+	static ChromeDriver chrome;
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -20,11 +22,14 @@ public class L041VerificationOfLoginPageMainMethod {
 				"D:\\Sruthi\\Automation Practice\\Files\\Drivers\\chromedriver-win32\\chromedriver.exe");
 		driver.manage().window().maximize();
 
-		driver.get("https://dev.urbuddi.com/login");
-
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		L042VerificationOfLoginPage loginPage = new L042VerificationOfLoginPage(wait, driver);
+		
+		driver.get("https://dev.urbuddi.com/login");
+		Thread.sleep(5000);
+		
+		L042VerificationOfLoginPage loginPage = new L042VerificationOfLoginPage(wait, driver, chrome);
+		
 		loginPage.verifyUrBuddiLogo();
 		loginPage.verifyHeaderTextWelcomeToUrBuddi();
 		loginPage.verifySubtext();
