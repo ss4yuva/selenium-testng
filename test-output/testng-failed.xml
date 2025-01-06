@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="urBuddi.TestNG.TC2LoginFunctionality">
+      <class name="urBuddi.TestNG.Basic.TNPOM04EditEmployeeAfterAdd">
         <methods>
-          <include name="loginWithValidEmailAndInvalidPassword"/>
-          <include name="loginWithInvalidEmailAndValidPassword"/>
-          <include name="pagelaunch"/>
+          <include name="browserLaunch"/>
+          <include name="verifyLoginIsSuccessful"/>
           <include name="close"/>
         </methods>
-      </class> <!-- urBuddi.TestNG.TC2LoginFunctionality -->
+      </class> <!-- urBuddi.TestNG.Basic.TNPOM04EditEmployeeAfterAdd -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="4" failed="2" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-28T12:06:37 IST" name="Default suite" finished-at="2024-12-28T12:06:46 IST" duration-ms="8913">
+  <suite started-at="2025-01-06T18:26:58 IST" name="Default suite" finished-at="2025-01-06T18:28:54 IST" duration-ms="115720">
     <groups>
     </groups>
-    <test started-at="2024-12-28T12:06:37 IST" name="Default test" finished-at="2024-12-28T12:06:46 IST" duration-ms="8913">
-      <class name="urBuddi.TestNG.TC2LoginFunctionality">
-        <test-method is-config="true" signature="pagelaunch()[pri:0, instance:urBuddi.TestNG.TC2LoginFunctionality@4310d43]" started-at="2024-12-28T12:06:37 IST" name="pagelaunch" finished-at="2024-12-28T12:06:40 IST" duration-ms="3232" status="PASS">
+    <test started-at="2025-01-06T18:26:58 IST" name="Default test" finished-at="2025-01-06T18:28:54 IST" duration-ms="115720">
+      <class name="urBuddi.TestNG.Basic.TNPOM04EditEmployeeAfterAdd">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:urBuddi.TestNG.Basic.TNPOM04EditEmployeeAfterAdd@1de76cc7]" started-at="2025-01-06T18:26:58 IST" name="browserLaunch" finished-at="2025-01-06T18:27:01 IST" duration-ms="2822" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- pagelaunch -->
-        <test-method signature="loginWithValidCredentials()[pri:1, instance:urBuddi.TestNG.TC2LoginFunctionality@4310d43]" started-at="2024-12-28T12:06:40 IST" name="loginWithValidCredentials" finished-at="2024-12-28T12:06:42 IST" duration-ms="1219" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginWithValidCredentials -->
-        <test-method signature="loginWithblankcredentials()[pri:2, instance:urBuddi.TestNG.TC2LoginFunctionality@4310d43]" started-at="2024-12-28T12:06:42 IST" name="loginWithblankcredentials" finished-at="2024-12-28T12:06:42 IST" duration-ms="113" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginWithblankcredentials -->
-        <test-method signature="loginWithInvalidCredentials()[pri:3, instance:urBuddi.TestNG.TC2LoginFunctionality@4310d43]" started-at="2024-12-28T12:06:42 IST" name="loginWithInvalidCredentials" finished-at="2024-12-28T12:06:43 IST" duration-ms="858" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginWithInvalidCredentials -->
-        <test-method signature="loginWithValidEmailAndInvalidPassword()[pri:4, instance:urBuddi.TestNG.TC2LoginFunctionality@4310d43]" started-at="2024-12-28T12:06:43 IST" name="loginWithValidEmailAndInvalidPassword" finished-at="2024-12-28T12:06:44 IST" duration-ms="1523" status="FAIL">
-          <exception class="java.lang.NullPointerException">
+        </test-method> <!-- browserLaunch -->
+        <test-method signature="verifyLoginIsSuccessful()[pri:0, instance:urBuddi.TestNG.Basic.TNPOM04EditEmployeeAfterAdd@1de76cc7]" started-at="2025-01-06T18:27:01 IST" name="verifyLoginIsSuccessful" finished-at="2025-01-06T18:28:53 IST" duration-ms="112663" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Cannot invoke "String.contains(java.lang.CharSequence)" because "urBuddi.TestNG.TC2LoginFunctionality.errorText" is null]]>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: (//*[contains(@class,'ag-cell ag-cell-not-inline-editing')])[2] (tried for 100 second(s) with 500 milliseconds interval)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\Lenovo\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63199}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63199/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 60208a13f0bf51a5639a256359d04544]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "String.contains(java.lang.CharSequence)" because "urBuddi.TestNG.TC2LoginFunctionality.errorText" is null
-at urBuddi.TestNG.TC2LoginFunctionality.loginWithValidEmailAndInvalidPassword(TC2LoginFunctionality.java:141)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: (//*[contains(@class,'ag-cell ag-cell-not-inline-editing')])[2] (tried for 100 second(s) with 500 milliseconds interval)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\Lenovo\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63199}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63199/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 60208a13f0bf51a5639a256359d04544
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+at urBuddi.Pages.EditEmployeePage.clickOnEditButton(EditEmployeePage.java:86)
+at urBuddi.TestNG.Basic.TNPOM04EditEmployeeAfterAdd.verifyLoginIsSuccessful(TNPOM04EditEmployeeAfterAdd.java:63)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -61,61 +62,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginWithValidEmailAndInvalidPassword -->
-        <test-method signature="loginWithInvalidEmailAndValidPassword()[pri:5, instance:urBuddi.TestNG.TC2LoginFunctionality@4310d43]" started-at="2024-12-28T12:06:44 IST" name="loginWithInvalidEmailAndValidPassword" finished-at="2024-12-28T12:06:45 IST" duration-ms="912" status="FAIL">
-          <exception class="java.lang.NullPointerException">
-            <message>
-              <![CDATA[Cannot invoke "String.contains(java.lang.CharSequence)" because "urBuddi.TestNG.TC2LoginFunctionality.errorText" is null]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "String.contains(java.lang.CharSequence)" because "urBuddi.TestNG.TC2LoginFunctionality.errorText" is null
-at urBuddi.TestNG.TC2LoginFunctionality.loginWithInvalidEmailAndValidPassword(TC2LoginFunctionality.java:165)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginWithInvalidEmailAndValidPassword -->
-        <test-method signature="forgotPassword()[pri:6, instance:urBuddi.TestNG.TC2LoginFunctionality@4310d43]" started-at="2024-12-28T12:06:45 IST" name="forgotPassword" finished-at="2024-12-28T12:06:46 IST" duration-ms="876" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- forgotPassword -->
-        <test-method is-config="true" signature="close()[pri:0, instance:urBuddi.TestNG.TC2LoginFunctionality@4310d43]" started-at="2024-12-28T12:06:46 IST" name="close" finished-at="2024-12-28T12:06:46 IST" duration-ms="125" status="PASS">
+        </test-method> <!-- verifyLoginIsSuccessful -->
+        <test-method is-config="true" signature="close()[pri:0, instance:urBuddi.TestNG.Basic.TNPOM04EditEmployeeAfterAdd@1de76cc7]" started-at="2025-01-06T18:28:53 IST" name="close" finished-at="2025-01-06T18:28:54 IST" duration-ms="185" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-      </class> <!-- urBuddi.TestNG.TC2LoginFunctionality -->
+      </class> <!-- urBuddi.TestNG.Basic.TNPOM04EditEmployeeAfterAdd -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
