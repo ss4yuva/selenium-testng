@@ -34,6 +34,7 @@ public class TNPOM01LoginTestSpec extends BaseMethods {
 		System.out.println("Test");
 		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
 		loginPage.verifyLoginIsSuccessful();
+		loginPage.logoutToApplication();
 	}
 
 	@AfterTest

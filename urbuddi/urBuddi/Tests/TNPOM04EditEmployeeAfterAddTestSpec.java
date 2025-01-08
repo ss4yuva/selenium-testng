@@ -63,6 +63,8 @@ public class TNPOM04EditEmployeeAfterAddTestSpec extends BaseMethods {
 		editEmployeePage.enterEditEmployeePageTestData();
 		editEmployeePage.searchEditEmployeeDetailsWithEditeedFirstAndLastName();
 		editEmployeePage.verifyEditEmployeeDetailsWithEditeedFirstAndLastName();
+
+		loginToApplication.logoutToApplication();
 	}
 
 	@AfterTest

@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="urBuddi.Tests.TC5VerifyAddEmployeeSuccessful">
+      <class name="urBuddi.Tests.TNPOM02AddEmployeeTestSpec">
         <methods>
-          <include name="verifyAddEmployeeSuccessful"/>
+          <include name="close"/>
           <include name="browserLaunch"/>
+          <include name="verifyLoginIsSuccessful"/>
         </methods>
-      </class> <!-- urBuddi.Tests.TC5VerifyAddEmployeeSuccessful -->
+      </class> <!-- urBuddi.Tests.TNPOM02AddEmployeeTestSpec -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

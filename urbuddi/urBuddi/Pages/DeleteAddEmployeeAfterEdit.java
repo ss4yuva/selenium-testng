@@ -42,11 +42,12 @@ public class DeleteAddEmployeeAfterEdit {
 		Thread.sleep(5000);
 		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
+		Thread.sleep(1000);
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 		Thread.sleep(2000);
 		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(employeeSearchIDValue);
-		System.out.println("Employee Record Deleted Successful?==" + eemployeeRecordIsPresent);
+		System.out.println("Employee Record Deleted After Edit Successful?==" + eemployeeRecordIsPresent);
 		Assert.assertTrue(eemployeeRecordIsPresent, "Employee Record is not deleted");
 	}
 

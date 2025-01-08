@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-01-07T11:16:31 IST" name="Default suite" finished-at="2025-01-07T11:16:39 IST" duration-ms="8597">
+  <suite started-at="2025-01-08T12:08:31 IST" name="Default suite" finished-at="2025-01-08T12:09:27 IST" duration-ms="55414">
     <groups>
     </groups>
-    <test started-at="2025-01-07T11:16:31 IST" name="Default test" finished-at="2025-01-07T11:16:39 IST" duration-ms="8597">
-      <class name="urBuddi.Tests.TNPOM01LoginTestSpec">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:urBuddi.Tests.TNPOM01LoginTestSpec@593aaf41]" started-at="2025-01-07T11:16:31 IST" name="browserLaunch" finished-at="2025-01-07T11:16:34 IST" duration-ms="2948" status="PASS">
+    <test started-at="2025-01-08T12:08:31 IST" name="Default test" finished-at="2025-01-08T12:09:27 IST" duration-ms="55414">
+      <class name="urBuddi.Tests.TNPOM05DeleteAddEmployeeAfterEditTestSpec">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:urBuddi.Tests.TNPOM05DeleteAddEmployeeAfterEditTestSpec@593aaf41]" started-at="2025-01-08T12:08:31 IST" name="browserLaunch" finished-at="2025-01-08T12:08:35 IST" duration-ms="3534" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="verifyLoginIsSuccess()[pri:0, instance:urBuddi.Tests.TNPOM01LoginTestSpec@593aaf41]" started-at="2025-01-07T11:16:34 IST" name="verifyLoginIsSuccess" finished-at="2025-01-07T11:16:39 IST" duration-ms="5456" status="PASS">
+        <test-method signature="verifyLoginIsSuccessful()[pri:0, instance:urBuddi.Tests.TNPOM05DeleteAddEmployeeAfterEditTestSpec@593aaf41]" started-at="2025-01-08T12:08:35 IST" name="verifyLoginIsSuccessful" finished-at="2025-01-08T12:09:26 IST" duration-ms="51711" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLoginIsSuccess -->
-        <test-method is-config="true" signature="browserclose()[pri:0, instance:urBuddi.Tests.TNPOM01LoginTestSpec@593aaf41]" started-at="2025-01-07T11:16:39 IST" name="browserclose" finished-at="2025-01-07T11:16:39 IST" duration-ms="134" status="PASS">
+        </test-method> <!-- verifyLoginIsSuccessful -->
+        <test-method is-config="true" signature="close()[pri:0, instance:urBuddi.Tests.TNPOM05DeleteAddEmployeeAfterEditTestSpec@593aaf41]" started-at="2025-01-08T12:09:26 IST" name="close" finished-at="2025-01-08T12:09:27 IST" duration-ms="133" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- browserclose -->
-      </class> <!-- urBuddi.Tests.TNPOM01LoginTestSpec -->
+        </test-method> <!-- close -->
+      </class> <!-- urBuddi.Tests.TNPOM05DeleteAddEmployeeAfterEditTestSpec -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

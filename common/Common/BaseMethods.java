@@ -12,11 +12,14 @@ public class BaseMethods {
 	LoginToApplication loginPage;
 
 	public WebDriver getDriver() {
-		System.out.println("Before Test");
-		driver = new ChromeDriver();
-		System.setProperty("webdriver.chrome.driver",
-				"D:\\Sruthi\\Automation Practice\\Files\\Drivers\\chromedriver-win32\\chromedriver.exe");
-		driver.manage().window().maximize();
+
+		if (driver == null) {
+			System.out.println("Before Test");
+			driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver",
+					"D:\\Sruthi\\Automation Practice\\Files\\Drivers\\chromedriver-win32\\chromedriver.exe");
+			driver.manage().window().maximize();
+		}
 		return driver;
 	}
 

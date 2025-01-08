@@ -1,8 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Calculator Test Suite">
-    <test name="Calculator Test">
-        <classes>
-            <class name="TestNg"/>
-        </classes>
-    </test>
+
+<suite name="UrBuddi testng">
+
+	<test name="UrBuddi Testspecs">
+		<classes>
+			<class name="urBuddi.Tests.TNPOM01LoginTestSpec" />
+			<class name="urBuddi.Tests.TNPOM02AddEmployeeTestSpec" />
+			<class name="urBuddi.Tests.TNPOM03DeleteAddEmployeeTestSpec" />
+			<class name="urBuddi.Tests.TNPOM04EditEmployeeAfterAddTestSpec" />
+			<class name="urBuddi.Tests.TNPOM05DeleteAddEmployeeAfterEditTestSpec" />
+		</classes>
+	</test>
 </suite>

@@ -71,6 +71,9 @@ public class TNPOM05DeleteAddEmployeeAfterEditTestSpec extends BaseMethods {
 		deleteAddEmployeeAfterEdit.deleteEditEmployeeWithSearchedFirstAndLastName();
 		Thread.sleep(1000);
 		deleteAddEmployeeAfterEdit.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeePage.empIDInput);
+		Thread.sleep(1000);
+
+		loginToApplication.logoutToApplication();
 	}
 
 	@AfterTest

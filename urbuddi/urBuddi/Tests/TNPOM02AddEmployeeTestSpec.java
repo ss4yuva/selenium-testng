@@ -37,7 +37,7 @@ public class TNPOM02AddEmployeeTestSpec extends BaseMethods {
 	}
 
 	@Test
-	public void verifyLoginIsSuccessful() throws InterruptedException {
+	public void verifyAddEMployeeIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
 		loginToApplication.loginToApplication("suresh.salloju@openskale.com", "New@2024");
@@ -48,6 +48,8 @@ public class TNPOM02AddEmployeeTestSpec extends BaseMethods {
 		addEmployeePage.addEmployeeInputs();
 		Thread.sleep(1000);
 		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
+
+		loginToApplication.logoutToApplication();
 	}
 
 	@AfterTest

@@ -28,6 +28,10 @@ public class LoginToApplication {
 
 	// After Login Success
 	By profileIcon = By.xpath("//*[@class='profile-icon-container']");
+	
+	//Logout 
+	By lagoutButton = By.xpath("//*[@class='logout-btn-nav']");
+	By logoutPopupYes = By.xpath("//*[text()='Yes']");
 
 	public void loginToApplication(String userName, String password) {
 		wait.until(ExpectedConditions.elementToBeClickable(emailInputfield));
@@ -43,6 +47,14 @@ public class LoginToApplication {
 		Boolean profileIconDisplayed = cm.isElementDisplayed(profileIcon);
 		System.out.println("Profile Icon Displayed?==" + profileIconDisplayed);
 		Assert.assertTrue(profileIconDisplayed, "Login is failed");
+	}
+	
+	public void logoutToApplication() {
+		wait.until(ExpectedConditions.elementToBeClickable(lagoutButton));
+		driver.findElement(lagoutButton).click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(logoutPopupYes));
+		driver.findElement(logoutPopupYes).click();
 	}
 
 }

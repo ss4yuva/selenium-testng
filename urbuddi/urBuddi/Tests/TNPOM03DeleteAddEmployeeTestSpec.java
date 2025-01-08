@@ -54,6 +54,8 @@ public class TNPOM03DeleteAddEmployeeTestSpec extends BaseMethods {
 		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
 		deleteAddEmployee.searchAndDeleteAddEmployee();
 		deleteAddEmployee.verifyAddEmployeeAfterDelete(addEmployeePage.empIDInput);
+
+		loginToApplication.logoutToApplication();
 	}
 
 	@AfterTest
