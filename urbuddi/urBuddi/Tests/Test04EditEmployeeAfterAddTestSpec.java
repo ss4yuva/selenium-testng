@@ -11,16 +11,16 @@ import org.testng.annotations.Test;
 
 import Common.BaseMethods;
 import urBuddi.Pages.AddEmployeePage;
-import urBuddi.Pages.DashBoardPage;
+import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.LoginToApplication;
 import urBuddi.Pages.EditEmployeePage;
 
-public class TNPOM04EditEmployeeAfterAddTestSpec extends BaseMethods {
+public class Test04EditEmployeeAfterAddTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginToApplication loginToApplication;
-	DashBoardPage dashBoardPage;
+	DashBoardEmployeesPage dashBoardPage;
 	AddEmployeePage addEmployeePage;
 	EditEmployeePage editEmployeePage;
 
@@ -35,7 +35,7 @@ public class TNPOM04EditEmployeeAfterAddTestSpec extends BaseMethods {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
 		loginToApplication = new LoginToApplication(wait, driver);
-		dashBoardPage = new DashBoardPage(wait, driver);
+		dashBoardPage = new DashBoardEmployeesPage(wait, driver);
 		addEmployeePage = new AddEmployeePage(wait, driver);
 		editEmployeePage = new EditEmployeePage(wait, driver);
 	}

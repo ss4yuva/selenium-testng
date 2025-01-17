@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import urBuddi.Pages.AddEmployeePage;
-import urBuddi.Pages.DashBoardPage;
+import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployee;
 import urBuddi.Pages.LoginToApplication;
 
@@ -30,7 +30,7 @@ public class POM4EmployeeAddAndDelete {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		LoginToApplication loginPage = new LoginToApplication(wait, driver);
-		DashBoardPage dashBoardPage = new DashBoardPage(wait, driver);
+		DashBoardEmployeesPage dashBoardPage = new DashBoardEmployeesPage(wait, driver);
 		AddEmployeePage addEmployeePage = new AddEmployeePage(wait, driver);
 		DeleteAddEmployee deleteAddEmployee = new DeleteAddEmployee(wait, driver);
 

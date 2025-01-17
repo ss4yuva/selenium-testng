@@ -1,11 +1,8 @@
-package urBuddi.BasicJava;
-
-import java.time.Duration;
+package urBuddi.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,42 +10,16 @@ import org.testng.Assert;
 
 import Common.CommonMethods;
 
-public class TC014LeaveManagement {
+public class LeaveManagementPage {
 	static WebDriver driver;
 	static WebDriverWait wait;
 
 	CommonMethods cm;
 
-	public TC014LeaveManagement(WebDriverWait w, WebDriver d) {
+	public LeaveManagementPage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 		cm = new CommonMethods(wait, driver);
-	}
-
-	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
-
-		driver = new ChromeDriver();
-		System.setProperty("webdriver.chrome.driver",
-				"D:\\Sruthi\\Automation Practice\\Files\\Drivers\\chromedriver-win32\\chromedriver.exe");
-		driver.manage().window().maximize();
-
-		driver.get("https://dev.urbuddi.com/login");
-
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10000));
-
-		TC014LeaveManagement obj = new TC014LeaveManagement(wait, driver);
-
-		obj.loginToApplication("suresh.salloju@openskale.com", "New@2024");
-		obj.verifyLoginIsSuccessful();
-		obj.leaveManagementLinks();
-		obj.verifyApplyLeavePage();
-		obj.applyLeavepageInputs();
-		obj.verifyApplicationOfLeave();
-		obj.cancelAppliedLeave();
-		obj.verifyLaeveCancel();
-
-		// driver.close();
 	}
 
 	// Locators
@@ -59,13 +30,6 @@ public class TC014LeaveManagement {
 
 	// Verification of Login
 	By companyLogo = By.xpath("//*[@class='company-logo-header']");
-
-	// Dashboard Page: Leave Management Links
-	By leaveManagementLink = By.xpath("//*[text()='Leave Management']");
-	By applyLeaveButton = By.xpath("//*[text()='Apply Leave']");
-
-	// Verification of Leave Page
-	By applyLeavePageText = By.xpath("(//*[text()='Apply Leave'])[2]");
 
 	// Leave page
 	By fromDateField = By.id("fromDate");
@@ -88,43 +52,6 @@ public class TC014LeaveManagement {
 
 	By cancelReasonText = By.xpath("//*[text()='Test of Leave cancel']");
 
-	// LOGIN AND VERIFICATION OF APPLICATION
-	public void loginToApplication(String userName, String password) {
-		wait.until(ExpectedConditions.elementToBeClickable(emailInputfield));
-		driver.findElement(emailInputfield).click();
-		driver.findElement(emailInputfield).sendKeys(userName);
-		driver.findElement(passwordInputfield).click();
-		driver.findElement(passwordInputfield).sendKeys(password);
-		driver.findElement(loginButton).click();
-	}
-
-	public void verifyLoginIsSuccessful() throws InterruptedException {
-		Thread.sleep(5000);
-		wait.until(ExpectedConditions.elementToBeClickable(companyLogo));
-		Boolean companyLogoDisplayed = cm.isElementDisplayed(companyLogo);
-		System.out.println("Company Logo is Displayed?==" + companyLogoDisplayed);
-		Assert.assertTrue(companyLogoDisplayed, "Company Logo is not displayed");
-	}
-
-	// DASHBOARD PAGE LEAVE MANAGEMENT LINKS AND VERIFICATION OF APPLY LEAVE PAGE
-	public void leaveManagementLinks() throws InterruptedException {
-		Thread.sleep(1000);
-		wait.until(ExpectedConditions.elementToBeClickable(leaveManagementLink));
-		driver.findElement(leaveManagementLink).click();
-
-		wait.until(ExpectedConditions.elementToBeClickable(applyLeaveButton));
-		driver.findElement(applyLeaveButton).click();
-	}
-
-	public void verifyApplyLeavePage() {
-
-		wait.until(ExpectedConditions.elementToBeClickable(applyLeavePageText));
-		Boolean applyLeaveTextDisplayed = cm.isElementDisplayed(applyLeavePageText);
-		System.out.println("Apply Leave is Displayed?==" + applyLeaveTextDisplayed);
-		Assert.assertTrue(applyLeaveTextDisplayed, "Apply Leave text is not displayed");
-	}
-
-	// LEAVE APPLY PAGE
 	public void fromDateInputField(String fromDate) {
 		wait.until(ExpectedConditions.elementToBeClickable(fromDateField));
 		WebElement fDateFiled = driver.findElement(fromDateField);

@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import urBuddi.Pages.LoginToApplication;
 import urBuddi.Pages.AddEmployeePage;
-import urBuddi.Pages.DashBoardPage;
+import urBuddi.Pages.DashBoardEmployeesPage;
 
 public class POM3AddEmployee {
 	static WebDriver driver;
@@ -28,7 +28,7 @@ public class POM3AddEmployee {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		LoginToApplication loginPage = new LoginToApplication(wait, driver);
-		DashBoardPage dashBoardPage = new DashBoardPage(wait, driver);
+		DashBoardEmployeesPage dashBoardPage = new DashBoardEmployeesPage(wait, driver);
 		AddEmployeePage addEmployeePage = new AddEmployeePage(wait, driver);
 
 		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");

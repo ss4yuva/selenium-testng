@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class DashBoardPage {
+public class DashBoardEmployeesPage {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	String empIDInput;
 
-	public DashBoardPage(WebDriverWait w, WebDriver d) {
+	public DashBoardEmployeesPage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 	}
