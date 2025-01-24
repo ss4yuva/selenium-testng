@@ -6,8 +6,8 @@
       <class name="urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec">
         <methods>
           <include name="browserLaunch"/>
+          <include name="verifyLeaveManagement"/>
           <include name="close"/>
-          <include name="verifyAddEMployeeIsSuccessful"/>
         </methods>
       </class> <!-- urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec -->
     </classes>

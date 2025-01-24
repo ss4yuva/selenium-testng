@@ -27,6 +27,7 @@ public class Test06ApplyAndCancelLeaveTestSpec extends BaseMethods {
 	 * public Test06ApplyAndCancelLeaveTestSpec(WebDriverWait w, WebDriver d) {
 	 * this.driver = d; this.wait = w; cm = new CommonMethods(wait, driver); }
 	 */
+
 	@BeforeTest
 	public void browserLaunch() {
 		System.out.println("Before Test");
@@ -54,11 +55,12 @@ public class Test06ApplyAndCancelLeaveTestSpec extends BaseMethods {
 		dashBoardLeaveManagementsLinks.verifyApplyLeavePage();
 
 		leaveManagement.applyLeavepageInputs();
+		leaveManagement.monthPicker();
 		leaveManagement.verifyApplicationOfLeave();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		leaveManagement.cancelAppliedLeave();
-		Thread.sleep(1000);
-		leaveManagement.verifyLaeveCancel();
+		Thread.sleep(2000);
+		leaveManagement.verifyLeaveCancel();
 	}
 
 	@AfterTest

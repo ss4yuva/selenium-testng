@@ -1,5 +1,8 @@
 package urBuddi.Pages;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,9 +44,12 @@ public class LeaveManagementPage {
 	By selectRequestTypeCheckBox = By.id("leave");
 	By submitButton = By.xpath("//*[text()='Submit']");
 
+	By monthPickerButton = By.xpath("(//*[@class='react-datepicker__input-container'])[2]");
+	By febMonth = By.xpath("//*[text()='Feb']");
+
 	// Verification of Leave application
 	By startDateInputField = By.xpath("(//*[@class='ag-input-field-input ag-text-field-input'])[1]");
-	By leaveAppliedRow = By.xpath("//*[@class='ag-center-cols-container']");
+	By leaveAppliedRow = By.xpath("(//*[@col-id='startDate'])[2]");
 
 	// Leave cancel
 	By leaveCancelButton = By.xpath("//*[text()='Cancel']");
@@ -52,11 +58,19 @@ public class LeaveManagementPage {
 
 	By cancelReasonText = By.xpath("//*[text()='Test of Leave cancel']");
 
-	public void fromDateInputField(String fromDate) {
+		public void fromDateInputField(String fromDate) {
 		wait.until(ExpectedConditions.elementToBeClickable(fromDateField));
 		WebElement fDateFiled = driver.findElement(fromDateField);
 		fDateFiled.sendKeys(fromDate);
+	
 	}
+		/*	public void fromDateInputField() {
+		wait.until(ExpectedConditions.elementToBeClickable(fromDateField));
+		LocalDate currentDate = LocalDate.now();
+		DateTimeFormatter todayFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		String formattedDate = currentDate.format(todayFormatter);
+		driver.findElement(fromDateField).sendKeys(formattedDate);
+	}*/
 
 	public void toDateInputField(String toDate) {
 		wait.until(ExpectedConditions.elementToBeClickable(todateField));
@@ -95,9 +109,9 @@ public class LeaveManagementPage {
 	}
 
 	public void applyLeavepageInputs() {
-		fromDateInputField("25-01");
+		fromDateInputField("02-02");
 
-		toDateInputField("30-01");
+		toDateInputField("03-02");
 
 		selectLead("test57@gmail.com");
 
@@ -110,11 +124,20 @@ public class LeaveManagementPage {
 		submit();
 	}
 
+	// month change
+	public void monthPicker() {
+		wait.until(ExpectedConditions.elementToBeClickable(monthPickerButton));
+		driver.findElement(monthPickerButton).click();
+
+		wait.until(ExpectedConditions.elementToBeClickable(febMonth));
+		driver.findElement(febMonth).click();
+	}
+
 	// VERIFY LEAVE APPLIED OR NOT
 	public void verifyApplicationOfLeave() {
 		wait.until(ExpectedConditions.elementToBeClickable(startDateInputField));
 		driver.findElement(startDateInputField).click();
-		driver.findElement(startDateInputField).sendKeys("12-01-2025");
+		driver.findElement(startDateInputField).sendKeys("01-02-2025");
 
 		wait.until(ExpectedConditions.elementToBeClickable(leaveAppliedRow));
 		Boolean leaveappliedRowDisplayed = cm.isElementDisplayed(leaveAppliedRow);
@@ -123,6 +146,11 @@ public class LeaveManagementPage {
 	}
 
 	public void cancelAppliedLeave() {
+//		driver.navigate().refresh();
+		wait.until(ExpectedConditions.elementToBeClickable(startDateInputField));
+		driver.findElement(startDateInputField).click();
+		driver.findElement(startDateInputField).sendKeys("01-02-2025");
+
 		wait.until(ExpectedConditions.elementToBeClickable(leaveCancelButton));
 		driver.findElement(leaveCancelButton).click();
 
@@ -134,7 +162,7 @@ public class LeaveManagementPage {
 		driver.findElement(leaveCanelSubmitButton).click();
 	}
 
-	public void verifyLaeveCancel() {
+	public void verifyLeaveCancel() {
 		driver.navigate().refresh();
 
 		wait.until(ExpectedConditions.elementToBeClickable(cancelReasonText));

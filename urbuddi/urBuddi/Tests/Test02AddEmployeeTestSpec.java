@@ -38,8 +38,8 @@ public class Test02AddEmployeeTestSpec extends BaseMethods {
 
 	@Test
 	public void verifyAddEMployeeIsSuccessful() throws InterruptedException {
-		System.out.println("Actual Test");
-
+		System.out.println("Actual Test");	
+		Thread.sleep(2000);
 		loginToApplication.loginToApplication("suresh.salloju@openskale.com", "New@2024");
 		loginToApplication.verifyLoginIsSuccessful();
 

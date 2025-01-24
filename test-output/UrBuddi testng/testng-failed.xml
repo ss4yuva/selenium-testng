@@ -3,13 +3,20 @@
 <suite name="Failed suite [UrBuddi testng]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="UrBuddi Testspecs(failed)">
     <classes>
-      <class name="urBuddi.Tests.TNPOM05DeleteAddEmployeeAfterEditTestSpec">
+      <class name="urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec">
+        <methods>
+          <include name="browserLaunch"/>
+          <include name="verifyLeaveManagement"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec -->
+      <class name="urBuddi.Tests.Test05DeleteAddEmployeeAfterEditTestSpec">
         <methods>
           <include name="verifyLoginIsSuccessful"/>
-          <include name="close"/>
           <include name="browserLaunch"/>
+          <include name="close"/>
         </methods>
-      </class> <!-- urBuddi.Tests.TNPOM05DeleteAddEmployeeAfterEditTestSpec -->
+      </class> <!-- urBuddi.Tests.Test05DeleteAddEmployeeAfterEditTestSpec -->
     </classes>
   </test> <!-- UrBuddi Testspecs(failed) -->
 </suite> <!-- Failed suite [UrBuddi testng] -->

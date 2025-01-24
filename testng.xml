@@ -4,11 +4,12 @@
 
 	<test name="UrBuddi Testspecs">
 		<classes>
-			<class name="urBuddi.Tests.TNPOM01LoginTestSpec" />
-			<class name="urBuddi.Tests.TNPOM02AddEmployeeTestSpec" />
-			<class name="urBuddi.Tests.TNPOM03DeleteAddEmployeeTestSpec" />
-			<class name="urBuddi.Tests.TNPOM04EditEmployeeAfterAddTestSpec" />
-			<class name="urBuddi.Tests.TNPOM05DeleteAddEmployeeAfterEditTestSpec" />
+			<class name="urBuddi.Tests.Test01LoginTestSpec" />
+			<class name="urBuddi.Tests.Test02AddEmployeeTestSpec" />
+			<class name="urBuddi.Tests.Test03DeleteAddEmployeeTestSpec" />
+			<class name="urBuddi.Tests.Test04EditEmployeeAfterAddTestSpec" />
+			<class name="urBuddi.Tests.Test05DeleteAddEmployeeAfterEditTestSpec" />
+			<class name="urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec" />
 		</classes>
 	</test>
 </suite>
