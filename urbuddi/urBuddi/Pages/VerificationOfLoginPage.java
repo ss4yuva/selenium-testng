@@ -3,6 +3,7 @@ package urBuddi.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -31,8 +32,8 @@ public class VerificationOfLoginPage {
 	By loginButton = By.xpath("//*[@type='submit']");
 	By forgotPasswordLink = By.xpath("//*[@class='forgot-pswd']");
 
-	public void verifyUrBuddiLogo() throws InterruptedException {
-		Thread.sleep(5000);
+	public void verifyUrBuddiLogo() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(companyLogo));
 		Boolean urBuddiLogoDisplayed = cm.isElementDisplayed(companyLogo);
 		System.out.println("UrBuddi Logo is Displayed?==" + urBuddiLogoDisplayed);
 		Assert.assertTrue(urBuddiLogoDisplayed, "UrBuddi Logo is Not Displayed");

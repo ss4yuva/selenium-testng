@@ -5,8 +5,8 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import urBuddi.Pages.LoginToApplication;
-import urBuddi.Pages.AddEmployeePage;
+import urBuddi.Pages.LoginPage;
+import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 
 public class POM3AddEmployee {
@@ -27,9 +27,9 @@ public class POM3AddEmployee {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		LoginToApplication loginPage = new LoginToApplication(wait, driver);
+		LoginPage loginPage = new LoginPage(wait, driver);
 		DashBoardEmployeesPage dashBoardPage = new DashBoardEmployeesPage(wait, driver);
-		AddEmployeePage addEmployeePage = new AddEmployeePage(wait, driver);
+		AddEmployeeWithEmployeeRolePage addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
 
 		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
 		loginPage.verifyLoginIsSuccessful();
@@ -38,9 +38,7 @@ public class POM3AddEmployee {
 
 		addEmployeePage.verifyAddEmployeePage();
 		addEmployeePage.addEmployeeInputs();
-		Thread.sleep(1000);
 		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
-		Thread.sleep(1000);
 
 		driver.close();
 	}

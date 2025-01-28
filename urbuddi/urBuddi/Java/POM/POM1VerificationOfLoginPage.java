@@ -24,7 +24,6 @@ public class POM1VerificationOfLoginPage {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		driver.get("https://dev.urbuddi.com/login");
-		Thread.sleep(5000);
 
 		VerificationOfLoginPage loginPage = new VerificationOfLoginPage(wait, driver, chrome);
 

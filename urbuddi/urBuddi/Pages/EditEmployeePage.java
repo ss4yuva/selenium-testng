@@ -89,8 +89,8 @@ public class EditEmployeePage {
 		driver.findElement(editButton).click();
 	}
 
-	public void verifyEditEmployeePage() throws InterruptedException {
-		Thread.sleep(5000);
+	public void verifyEditEmployeePage() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(editEmployeeHeaderText));
 		Boolean editEmployeeHeaderTextDisplayed = cm.isElementDisplayed(editEmployeeHeaderText);
 		System.out.println("Edit Employee Page Header text Is Displayed?==" + editEmployeeHeaderTextDisplayed);
 		Assert.assertTrue(editEmployeeHeaderTextDisplayed, "Edit Employee Page Header text Is Not Showing");
@@ -143,8 +143,8 @@ public class EditEmployeePage {
 		driver.findElement(submitButton).click();
 	}
 
-	public void enterEditEmployeePageTestData() throws InterruptedException {
-		Thread.sleep(2000);
+	public void enterEditEmployeePageTestData() {
+
 		editEmployeeFName = "ASDF";
 		enterFirstName(editEmployeeFName);
 
@@ -163,9 +163,9 @@ public class EditEmployeePage {
 		String employeePanNumber = "OW12345678";
 		enterPANNumber(employeePanNumber);
 
-		/* RANDOM TEST DATA
-		 * Thread.sleep(2000); String bankNameRandomText = generateRandomString(5);
-		 * enterBankName(bankNameRandomText);
+		/*
+		 * RANDOM TEST DATA Thread.sleep(2000); String bankNameRandomText =
+		 * generateRandomString(5); enterBankName(bankNameRandomText);
 		 * 
 		 * Thread.sleep(2000); int bankAccountRadomNumber =
 		 * randomNumber.nextInt(1000000000); String bankNumberInput =
@@ -178,19 +178,19 @@ public class EditEmployeePage {
 		 * Thread.sleep(2000); panRadomNumber = randomNumber.nextInt(1000000000);
 		 * panNumberInput = "OW"+panRadomNumber; enterPANNumber(panNumberInput);
 		 */
-		Thread.sleep(2000);
+
 		clickOnSubmitButton();
 	}
 
-	public void searchEditEmployeeDetailsWithEditeedFirstAndLastName() throws InterruptedException {
-		Thread.sleep(5000);
+	public void searchEditEmployeeDetailsWithEditedFirstAndLastName() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));
 		wait.until(ExpectedConditions.elementToBeClickable(searchField));
 		driver.findElement(searchField).click();
 		driver.findElement(searchField).sendKeys(editEmployeeFName + " " + editEmployeeLName);
 	}
 
-	public void verifyEditEmployeeDetailsWithEditeedFirstAndLastName() throws InterruptedException {
-		Thread.sleep(5000);
+	public void verifyEditEmployeeDetailsWithEditedFirstAndLastName() {
+
 		By employeeSearchFirstAndLastNameValue = By
 				.xpath("//*[text()='" + editEmployeeFName + " " + editEmployeeLName + "']");
 		Boolean afterEditEmployeeWithFirstAndLastNameEditedDetailsIsDisplayed = cm

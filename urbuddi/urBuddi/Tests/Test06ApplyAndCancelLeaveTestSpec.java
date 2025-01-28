@@ -12,21 +12,16 @@ import Common.BaseMethods;
 import Common.CommonMethods;
 import urBuddi.Pages.DashBoardLeaveManagementPage;
 import urBuddi.Pages.LeaveManagementPage;
-import urBuddi.Pages.LoginToApplication;
+import urBuddi.Pages.LoginPage;
 
 public class Test06ApplyAndCancelLeaveTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
-	LoginToApplication loginToApplication;
-	DashBoardLeaveManagementPage dashBoardLeaveManagementsLinks;
-	LeaveManagementPage leaveManagement;
+	LoginPage loginPage;
+	DashBoardLeaveManagementPage dashBoardLeaveManagementPage;
+	LeaveManagementPage leaveManagementPage;
 	CommonMethods cm;
-
-	/*
-	 * public Test06ApplyAndCancelLeaveTestSpec(WebDriverWait w, WebDriver d) {
-	 * this.driver = d; this.wait = w; cm = new CommonMethods(wait, driver); }
-	 */
 
 	@BeforeTest
 	public void browserLaunch() {
@@ -39,28 +34,28 @@ public class Test06ApplyAndCancelLeaveTestSpec extends BaseMethods {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
-		loginToApplication = new LoginToApplication(wait, driver);
-		dashBoardLeaveManagementsLinks = new DashBoardLeaveManagementPage(wait, driver);
-		leaveManagement = new LeaveManagementPage(wait, driver);
+		loginPage = new LoginPage(wait, driver);
+		dashBoardLeaveManagementPage = new DashBoardLeaveManagementPage(wait, driver);
+		leaveManagementPage = new LeaveManagementPage(wait, driver);
 	}
 
 	@Test
 	public void verifyLeaveManagement() throws InterruptedException {
 		System.out.println("Actual Test");
 
-		loginToApplication.loginToApplication("suresh.salloju@openskale.com", "New@2024");
-		loginToApplication.verifyLoginIsSuccessful();
+		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
+		loginPage.verifyLoginIsSuccessful();
 
-		dashBoardLeaveManagementsLinks.leaveManagementLinks();
-		dashBoardLeaveManagementsLinks.verifyApplyLeavePage();
+		dashBoardLeaveManagementPage.leaveManagementLinks();
+		dashBoardLeaveManagementPage.verifyApplyLeavePage();
 
-		leaveManagement.applyLeavepageInputs();
-		leaveManagement.monthPicker();
-		leaveManagement.verifyApplicationOfLeave();
-		Thread.sleep(2000);
-		leaveManagement.cancelAppliedLeave();
-		Thread.sleep(2000);
-		leaveManagement.verifyLeaveCancel();
+		leaveManagementPage.applyLeavepageInputs();
+		leaveManagementPage.monthPicker();
+		leaveManagementPage.verifyApplicationOfLeave();
+		leaveManagementPage.cancelAppliedLeave();
+		leaveManagementPage.verifyLeaveCancel();
+
+		loginPage.logoutToApplication();
 	}
 
 	@AfterTest

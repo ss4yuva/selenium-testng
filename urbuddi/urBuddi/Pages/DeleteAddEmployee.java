@@ -28,12 +28,12 @@ public class DeleteAddEmployee {
 	By employeeIDCheckBox = By.xpath("//*[@class='ag-selection-checkbox']");
 	By deleteIcon = By.xpath("//*[@class='deleteIcon']");
 
-	public void searchAndDeleteAddEmployee() throws InterruptedException {
+	public void searchAndDeleteAddEmployee() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDCheckBox));
 		driver.findElement(employeeIDCheckBox).click();
 		wait.until(ExpectedConditions.elementToBeClickable(deleteIcon));
 		driver.findElement(deleteIcon).click();
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(deleteIcon));
 	}
 
 	public void verifyAddEmployeeAfterDelete(String empID) {

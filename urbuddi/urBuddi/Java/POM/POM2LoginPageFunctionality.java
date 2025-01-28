@@ -27,7 +27,6 @@ public class POM2LoginPageFunctionality {
 
 		VerificationOfLoginFunctionality loginPageFunctionality = new VerificationOfLoginFunctionality(wait, driver);
 
-		Thread.sleep(5000);
 		loginPageFunctionality.verifyUrBuddiLoginPage();
 		loginPageFunctionality.loginWithValidCredentials("suresh.salloju@openskale.com", "New@2024");
 		loginPageFunctionality.verifyLoginPage();

@@ -10,6 +10,20 @@
           <include name="close"/>
         </methods>
       </class> <!-- urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec -->
+      <class name="urBuddi.Tests.Test02AddEmployeeTestSpec">
+        <methods>
+          <include name="browserLaunch"/>
+          <include name="close"/>
+          <include name="verifyAddEMployeeIsSuccessful"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test02AddEmployeeTestSpec -->
+      <class name="urBuddi.Tests.Test04EditEmployeeAfterAddTestSpec">
+        <methods>
+          <include name="browserLaunch"/>
+          <include name="verifyLoginIsSuccessful"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test04EditEmployeeAfterAddTestSpec -->
       <class name="urBuddi.Tests.Test05DeleteAddEmployeeAfterEditTestSpec">
         <methods>
           <include name="verifyLoginIsSuccessful"/>
@@ -17,6 +31,13 @@
           <include name="close"/>
         </methods>
       </class> <!-- urBuddi.Tests.Test05DeleteAddEmployeeAfterEditTestSpec -->
+      <class name="urBuddi.Tests.Test03DeleteAddEmployeeTestSpec">
+        <methods>
+          <include name="browserLaunch"/>
+          <include name="verifyLoginIsSuccessful"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test03DeleteAddEmployeeTestSpec -->
     </classes>
   </test> <!-- UrBuddi Testspecs(failed) -->
 </suite> <!-- Failed suite [UrBuddi testng] -->

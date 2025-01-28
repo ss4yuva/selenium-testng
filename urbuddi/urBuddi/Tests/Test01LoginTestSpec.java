@@ -9,13 +9,13 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.LoginToApplication;
+import urBuddi.Pages.LoginPage;
 
 public class Test01LoginTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
-	LoginToApplication loginPage;
+	LoginPage loginPage;
 
 	@BeforeTest
 	public void browserLaunch() {
@@ -26,7 +26,7 @@ public class Test01LoginTestSpec extends BaseMethods {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
-		loginPage = new LoginToApplication(wait, driver);
+		loginPage = new LoginPage(wait, driver);
 	}
 
 	@Test

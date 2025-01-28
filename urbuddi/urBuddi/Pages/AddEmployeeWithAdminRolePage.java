@@ -12,14 +12,15 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class AddEmployeePage {
+public class AddEmployeeWithAdminRolePage {
+
 	static WebDriver driver;
 	static WebDriverWait wait;
 	static Random random, randomNumber;
 	int employeeIDRadomNumber;
 	public String empIDInput;
 
-	public AddEmployeePage(WebDriverWait w, WebDriver d) {
+	public AddEmployeeWithAdminRolePage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 		random = new Random();
@@ -63,7 +64,6 @@ public class AddEmployeePage {
 	By certificateDropdownValue = By.name("Intermediate");
 	By addButton = By.xpath("//*[text()='Add']");
 
-	// Home Page After Add Employee Search and Delete Locators
 	By employeeIDSearchField = By.xpath("//*[@aria-label='EMP ID Filter Input']");
 
 	By employeeIDCheckBox = By.xpath("//*[@class='ag-selection-checkbox']");
@@ -203,7 +203,7 @@ public class AddEmployeePage {
 		String inputEmail = "qa" + emailRandom + "@gmail.com";
 		email(inputEmail);
 
-		role("Employee");
+		role("Admin");
 
 		int randomPassword = randomNumber.nextInt(100);
 		password("abcd@" + randomPassword);
@@ -236,21 +236,23 @@ public class AddEmployeePage {
 		reporting("lead@optimworks.com");
 
 		addButton();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[text()='Add']")));
 	}
 
-	public void verifyAddEmployeeSuccessful(String empID) throws InterruptedException {
+	public void verifyAddEmployeeSuccessful(String empID) {
 
 		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
 		System.out.println("ID IS--->" + empID);
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
+		wait.until(ExpectedConditions.elementToBeClickable(employeeIDSearchField));
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeSearchIDValue));
 
 		Boolean empRecordPresent = isElementDisplayed(employeeSearchIDValue);
-		System.out.println("Employee Created==" + empRecordPresent);
+		System.out.println("Add Employee is Created==" + empRecordPresent);
 		Assert.assertTrue(empRecordPresent, "Employee Record is not created");
 	}
 
@@ -263,5 +265,4 @@ public class AddEmployeePage {
 		}
 		return empRecordPresent;
 	}
-
 }

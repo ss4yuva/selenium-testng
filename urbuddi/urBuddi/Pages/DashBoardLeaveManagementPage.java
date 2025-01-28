@@ -28,8 +28,8 @@ public class DashBoardLeaveManagementPage {
 	// Verification of Leave Page
 	By applyLeavePageText = By.xpath("(//*[text()='Apply Leave'])[2]");
 
-	public void leaveManagementLinks() throws InterruptedException {
-		Thread.sleep(1000);
+	public void leaveManagementLinks() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(leaveManagementLink));
 		wait.until(ExpectedConditions.elementToBeClickable(leaveManagementLink));
 		driver.findElement(leaveManagementLink).click();
 //		wait.until(ExpectedConditions.elementToBeClickable(lopWarningOkButton));
@@ -42,7 +42,7 @@ public class DashBoardLeaveManagementPage {
 	public void verifyApplyLeavePage() {
 		wait.until(ExpectedConditions.elementToBeClickable(applyLeavePageText));
 		Boolean applyLeaveTextDisplayed = cm.isElementDisplayed(applyLeavePageText);
-		System.out.println("Apply Leave is Displayed?==" + applyLeaveTextDisplayed);
+		System.out.println("Apply Leave text is Displayed?==" + applyLeaveTextDisplayed);
 		Assert.assertTrue(applyLeaveTextDisplayed, "Apply Leave text is not displayed");
 	}
 

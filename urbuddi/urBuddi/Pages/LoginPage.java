@@ -9,13 +9,13 @@ import org.testng.Assert;
 
 import Common.CommonMethods;
 
-public class LoginToApplication {
+public class LoginPage {
 	static WebDriver driver;
 	static WebDriverWait wait;
 
 	CommonMethods cm;
 
-	public LoginToApplication(WebDriverWait w, WebDriver d) {
+	public LoginPage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 		cm = new CommonMethods(wait, driver);
@@ -28,8 +28,8 @@ public class LoginToApplication {
 
 	// After Login Success
 	By profileIcon = By.xpath("//*[@class='profile-icon-container']");
-	
-	//Logout 
+
+	// Logout
 	By lagoutButton = By.xpath("//*[@class='logout-btn-nav']");
 	By logoutPopupYes = By.xpath("//*[text()='Yes']");
 
@@ -42,17 +42,17 @@ public class LoginToApplication {
 		driver.findElement(loginButton).click();
 	}
 
-	public void verifyLoginIsSuccessful() throws InterruptedException {
-		Thread.sleep(5000);
+	public void verifyLoginIsSuccessful() {
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(profileIcon));
 		Boolean profileIconDisplayed = cm.isElementDisplayed(profileIcon);
 		System.out.println("Profile Icon Displayed?==" + profileIconDisplayed);
 		Assert.assertTrue(profileIconDisplayed, "Login is failed");
 	}
-	
+
 	public void logoutToApplication() {
 		wait.until(ExpectedConditions.elementToBeClickable(lagoutButton));
 		driver.findElement(lagoutButton).click();
-		
+
 		wait.until(ExpectedConditions.elementToBeClickable(logoutPopupYes));
 		driver.findElement(logoutPopupYes).click();
 	}

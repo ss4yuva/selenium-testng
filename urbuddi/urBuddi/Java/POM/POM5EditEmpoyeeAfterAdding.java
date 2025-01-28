@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import urBuddi.Pages.AddEmployeePage;
+import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.EditEmployeePage;
-import urBuddi.Pages.LoginToApplication;
+import urBuddi.Pages.LoginPage;
 
 public class POM5EditEmpoyeeAfterAdding {
 
@@ -28,9 +28,9 @@ public class POM5EditEmpoyeeAfterAdding {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		LoginToApplication loginPage = new LoginToApplication(wait, driver);
+		LoginPage loginPage = new LoginPage(wait, driver);
 		DashBoardEmployeesPage dashBoardPage = new DashBoardEmployeesPage(wait, driver);
-		AddEmployeePage addEmployeePage = new AddEmployeePage(wait, driver);
+		AddEmployeeWithEmployeeRolePage addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
 		EditEmployeePage editEmployee = new EditEmployeePage(wait, driver);
 
 		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
@@ -40,19 +40,14 @@ public class POM5EditEmpoyeeAfterAdding {
 
 		addEmployeePage.verifyAddEmployeePage();
 		addEmployeePage.addEmployeeInputs();
-		Thread.sleep(1000);
 		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
-		Thread.sleep(1000);
 
 		editEmployee.searchNewEmployeeWithEmpID(addEmployeePage.empIDInput);
-		Thread.sleep(1000);
 		editEmployee.clickOnEditButton();
-		Thread.sleep(1000);
 		editEmployee.verifyEditEmployeePage();
-		Thread.sleep(1000);
 		editEmployee.enterEditEmployeePageTestData();
-		editEmployee.searchEditEmployeeDetailsWithEditeedFirstAndLastName();
-		editEmployee.verifyEditEmployeeDetailsWithEditeedFirstAndLastName();
+		editEmployee.searchEditEmployeeDetailsWithEditedFirstAndLastName();
+		editEmployee.verifyEditEmployeeDetailsWithEditedFirstAndLastName();
 
 		driver.close();
 	}

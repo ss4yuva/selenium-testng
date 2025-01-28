@@ -9,16 +9,16 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeePage;
+import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
-import urBuddi.Pages.LoginToApplication;
+import urBuddi.Pages.LoginPage;
 
 public class Test02AddEmployeeTestSpec extends BaseMethods {
 	static WebDriver driver;
 	static WebDriverWait wait;
-	LoginToApplication loginToApplication;
-	DashBoardEmployeesPage dashBoardPage;
-	AddEmployeePage addEmployeePage;
+	LoginPage loginPage;
+	DashBoardEmployeesPage dashBoardEmployeesPage;
+	AddEmployeeWithEmployeeRolePage addEmployeePage;
 
 	@BeforeTest
 	public void browserLaunch() {
@@ -31,25 +31,25 @@ public class Test02AddEmployeeTestSpec extends BaseMethods {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
-		loginToApplication = new LoginToApplication(wait, driver);
-		dashBoardPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeePage = new AddEmployeePage(wait, driver);
+		loginPage = new LoginPage(wait, driver);
+		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
+		addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
 	}
 
 	@Test
 	public void verifyAddEMployeeIsSuccessful() throws InterruptedException {
-		System.out.println("Actual Test");	
-		Thread.sleep(2000);
-		loginToApplication.loginToApplication("suresh.salloju@openskale.com", "New@2024");
-		loginToApplication.verifyLoginIsSuccessful();
+		System.out.println("Actual Test");
 
-		dashBoardPage.clickOnEmployeesButton();
+		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
+		loginPage.verifyLoginIsSuccessful();
+
+		dashBoardEmployeesPage.clickOnEmployeesButton();
+
 		addEmployeePage.verifyAddEmployeePage();
 		addEmployeePage.addEmployeeInputs();
-		Thread.sleep(1000);
 		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
 
-		loginToApplication.logoutToApplication();
+		loginPage.logoutToApplication();
 	}
 
 	@AfterTest

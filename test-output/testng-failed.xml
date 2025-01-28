@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [UrBuddi testng]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="UrBuddi Testspecs(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec">
+      <class name="urBuddi.Tests.Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec">
         <methods>
-          <include name="browserLaunch"/>
-          <include name="verifyLeaveManagement"/>
+          <include name="verifyAddEMployeeIsSuccessful"/>
           <include name="close"/>
-        </methods>
-      </class> <!-- urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec -->
-      <class name="urBuddi.Tests.Test05DeleteAddEmployeeAfterEditTestSpec">
-        <methods>
-          <include name="verifyLoginIsSuccessful"/>
           <include name="browserLaunch"/>
-          <include name="close"/>
         </methods>
-      </class> <!-- urBuddi.Tests.Test05DeleteAddEmployeeAfterEditTestSpec -->
+      </class> <!-- urBuddi.Tests.Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec -->
     </classes>
-  </test> <!-- UrBuddi Testspecs(failed) -->
-</suite> <!-- Failed suite [UrBuddi testng] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

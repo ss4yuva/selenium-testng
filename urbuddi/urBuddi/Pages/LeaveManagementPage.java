@@ -58,24 +58,31 @@ public class LeaveManagementPage {
 
 	By cancelReasonText = By.xpath("//*[text()='Test of Leave cancel']");
 
-		public void fromDateInputField(String fromDate) {
+	public void fromDateInputField(String fromDate) {
+		// wait.until(ExpectedConditions.elementToBeClickable(fromDateField));
+		// WebElement fDateFiled = driver.findElement(fromDateField);
+		// fDateFiled.sendKeys(fromDate);
+
 		wait.until(ExpectedConditions.elementToBeClickable(fromDateField));
-		WebElement fDateFiled = driver.findElement(fromDateField);
-		fDateFiled.sendKeys(fromDate);
-	
-	}
-		/*	public void fromDateInputField() {
-		wait.until(ExpectedConditions.elementToBeClickable(fromDateField));
-		LocalDate currentDate = LocalDate.now();
-		DateTimeFormatter todayFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		String formattedDate = currentDate.format(todayFormatter);
+		LocalDate todayDate = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM");
+		String formattedDate = todayDate.format(formatter);
 		driver.findElement(fromDateField).sendKeys(formattedDate);
-	}*/
+	}
 
 	public void toDateInputField(String toDate) {
+		// wait.until(ExpectedConditions.elementToBeClickable(todateField));
+		// WebElement tDateFiled = driver.findElement(todateField);
+		// tDateFiled.sendKeys(toDate);
+
 		wait.until(ExpectedConditions.elementToBeClickable(todateField));
-		WebElement tDateFiled = driver.findElement(todateField);
-		tDateFiled.sendKeys(toDate);
+		LocalDate todaytDate = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM");
+		String formattedDate = todaytDate.format(formatter);
+
+		LocalDate tomorrowDate = todaytDate.plusDays(1);
+		System.out.println("tomorrowDate: " + tomorrowDate.format(formatter));
+		// driver.findElement(todateField).sendKeys(tomorrowDate);
 	}
 
 	public void selectLead(String selectLeadDropdown) {
@@ -109,7 +116,7 @@ public class LeaveManagementPage {
 	}
 
 	public void applyLeavepageInputs() {
-		fromDateInputField("02-02");
+		fromDateInputField("05-02");
 
 		toDateInputField("03-02");
 
@@ -136,6 +143,7 @@ public class LeaveManagementPage {
 	// VERIFY LEAVE APPLIED OR NOT
 	public void verifyApplicationOfLeave() {
 		wait.until(ExpectedConditions.elementToBeClickable(startDateInputField));
+		driver.findElement(startDateInputField).clear();
 		driver.findElement(startDateInputField).click();
 		driver.findElement(startDateInputField).sendKeys("01-02-2025");
 
@@ -146,8 +154,9 @@ public class LeaveManagementPage {
 	}
 
 	public void cancelAppliedLeave() {
-//		driver.navigate().refresh();
+		driver.navigate().refresh();
 		wait.until(ExpectedConditions.elementToBeClickable(startDateInputField));
+		driver.findElement(startDateInputField).clear();
 		driver.findElement(startDateInputField).click();
 		driver.findElement(startDateInputField).sendKeys("01-02-2025");
 

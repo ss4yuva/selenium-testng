@@ -58,8 +58,8 @@ public class VerificationOfLoginFunctionality {
 		driver.findElement(loginButton).click();
 	}
 
-	public void verifyLoginPage() throws InterruptedException {
-		Thread.sleep(5000);
+	public void verifyLoginPage() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(dashboard));
 		Boolean dashBoardTextDisplayed = cm.isElementDisplayed(dashboard);
 		System.out.println("DashBoard Text is Displayed?==" + dashBoardTextDisplayed);
 		Assert.assertTrue(dashBoardTextDisplayed, "DashBoard Text is Not Displayed");
@@ -71,14 +71,14 @@ public class VerificationOfLoginFunctionality {
 		driver.findElement(logoutPopupYes).click();
 	}
 
-	public void loginWithBlankCredentials() throws InterruptedException {
-		Thread.sleep(5000);
+	public void loginWithBlankCredentials() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton));
 		driver.findElement(loginButton).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(emailError));
 	}
 
-	public void verifyErrorMessageLoginWithBlankCredentials() throws InterruptedException {
-		Thread.sleep(5000);
+	public void verifyErrorMessageLoginWithBlankCredentials() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(emailError));
 		Boolean emailErrorDisplayed = cm.isElementDisplayed(emailError);
 		System.out.println("Email Error is Displayed?==" + emailErrorDisplayed);
 		Assert.assertTrue(emailErrorDisplayed, "Email Error is Not Displayed");
@@ -88,9 +88,9 @@ public class VerificationOfLoginFunctionality {
 		Assert.assertTrue(passwordErrorDisplayed, "Password Error is Not Displayed");
 	}
 
-	public void loginWithInValidCredentails(String userName, String password) throws InterruptedException {
-		Thread.sleep(5000);
+	public void loginWithInValidCredentails(String userName, String password) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(emailInputfield));
+		wait.until(ExpectedConditions.elementToBeClickable(emailInputfield));
 		driver.findElement(emailInputfield).click();
 		driver.findElement(emailInputfield).sendKeys(userName);
 
@@ -100,35 +100,16 @@ public class VerificationOfLoginFunctionality {
 		driver.findElement(loginButton).click();
 	}
 
-	public void verifyErrorMessageLoginWithInvalidCredentials() throws InterruptedException {
-		Thread.sleep(5000);
+	public void verifyErrorMessageLoginWithInvalidCredentials() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(invalidCredentialsError));
 		Boolean invalidCredentialsErrorDisplayed = cm.isElementDisplayed(invalidCredentialsError);
 		System.out.println("Invalid Credentails Error is Displayed?==" + invalidCredentialsErrorDisplayed);
 		Assert.assertTrue(invalidCredentialsErrorDisplayed, "Invalid Credentials Error is Not Displayed");
 	}
 
-	public void loginWithValidEmailAndInValidPassword(String userName, String password) throws InterruptedException {
-		Thread.sleep(5000);
+	public void loginWithValidEmailAndInValidPassword(String userName, String password) {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(emailInputfield));
-		driver.findElement(emailInputfield).click();
-		driver.findElement(emailInputfield).clear();
-		driver.findElement(emailInputfield).sendKeys(userName);
-		driver.findElement(passwordInputfield).click();
-		driver.findElement(passwordInputfield).clear();
-		driver.findElement(passwordInputfield).sendKeys(password);
-		driver.findElement(loginButton).click();
-	}
-
-	public void verifyErrorMessageLoginWithValidEmailAndInValidPassword() throws InterruptedException {
-		Thread.sleep(5000);
-		Boolean invalidCredentialsErrorDisplayed = cm.isElementDisplayed(invalidCredentialsError);
-		System.out.println("Invalid Credentails Error is Displayed?==" + invalidCredentialsErrorDisplayed);
-		Assert.assertTrue(invalidCredentialsErrorDisplayed, "Invalid Credentials Error is Not Displayed");
-	}
-
-	public void loginWithInValidEmailAndValidPassword(String userName, String password) throws InterruptedException {
-		Thread.sleep(5000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(emailInputfield));
+		wait.until(ExpectedConditions.elementToBeClickable(emailInputfield));
 		driver.findElement(emailInputfield).click();
 		driver.findElement(emailInputfield).clear();
 		driver.findElement(emailInputfield).sendKeys(userName);
@@ -138,21 +119,40 @@ public class VerificationOfLoginFunctionality {
 		driver.findElement(loginButton).click();
 	}
 
-	public void verifyErrorMessageLoginWithInValidEmailAndValidPassword() throws InterruptedException {
-		Thread.sleep(5000);
+	public void verifyErrorMessageLoginWithValidEmailAndInValidPassword() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(invalidCredentialsError));
 		Boolean invalidCredentialsErrorDisplayed = cm.isElementDisplayed(invalidCredentialsError);
 		System.out.println("Invalid Credentails Error is Displayed?==" + invalidCredentialsErrorDisplayed);
 		Assert.assertTrue(invalidCredentialsErrorDisplayed, "Invalid Credentials Error is Not Displayed");
 	}
 
-	public void clickOnForgotPasswordLink() throws InterruptedException {
-		Thread.sleep(5000);
+	public void loginWithInValidEmailAndValidPassword(String userName, String password) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(emailInputfield));
+		wait.until(ExpectedConditions.elementToBeClickable(emailInputfield));
+		driver.findElement(emailInputfield).click();
+		driver.findElement(emailInputfield).clear();
+		driver.findElement(emailInputfield).sendKeys(userName);
+		driver.findElement(passwordInputfield).click();
+		driver.findElement(passwordInputfield).clear();
+		driver.findElement(passwordInputfield).sendKeys(password);
+		driver.findElement(loginButton).click();
+	}
+
+	public void verifyErrorMessageLoginWithInValidEmailAndValidPassword() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(invalidCredentialsError));
+		Boolean invalidCredentialsErrorDisplayed = cm.isElementDisplayed(invalidCredentialsError);
+		System.out.println("Invalid Credentails Error is Displayed?==" + invalidCredentialsErrorDisplayed);
+		Assert.assertTrue(invalidCredentialsErrorDisplayed, "Invalid Credentials Error is Not Displayed");
+	}
+
+	public void clickOnForgotPasswordLink() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(forgotPasswordLink));
+		wait.until(ExpectedConditions.elementToBeClickable(forgotPasswordLink));
 		driver.findElement(forgotPasswordLink).click();
 	}
 
-	public void verifyForgotPasswordPage() throws InterruptedException {
-		Thread.sleep(5000);
+	public void verifyForgotPasswordPage() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(forgotPasswordHeaderText));
 		Boolean forgotPasswordHeaderTextDisplayed = cm.isElementDisplayed(forgotPasswordHeaderText);
 		System.out.println("Forgot Password Header Text is Displayed?==" + forgotPasswordHeaderTextDisplayed);
 		Assert.assertTrue(forgotPasswordHeaderTextDisplayed, "Forgot Password Header Text is Not Displayed");

@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jan 24 10:58:00 IST 2025</td>
+<td>Started on:</td><td>Tue Jan 28 10:47:56 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>16 seconds (16316 ms)</td>
+<tr><td>Total time:</td><td>50 seconds (50475 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,32 +75,13 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec.verifyLeaveManagement()'><b>verifyLeaveManagement</b><br>Test class: urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec</td>
-<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;div class=&quot;react-datepicker__input-container&quot;&gt;...&lt;/div&gt; is not clickable at point (1439, 425). Other element would receive the click: &lt;div class=&quot;leave-form  col-lg-9 mb-3&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=132.0.6834.83)
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [8f7b007ca53bbde1e59fbb20978b34f2, clickElement {id=f.AB471C07AFA63910C5CE422CB4127A54.d.3DA699B2770C0FF5C5E6612AE061C27E.e.99}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.83, chrome: {chromedriverVersion: 132.0.6834.110 (df453a35f09..., userDataDir: C:\Users\Lenovo\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61386}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61386/devtoo..., se:cdpVersion: 132.0.6834.83, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (8f7b007ca53bbde1e59fbb20978b34f2)] -&gt; xpath: (//*[@class=&apos;react-datepicker__input-container&apos;])[2]]
-Session ID: 8f7b007ca53bbde1e59fbb20978b34f2
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at urBuddi.Pages.LeaveManagementPage.monthPicker(LeaveManagementPage.java:130)
-	at urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec.verifyLeaveManagement(Test06ApplyAndCancelLeaveTestSpec.java:58)
+<td title='urBuddi.Tests.Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec.verifyAddEMployeeIsSuccessful()'><b>verifyAddEMployeeIsSuccessful</b><br>Test class: urBuddi.Tests.Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec</td>
+<td><div><pre>java.lang.AssertionError: Employee Record is not deleted expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at urBuddi.Pages.DeleteAddEmployeeAfterEditPage.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(DeleteAddEmployeeAfterEditPage.java:51)
+	at urBuddi.Tests.Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec.verifyAddEMployeeIsSuccessful(Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec.java:67)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -129,32 +110,13 @@ Session ID: 8f7b007ca53bbde1e59fbb20978b34f2
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1970377948", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1970377948'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;div class=&quot;react-datepicker__input-container&quot;&gt;...&lt;/div&gt; is not clickable at point (1439, 425). Other element would receive the click: &lt;div class=&quot;leave-form  col-lg-9 mb-3&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=132.0.6834.83)
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.10&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [8f7b007ca53bbde1e59fbb20978b34f2, clickElement {id=f.AB471C07AFA63910C5CE422CB4127A54.d.3DA699B2770C0FF5C5E6612AE061C27E.e.99}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.83, chrome: {chromedriverVersion: 132.0.6834.110 (df453a35f09..., userDataDir: C:\Users\Lenovo\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61386}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61386/devtoo..., se:cdpVersion: 132.0.6834.83, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (8f7b007ca53bbde1e59fbb20978b34f2)] -&gt; xpath: (//*[@class=&apos;react-datepicker__input-container&apos;])[2]]
-Session ID: 8f7b007ca53bbde1e59fbb20978b34f2
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at urBuddi.Pages.LeaveManagementPage.monthPicker(LeaveManagementPage.java:130)
-	at urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec.verifyLeaveManagement(Test06ApplyAndCancelLeaveTestSpec.java:58)
+</pre></div><a href='#' onClick='toggleBox("stack-trace886343183", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace886343183'><pre>java.lang.AssertionError: Employee Record is not deleted expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at urBuddi.Pages.DeleteAddEmployeeAfterEditPage.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(DeleteAddEmployeeAfterEditPage.java:51)
+	at urBuddi.Tests.Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec.verifyAddEMployeeIsSuccessful(Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec.java:67)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -184,8 +146,8 @@ Session ID: 8f7b007ca53bbde1e59fbb20978b34f2
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>12</td>
-<td>urBuddi.Tests.Test06ApplyAndCancelLeaveTestSpec@593aaf41</td></tr>
+<td>47</td>
+<td>urBuddi.Tests.Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec@593aaf41</td></tr>
 </table><p>
 </body>
 </html>

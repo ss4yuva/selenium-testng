@@ -10,18 +10,18 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeePage;
+import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
-import urBuddi.Pages.LoginToApplication;
+import urBuddi.Pages.LoginPage;
 import urBuddi.Pages.DeleteAddEmployee;
 
 public class Test03DeleteAddEmployeeTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
-	LoginToApplication loginToApplication;
-	DashBoardEmployeesPage dashBoardPage;
-	AddEmployeePage addEmployeePage;
+	LoginPage loginPage;
+	DashBoardEmployeesPage dashBoardEmployeesPage;
+	AddEmployeeWithEmployeeRolePage addEmployeePage;
 	DeleteAddEmployee deleteAddEmployee;
 
 	@BeforeTest
@@ -34,9 +34,9 @@ public class Test03DeleteAddEmployeeTestSpec extends BaseMethods {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
-		loginToApplication = new LoginToApplication(wait, driver);
-		dashBoardPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeePage = new AddEmployeePage(wait, driver);
+		loginPage = new LoginPage(wait, driver);
+		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
+		addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
 		deleteAddEmployee = new DeleteAddEmployee(wait, driver);
 	}
 
@@ -44,18 +44,19 @@ public class Test03DeleteAddEmployeeTestSpec extends BaseMethods {
 	public void verifyLoginIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
-		loginToApplication.loginToApplication("suresh.salloju@openskale.com", "New@2024");
-		loginToApplication.verifyLoginIsSuccessful();
+		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
+		loginPage.verifyLoginIsSuccessful();
 
-		dashBoardPage.clickOnEmployeesButton();
+		dashBoardEmployeesPage.clickOnEmployeesButton();
+
 		addEmployeePage.verifyAddEmployeePage();
 		addEmployeePage.addEmployeeInputs();
-		Thread.sleep(1000);
 		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
+
 		deleteAddEmployee.searchAndDeleteAddEmployee();
 		deleteAddEmployee.verifyAddEmployeeAfterDelete(addEmployeePage.empIDInput);
 
-		loginToApplication.logoutToApplication();
+		loginPage.logoutToApplication();
 	}
 
 	@AfterTest

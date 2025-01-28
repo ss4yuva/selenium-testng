@@ -1,7 +1,5 @@
 package urBuddi.Pages;
 
-import java.util.Random;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +8,7 @@ import org.testng.Assert;
 
 import Common.CommonMethods;
 
-public class DeleteAddEmployeeAfterEdit {
+public class DeleteAddEmployeeAfterEditPage {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
@@ -18,7 +16,7 @@ public class DeleteAddEmployeeAfterEdit {
 	int employeeIDRadomNumber;
 	public String empIDInput;
 
-	public DeleteAddEmployeeAfterEdit(WebDriverWait w, WebDriver d) {
+	public DeleteAddEmployeeAfterEditPage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 		cm = new CommonMethods(wait, driver);
@@ -29,23 +27,24 @@ public class DeleteAddEmployeeAfterEdit {
 	By deleteIcon = By.xpath("//*[@class='deleteIcon']");
 	By employeeIDSearchField = By.xpath("//*[@aria-label='EMP ID Filter Input']");
 
-	public void deleteEditEmployeeWithSearchedFirstAndLastName() throws InterruptedException {
-		Thread.sleep(5000);
+	public void deleteEditEmployeeWithSearchedFirstAndLastName() {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDCheckBox));
+		wait.until(ExpectedConditions.elementToBeClickable(employeeIDCheckBox));
 		driver.findElement(employeeIDCheckBox).click();
 		wait.until(ExpectedConditions.elementToBeClickable(deleteIcon));
 		driver.findElement(deleteIcon).click();
-		Thread.sleep(1500);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(deleteIcon));
 	}
 
-	public void verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(String empID) throws InterruptedException {
-		Thread.sleep(5000);
+	public void verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(String empID) {
+
 		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
-		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(employeeIDSearchField));
+
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
-		Thread.sleep(2000);
+
 		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(employeeSearchIDValue);
 		System.out.println("Employee Record Deleted After Edit Successful?==" + eemployeeRecordIsPresent);
 		Assert.assertTrue(eemployeeRecordIsPresent, "Employee Record is not deleted");
