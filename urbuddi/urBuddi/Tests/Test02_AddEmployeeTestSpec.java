@@ -1,27 +1,24 @@
 package urBuddi.Tests;
 
 import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import Common.CommonMethods;
-import urBuddi.Pages.DashBoardLeaveManagementPage;
-import urBuddi.Pages.LeaveManagementPage;
+import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
+import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.LoginPage;
 
-public class Test06ApplyAndCancelLeaveTestSpec extends BaseMethods {
-
+public class Test02_AddEmployeeTestSpec extends BaseMethods {
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
-	DashBoardLeaveManagementPage dashBoardLeaveManagementPage;
-	LeaveManagementPage leaveManagementPage;
-	CommonMethods cm;
+	DashBoardEmployeesPage dashBoardEmployeesPage;
+	AddEmployeeWithEmployeeRolePage addEmployeePage;
 
 	@BeforeTest
 	public void browserLaunch() {
@@ -35,25 +32,22 @@ public class Test06ApplyAndCancelLeaveTestSpec extends BaseMethods {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
 		loginPage = new LoginPage(wait, driver);
-		dashBoardLeaveManagementPage = new DashBoardLeaveManagementPage(wait, driver);
-		leaveManagementPage = new LeaveManagementPage(wait, driver);
+		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
+		addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
 	}
 
 	@Test
-	public void verifyLeaveManagement() throws InterruptedException {
+	public void verifyAddEmployeeIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
 		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
 		loginPage.verifyLoginIsSuccessful();
 
-		dashBoardLeaveManagementPage.leaveManagementLinks();
-		dashBoardLeaveManagementPage.verifyApplyLeavePage();
+		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		leaveManagementPage.applyLeavepageInputs();
-		leaveManagementPage.monthPicker();
-		leaveManagementPage.verifyApplicationOfLeave();
-		leaveManagementPage.cancelAppliedLeave();
-		leaveManagementPage.verifyLeaveCancel();
+		addEmployeePage.verifyAddEmployeePage();
+		addEmployeePage.addEmployeeInputs();
+		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}
@@ -63,4 +57,5 @@ public class Test06ApplyAndCancelLeaveTestSpec extends BaseMethods {
 		System.out.println("After Test");
 		driver.close();
 	}
+
 }

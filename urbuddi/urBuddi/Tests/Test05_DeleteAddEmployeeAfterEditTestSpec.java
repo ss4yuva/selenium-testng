@@ -3,25 +3,26 @@ package urBuddi.Tests;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithAdminRolePage;
+import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
 import urBuddi.Pages.EditEmployeePage;
 import urBuddi.Pages.LoginPage;
 
-public class Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec extends BaseMethods {
+public class Test05_DeleteAddEmployeeAfterEditTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithAdminRolePage addEmployeeWithAdminRolePage;
+	AddEmployeeWithEmployeeRolePage addEmployeePage;
 	EditEmployeePage editEmployeePage;
 	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
 
@@ -30,7 +31,6 @@ public class Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec extends BaseMeth
 		System.out.println("Before Test");
 
 		driver = getDriver();
-		System.out.println("Before Test");
 
 		driver.get("https://dev.urbuddi.com/login");
 
@@ -38,13 +38,13 @@ public class Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec extends BaseMeth
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeeWithAdminRolePage = new AddEmployeeWithAdminRolePage(wait, driver);
+		addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
 		editEmployeePage = new EditEmployeePage(wait, driver);
 		deleteAddEmployeeAfterEditPage = new DeleteAddEmployeeAfterEditPage(wait, driver);
 	}
 
 	@Test
-	public void verifyAddEMployeeIsSuccessful() throws InterruptedException {
+	public void verifyLoginIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
 		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
@@ -52,10 +52,11 @@ public class Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec extends BaseMeth
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		addEmployeeWithAdminRolePage.addEmployeeInputs();
-		addEmployeeWithAdminRolePage.verifyAddEmployeeSuccessful(addEmployeeWithAdminRolePage.empIDInput);
+		addEmployeePage.verifyAddEmployeePage();
+		addEmployeePage.addEmployeeInputs();
+		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
 
-		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithAdminRolePage.empIDInput);
+		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeePage.empIDInput);
 		editEmployeePage.clickOnEditButton();
 		editEmployeePage.verifyEditEmployeePage();
 		editEmployeePage.enterEditEmployeePageTestData();
@@ -64,7 +65,7 @@ public class Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec extends BaseMeth
 
 		deleteAddEmployeeAfterEditPage.deleteEditEmployeeWithSearchedFirstAndLastName();
 		deleteAddEmployeeAfterEditPage
-				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithAdminRolePage.empIDInput);
+				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeePage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}
@@ -74,4 +75,5 @@ public class Test07Add_Edit_DeleteEmployeeWithAdminRoleTestSpec extends BaseMeth
 		System.out.println("After Test");
 		driver.close();
 	}
+
 }

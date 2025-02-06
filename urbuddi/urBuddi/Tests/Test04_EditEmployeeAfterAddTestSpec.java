@@ -15,7 +15,7 @@ import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.LoginPage;
 import urBuddi.Pages.EditEmployeePage;
 
-public class Test04EditEmployeeAfterAddTestSpec extends BaseMethods {
+public class Test04_EditEmployeeAfterAddTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;

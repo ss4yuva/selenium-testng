@@ -38,6 +38,8 @@ public class DeleteAddEmployeeAfterEditPage {
 
 	public void verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(String empID) {
 
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(deleteIcon));
+
 		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
 		wait.until(ExpectedConditions.elementToBeClickable(employeeIDSearchField));
@@ -45,9 +47,10 @@ public class DeleteAddEmployeeAfterEditPage {
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 
+		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeSearchIDValue));
+
 		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(employeeSearchIDValue);
 		System.out.println("Employee Record Deleted After Edit Successful?==" + eemployeeRecordIsPresent);
 		Assert.assertTrue(eemployeeRecordIsPresent, "Employee Record is not deleted");
 	}
-
 }

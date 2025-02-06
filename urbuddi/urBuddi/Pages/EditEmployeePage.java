@@ -42,11 +42,10 @@ public class EditEmployeePage {
 
 	// After Add Employee Search Locators
 	By employeeIDCheckBox = By.xpath("//*[@class='ag-selection-checkbox']");
-	By employeeIDSearchField = By.xpath("//*[@aria-label='EMP ID Filter Input']");
+	By employeeIDSearchField = By.xpath("(//*[@class='ag-input-field-input ag-text-field-input'])[1]");
 
 	// Edit Employee Locators
-	By editButton = By
-			.xpath("(//*[@class='ag-cell ag-cell-not-inline-editing ag-cell-normal-height ag-cell-value'])[1]");
+	By editButton = By.xpath("//*[@class='ag-cell ag-cell-not-inline-editing ag-cell-normal-height ag-cell-value']");
 	By editEmployeeHeaderText = By.xpath("//*[text()='Edit Employee']");
 
 	// Edit Employee Page Locators
@@ -85,6 +84,8 @@ public class EditEmployeePage {
 	}
 
 	public void clickOnEditButton() {
+
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(editButton));
 		wait.until(ExpectedConditions.elementToBeClickable(editButton));
 		driver.findElement(editButton).click();
 	}
@@ -183,6 +184,8 @@ public class EditEmployeePage {
 	}
 
 	public void searchEditEmployeeDetailsWithEditedFirstAndLastName() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(submitButton));
+		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));
 		wait.until(ExpectedConditions.elementToBeClickable(searchField));
 		driver.findElement(searchField).click();
@@ -193,6 +196,9 @@ public class EditEmployeePage {
 
 		By employeeSearchFirstAndLastNameValue = By
 				.xpath("//*[text()='" + editEmployeeFName + " " + editEmployeeLName + "']");
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeSearchFirstAndLastNameValue));
+
 		Boolean afterEditEmployeeWithFirstAndLastNameEditedDetailsIsDisplayed = cm
 				.isElementDisplayed(employeeSearchFirstAndLastNameValue);
 		System.out.println("After Edit Employee First And Last Name With Edited Details Is Displayed?=="

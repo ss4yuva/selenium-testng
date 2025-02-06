@@ -1,6 +1,7 @@
 package urBuddi.Tests;
 
 import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,20 +13,22 @@ import Common.BaseMethods;
 import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.LoginPage;
+import urBuddi.Pages.DeleteAddEmployee;
 
-public class Test02AddEmployeeTestSpec extends BaseMethods {
+public class Test03_DeleteAddEmployeeTestSpec extends BaseMethods {
+
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
 	AddEmployeeWithEmployeeRolePage addEmployeePage;
+	DeleteAddEmployee deleteAddEmployee;
 
 	@BeforeTest
 	public void browserLaunch() {
 		System.out.println("Before Test");
 
 		driver = getDriver();
-		System.out.println("Before Test");
 
 		driver.get("https://dev.urbuddi.com/login");
 
@@ -34,10 +37,11 @@ public class Test02AddEmployeeTestSpec extends BaseMethods {
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
 		addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
+		deleteAddEmployee = new DeleteAddEmployee(wait, driver);
 	}
 
 	@Test
-	public void verifyAddEMployeeIsSuccessful() throws InterruptedException {
+	public void verifyLoginIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
 		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
@@ -48,6 +52,9 @@ public class Test02AddEmployeeTestSpec extends BaseMethods {
 		addEmployeePage.verifyAddEmployeePage();
 		addEmployeePage.addEmployeeInputs();
 		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
+
+		deleteAddEmployee.searchAndDeleteAddEmployee();
+		deleteAddEmployee.verifyAddEmployeeAfterDelete(addEmployeePage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}
