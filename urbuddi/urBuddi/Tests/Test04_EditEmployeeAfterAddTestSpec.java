@@ -41,7 +41,7 @@ public class Test04_EditEmployeeAfterAddTestSpec extends BaseMethods {
 	}
 
 	@Test
-	public void verifyLoginIsSuccessful() throws InterruptedException {
+	public void verifyLoginEditEmployeeAfterAddIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
 		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");

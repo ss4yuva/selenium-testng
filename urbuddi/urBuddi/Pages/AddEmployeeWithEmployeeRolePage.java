@@ -202,7 +202,7 @@ public class AddEmployeeWithEmployeeRolePage {
 		empIDInput = "OW" + employeeIDRadomNumber;
 		employeeID(empIDInput);
 
-		int emailRandom = randomNumber.nextInt(1000);
+		int emailRandom = randomNumber.nextInt(10000);
 
 		String inputEmail = "qa" + emailRandom + "@gmail.com";
 		email(inputEmail);

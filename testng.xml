@@ -10,6 +10,7 @@
 			<class name="urBuddi.Tests.Test04_EditEmployeeAfterAddTestSpec" />
 			<class name="urBuddi.Tests.Test05_DeleteAddEmployeeAfterEditTestSpec" />
 			<class name="urBuddi.Tests.Test06_Add_Edit_DeleteEmployeeWithAdminRoleTestSpec" />
+			<class name="urBuddi.Tests.ApplyAndCancelLeaveTestSpec" />
 		</classes>
 	</test>
 </suite>

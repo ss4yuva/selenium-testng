@@ -42,19 +42,9 @@ public class DeleteAddEmployee {
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 
-		Boolean empRecordPresent = this.isElementDisplayed(employeeSearchIDValue);
+		Boolean empRecordPresent = cm.isElementDisplayed(employeeSearchIDValue);
 		System.out.println("Employee present After Delete?==" + empRecordPresent);
 		Assert.assertTrue(empRecordPresent, "Employee Record is not deleted");
-	}
-
-	public boolean isElementDisplayed(By loc) {
-		Boolean empRecordPresent;
-		try {
-			empRecordPresent = driver.findElement(loc).isDisplayed();
-		} catch (Exception e) {
-			empRecordPresent = true;
-		}
-		return empRecordPresent;
 	}
 
 }

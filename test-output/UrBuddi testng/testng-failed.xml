@@ -10,6 +10,13 @@
           <include name="browserLaunch"/>
         </methods>
       </class> <!-- urBuddi.Tests.Test06_Add_Edit_DeleteEmployeeWithAdminRoleTestSpec -->
+      <class name="urBuddi.Tests.Test05_DeleteAddEmployeeAfterEditTestSpec">
+        <methods>
+          <include name="verifyLoginIsSuccessful"/>
+          <include name="close"/>
+          <include name="browserLaunch"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test05_DeleteAddEmployeeAfterEditTestSpec -->
     </classes>
   </test> <!-- UrBuddi Testspecs(failed) -->
 </suite> <!-- Failed suite [UrBuddi testng] -->

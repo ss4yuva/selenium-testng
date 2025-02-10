@@ -12,19 +12,23 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class AddEmployeeWithAdminRolePage {
+import Common.CommonMethods;
+
+public class AddEmployeeWithLeadRolePage {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
+	CommonMethods cm;
 	static Random random, randomNumber;
 	int employeeIDRadomNumber;
 	public String empIDInput;
 
-	public AddEmployeeWithAdminRolePage(WebDriverWait w, WebDriver d) {
+	public AddEmployeeWithLeadRolePage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 		random = new Random();
 		randomNumber = new Random();
+		cm = new CommonMethods(wait, driver);
 	}
 
 	public static String generateRandomString(int length) {
@@ -64,6 +68,7 @@ public class AddEmployeeWithAdminRolePage {
 	By certificateDropdownValue = By.name("Intermediate");
 	By addButton = By.xpath("//*[text()='Add']");
 
+	// Home Page After Add Employee Search and Delete Locators
 	By employeeIDSearchField = By.xpath("//*[@aria-label='EMP ID Filter Input']");
 
 	By employeeIDCheckBox = By.xpath("//*[@class='ag-selection-checkbox']");
@@ -203,9 +208,9 @@ public class AddEmployeeWithAdminRolePage {
 		String inputEmail = "qa" + emailRandom + "@gmail.com";
 		email(inputEmail);
 
-		role("Admin");
+		role("Lead");
 
-		int randomPassword = randomNumber.nextInt(100);
+		int randomPassword = randomNumber.nextInt(1000);
 		password("abcd@" + randomPassword);
 
 		dob("28-08-1992");
@@ -236,33 +241,24 @@ public class AddEmployeeWithAdminRolePage {
 		reporting("suresh.salloju@openskale.com");
 
 		addButton();
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[text()='Add']")));
 	}
 
 	public void verifyAddEmployeeSuccessful(String empID) {
 
-		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
-		System.out.println("ID IS--->" + empID);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(addButton));
 
+		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
 		wait.until(ExpectedConditions.elementToBeClickable(employeeIDSearchField));
+
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeSearchIDValue));
 
-		Boolean empRecordPresent = isElementDisplayed(employeeSearchIDValue);
-		System.out.println("Add Employee with Admin Role is Created Successful?==" + empRecordPresent);
-		Assert.assertTrue(empRecordPresent, "Add Employee with Admin Role is not created");
+		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(employeeSearchIDValue);
+		System.out.println("Add Employee with Employee Role is Created Successful?==" + eemployeeRecordIsPresent);
+		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Employee Role is not created");
 	}
 
-	public boolean isElementDisplayed(By loc) {
-		Boolean empRecordPresent;
-		try {
-			empRecordPresent = driver.findElement(loc).isDisplayed();
-		} catch (Exception e) {
-			empRecordPresent = true;
-		}
-		return empRecordPresent;
-	}
 }

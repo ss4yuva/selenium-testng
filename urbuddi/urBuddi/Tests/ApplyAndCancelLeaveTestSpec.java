@@ -61,6 +61,6 @@ public class ApplyAndCancelLeaveTestSpec extends BaseMethods {
 	@AfterTest
 	public void close() {
 		System.out.println("After Test");
-	//	driver.close();
+		driver.close();
 	}
 }

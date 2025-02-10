@@ -185,7 +185,7 @@ public class EditEmployeePage {
 
 	public void searchEditEmployeeDetailsWithEditedFirstAndLastName() {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(submitButton));
-		
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));
 		wait.until(ExpectedConditions.elementToBeClickable(searchField));
 		driver.findElement(searchField).click();

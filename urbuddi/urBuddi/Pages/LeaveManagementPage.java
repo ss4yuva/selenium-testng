@@ -17,6 +17,8 @@ public class LeaveManagementPage {
 	static WebDriver driver;
 	static WebDriverWait wait;
 
+	public String todayFormattedDate;
+
 	CommonMethods cm;
 
 	public LeaveManagementPage(WebDriverWait w, WebDriver d) {
@@ -58,7 +60,7 @@ public class LeaveManagementPage {
 
 	By cancelReasonText = By.xpath("//*[text()='Test of Leave cancel']");
 
-	public void fromDateInputField(String fromDate) {
+	public void fromDateInputField() {
 		// wait.until(ExpectedConditions.elementToBeClickable(fromDateField));
 		// WebElement fDateFiled = driver.findElement(fromDateField);
 		// fDateFiled.sendKeys(fromDate);
@@ -66,12 +68,12 @@ public class LeaveManagementPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(fromDateField));
 		wait.until(ExpectedConditions.elementToBeClickable(fromDateField));
 		LocalDate todayDate = LocalDate.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM");
-		String formattedDate = todayDate.format(formatter);
-		driver.findElement(fromDateField).sendKeys(formattedDate);
+		DateTimeFormatter todayFormatter = DateTimeFormatter.ofPattern("dd-MM");
+		todayFormattedDate = todayDate.format(todayFormatter);
+		driver.findElement(fromDateField).sendKeys(todayFormattedDate);
 	}
 
-	public void toDateInputField(String toDate) {
+	public void toDateInputField() {
 		// wait.until(ExpectedConditions.elementToBeClickable(todateField));
 		// WebElement tDateFiled = driver.findElement(todateField);
 		// tDateFiled.sendKeys(toDate);
@@ -79,13 +81,15 @@ public class LeaveManagementPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(todateField));
 		wait.until(ExpectedConditions.elementToBeClickable(todateField));
 		LocalDate todaytDate = LocalDate.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM");
-		String formattedDate = todaytDate.format(formatter);
+		DateTimeFormatter todayDateFormatter = DateTimeFormatter.ofPattern("dd-MM");
+		String formattedDate = todaytDate.format(todayDateFormatter);
 
-		LocalDate tomorrowDate = todaytDate.plusDays(1);
-		System.out.println("tomorrowDate: " + tomorrowDate.format(formatter));
-		WebElement tDateField = driver.findElement(todateField);
-		// tDateField.sendKeys(tomorrowDate);
+		LocalDate tomorrow = LocalDate.now().plusDays(1);
+		DateTimeFormatter tomorrowDateFormatter = DateTimeFormatter.ofPattern("dd-MM");
+		String tomorrowFormattedDate = tomorrow.format(tomorrowDateFormatter);
+
+		WebElement tomorrowDatePicker = driver.findElement(todateField);
+		tomorrowDatePicker.sendKeys(tomorrowFormattedDate);
 	}
 
 	public void selectLead(String selectLeadDropdown) {
@@ -119,9 +123,9 @@ public class LeaveManagementPage {
 	}
 
 	public void applyLeavepageInputs() {
-	//	fromDateInputField("09-02");
+		fromDateInputField();
 
-		toDateInputField("10-02");
+		toDateInputField();
 
 		selectLead("ow.urbuddy@optimworks.com");
 
@@ -150,7 +154,7 @@ public class LeaveManagementPage {
 		wait.until(ExpectedConditions.elementToBeClickable(startDateInputField));
 		driver.findElement(startDateInputField).clear();
 		driver.findElement(startDateInputField).click();
-		driver.findElement(startDateInputField).sendKeys("01-02-2025");
+		driver.findElement(startDateInputField).sendKeys(todayFormattedDate);
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(leaveAppliedRow));
 		wait.until(ExpectedConditions.elementToBeClickable(leaveAppliedRow));
@@ -165,7 +169,7 @@ public class LeaveManagementPage {
 		wait.until(ExpectedConditions.elementToBeClickable(startDateInputField));
 		driver.findElement(startDateInputField).clear();
 		driver.findElement(startDateInputField).click();
-		driver.findElement(startDateInputField).sendKeys("01-02-2025");
+		driver.findElement(startDateInputField).sendKeys(todayFormattedDate);
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(leaveCancelButton));
 		wait.until(ExpectedConditions.elementToBeClickable(leaveCancelButton));

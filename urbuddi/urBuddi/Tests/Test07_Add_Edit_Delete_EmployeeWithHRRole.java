@@ -3,26 +3,24 @@ package urBuddi.Tests;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
+import urBuddi.Pages.AddEmployeeWithHRRole;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
 import urBuddi.Pages.EditEmployeePage;
 import urBuddi.Pages.LoginPage;
 
-public class Test05_DeleteAddEmployeeAfterEditTestSpec extends BaseMethods {
-
+public class Test07_Add_Edit_Delete_EmployeeWithHRRole extends BaseMethods {
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithEmployeeRolePage addEmployeePage;
+	AddEmployeeWithHRRole addEmployeeWithHRRolePage;
 	EditEmployeePage editEmployeePage;
 	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
 
@@ -38,13 +36,13 @@ public class Test05_DeleteAddEmployeeAfterEditTestSpec extends BaseMethods {
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
+		addEmployeeWithHRRolePage = new AddEmployeeWithHRRole(wait, driver);
 		editEmployeePage = new EditEmployeePage(wait, driver);
 		deleteAddEmployeeAfterEditPage = new DeleteAddEmployeeAfterEditPage(wait, driver);
 	}
 
 	@Test
-	public void verifyDeleteAddEmployeeAfterEditIsSuccessful() throws InterruptedException {
+	public void verifyAddEditDeleteEmployeeWithHRRoleIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
 		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
@@ -52,11 +50,10 @@ public class Test05_DeleteAddEmployeeAfterEditTestSpec extends BaseMethods {
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		addEmployeePage.verifyAddEmployeePage();
-		addEmployeePage.addEmployeeInputs();
-		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
+		addEmployeeWithHRRolePage.addEmployeeInputs();
+		addEmployeeWithHRRolePage.verifyAddEmployeeSuccessful(addEmployeeWithHRRolePage.empIDInput);
 
-		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeePage.empIDInput);
+		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithHRRolePage.empIDInput);
 		editEmployeePage.clickOnEditButton();
 		editEmployeePage.verifyEditEmployeePage();
 		editEmployeePage.enterEditEmployeePageTestData();
@@ -65,7 +62,7 @@ public class Test05_DeleteAddEmployeeAfterEditTestSpec extends BaseMethods {
 
 		deleteAddEmployeeAfterEditPage.deleteEditEmployeeWithSearchedFirstAndLastName();
 		deleteAddEmployeeAfterEditPage
-				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeePage.empIDInput);
+				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithHRRolePage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}
@@ -75,5 +72,4 @@ public class Test05_DeleteAddEmployeeAfterEditTestSpec extends BaseMethods {
 		System.out.println("After Test");
 		driver.close();
 	}
-
 }
