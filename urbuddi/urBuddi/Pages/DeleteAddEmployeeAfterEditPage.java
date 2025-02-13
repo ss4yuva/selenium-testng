@@ -36,9 +36,10 @@ public class DeleteAddEmployeeAfterEditPage {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(deleteIcon));
 	}
 
-	public void verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(String empID) {
+	public void verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(String empID) throws InterruptedException {
 
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(deleteIcon));
+		//Thread.sleep(10000);
 
 		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
@@ -47,9 +48,7 @@ public class DeleteAddEmployeeAfterEditPage {
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeSearchIDValue));
-
-		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(employeeSearchIDValue);
+		Boolean eemployeeRecordIsPresent = cm.isElementDeleted(employeeSearchIDValue);
 		System.out.println("Employee Record Deleted After Edit Successful?==" + eemployeeRecordIsPresent);
 		Assert.assertTrue(eemployeeRecordIsPresent, "Employee Record is not deleted");
 	}

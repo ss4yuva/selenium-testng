@@ -46,7 +46,7 @@ public class Test08_Add_Edit_Delete_EmployeeWithLeadRole extends BaseMethods {
 	public void verifyAddEditDeleteEmployeeWithLeadRoleIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
-		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
+		loginPage.loginToApplicationInputs();
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();

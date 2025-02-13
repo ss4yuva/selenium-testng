@@ -1,76 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-10T10:47:01 IST" name="Default suite" finished-at="2025-02-10T10:48:58 IST" duration-ms="116840">
+  <suite started-at="2025-02-13T10:15:22 IST" name="Default suite" finished-at="2025-02-13T10:15:46 IST" duration-ms="23715">
     <groups>
     </groups>
-    <test started-at="2025-02-10T10:47:01 IST" name="Default test" finished-at="2025-02-10T10:48:58 IST" duration-ms="116840">
-      <class name="urBuddi.Tests.Test08_Add_Edit_Delete_EmployeeWithLeadRole">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:urBuddi.Tests.Test08_Add_Edit_Delete_EmployeeWithLeadRole@593aaf41]" started-at="2025-02-10T10:47:01 IST" name="browserLaunch" finished-at="2025-02-10T10:47:05 IST" duration-ms="3238" status="PASS">
+    <test started-at="2025-02-13T10:15:22 IST" name="Default test" finished-at="2025-02-13T10:15:46 IST" duration-ms="23715">
+      <class name="urBuddi.Tests.Test10_Add_Edit_Delete_EmployeeWithBTechQualification">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:urBuddi.Tests.Test10_Add_Edit_Delete_EmployeeWithBTechQualification@593aaf41]" started-at="2025-02-13T10:15:22 IST" name="browserLaunch" finished-at="2025-02-13T10:15:28 IST" duration-ms="5085" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="verifyAddEMployeeIsSuccessful()[pri:0, instance:urBuddi.Tests.Test08_Add_Edit_Delete_EmployeeWithLeadRole@593aaf41]" started-at="2025-02-10T10:47:05 IST" name="verifyAddEMployeeIsSuccessful" finished-at="2025-02-10T10:48:58 IST" duration-ms="113393" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //*[text()='OW2509'] (tried for 100 second(s) with 500 milliseconds interval)
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.196, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: C:\Users\Lenovo\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54127}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54127/devtoo..., se:cdpVersion: 132.0.6834.196, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 34ff587246336404c874790fc0829980]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[text()='OW2509'] (tried for 100 second(s) with 500 milliseconds interval)
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 132.0.6834.196, chrome: {chromedriverVersion: 132.0.6834.159 (2d77d3fc445..., userDataDir: C:\Users\Lenovo\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54127}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54127/devtoo..., se:cdpVersion: 132.0.6834.196, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 34ff587246336404c874790fc0829980
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-at urBuddi.Pages.DeleteAddEmployeeAfterEditPage.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(DeleteAddEmployeeAfterEditPage.java:50)
-at urBuddi.Tests.Test08_Add_Edit_Delete_EmployeeWithLeadRole.verifyAddEMployeeIsSuccessful(Test08_Add_Edit_Delete_EmployeeWithLeadRole.java:66)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+        <test-method signature="verifyAddEditDeleteEmployeeWithLeadRoleIsSuccessful()[pri:0, instance:urBuddi.Tests.Test10_Add_Edit_Delete_EmployeeWithBTechQualification@593aaf41]" started-at="2025-02-13T10:15:28 IST" name="verifyAddEditDeleteEmployeeWithLeadRoleIsSuccessful" finished-at="2025-02-13T10:15:46 IST" duration-ms="18288" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAddEMployeeIsSuccessful -->
-        <test-method is-config="true" signature="close()[pri:0, instance:urBuddi.Tests.Test08_Add_Edit_Delete_EmployeeWithLeadRole@593aaf41]" started-at="2025-02-10T10:48:58 IST" name="close" finished-at="2025-02-10T10:48:58 IST" duration-ms="172" status="PASS">
+        </test-method> <!-- verifyAddEditDeleteEmployeeWithLeadRoleIsSuccessful -->
+        <test-method is-config="true" signature="close()[pri:0, instance:urBuddi.Tests.Test10_Add_Edit_Delete_EmployeeWithBTechQualification@593aaf41]" started-at="2025-02-13T10:15:46 IST" name="close" finished-at="2025-02-13T10:15:46 IST" duration-ms="275" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-      </class> <!-- urBuddi.Tests.Test08_Add_Edit_Delete_EmployeeWithLeadRole -->
+      </class> <!-- urBuddi.Tests.Test10_Add_Edit_Delete_EmployeeWithBTechQualification -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

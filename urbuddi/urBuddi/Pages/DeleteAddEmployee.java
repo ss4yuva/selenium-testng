@@ -23,7 +23,7 @@ public class DeleteAddEmployee {
 	}
 
 	// Locators
-	By employeeIDSearchField = By.xpath("//*[@aria-label='EMP ID Filter Input']");
+	By employeeIDSearchField = By.xpath("(//*[@class='ag-input-field-input ag-text-field-input'])[1]");
 
 	By employeeIDCheckBox = By.xpath("//*[@class='ag-selection-checkbox']");
 	By deleteIcon = By.xpath("//*[@class='deleteIcon']");
@@ -37,12 +37,17 @@ public class DeleteAddEmployee {
 	}
 
 	public void verifyAddEmployeeAfterDelete(String empID) {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(deleteIcon));
+
 		By employeeSearchIDValue = By.xpath("//*[text()='" + empID + "']");
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
+		wait.until(ExpectedConditions.elementToBeClickable(employeeIDSearchField));
+
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 
-		Boolean empRecordPresent = cm.isElementDisplayed(employeeSearchIDValue);
+		Boolean empRecordPresent = cm.isElementDeleted(employeeSearchIDValue);
 		System.out.println("Employee present After Delete?==" + empRecordPresent);
 		Assert.assertTrue(empRecordPresent, "Employee Record is not deleted");
 	}

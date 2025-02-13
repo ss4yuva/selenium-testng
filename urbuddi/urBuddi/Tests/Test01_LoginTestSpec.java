@@ -32,7 +32,7 @@ public class Test01_LoginTestSpec extends BaseMethods {
 	@Test
 	public void verifyLoginIsSuccess() throws InterruptedException {
 		System.out.println("Test");
-		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
+		loginPage.loginToApplicationInputs();
 		loginPage.verifyLoginIsSuccessful();
 		loginPage.logoutToApplication();
 	}

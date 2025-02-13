@@ -42,9 +42,9 @@ public class Test03_DeleteAddEmployeeTestSpec extends BaseMethods {
 
 	@Test
 	public void verifyAddAndDeleteEmployeeIsSuccessful() throws InterruptedException {
-		System.out.println("Actual Test");
+		System.out.println("Test");
 
-		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
+		loginPage.loginToApplicationInputs();
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();

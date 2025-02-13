@@ -26,5 +26,17 @@ public class CommonMethods {
 		return empRecordPresent;
 
 	}
+
 	
+	public boolean isElementDeleted(By loc) {
+		Boolean empRecordPresent;
+		try {
+			empRecordPresent = driver.findElement(loc).isDisplayed();
+		} catch (Exception e) {
+			empRecordPresent = false;
+		}
+		return !empRecordPresent;
+
+	}
+
 }

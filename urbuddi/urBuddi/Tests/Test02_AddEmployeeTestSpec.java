@@ -25,7 +25,6 @@ public class Test02_AddEmployeeTestSpec extends BaseMethods {
 		System.out.println("Before Test");
 
 		driver = getDriver();
-		System.out.println("Before Test");
 
 		driver.get("https://dev.urbuddi.com/login");
 
@@ -38,9 +37,9 @@ public class Test02_AddEmployeeTestSpec extends BaseMethods {
 
 	@Test
 	public void verifyAddEmployeeIsSuccessful() throws InterruptedException {
-		System.out.println("Actual Test");
+		System.out.println("Test");
 
-		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
+		loginPage.loginToApplicationInputs();
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();

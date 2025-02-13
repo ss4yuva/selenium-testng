@@ -10,6 +10,11 @@
 			<class name="urBuddi.Tests.Test04_EditEmployeeAfterAddTestSpec" />
 			<class name="urBuddi.Tests.Test05_DeleteAddEmployeeAfterEditTestSpec" />
 			<class name="urBuddi.Tests.Test06_Add_Edit_DeleteEmployeeWithAdminRoleTestSpec" />
+			<class name="urBuddi.Tests.Test07_Add_Edit_Delete_EmployeeWithHRRole" />
+			<class name="urBuddi.Tests.Test08_Add_Edit_Delete_EmployeeWithLeadRole" />
+			<class name="urBuddi.Tests.Test09_Add_Edit_Delete_EmployeeWithDegreeQualification" />
+			<class name="urBuddi.Tests.Test10_Add_Edit_Delete_EmployeeWithBTechQualification" />
+			<class name="urBuddi.Tests.Test11_Add_Edit_Delete_EmployeeWithPGQualification" />
 			<class name="urBuddi.Tests.ApplyAndCancelLeaveTestSpec" />
 		</classes>
 	</test>

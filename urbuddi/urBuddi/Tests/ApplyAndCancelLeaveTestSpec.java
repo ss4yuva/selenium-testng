@@ -40,10 +40,10 @@ public class ApplyAndCancelLeaveTestSpec extends BaseMethods {
 	}
 
 	@Test
-	public void verifyLeaveManagement() throws InterruptedException {
+	public void verifyApplyAndCancelLeaveIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
-		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
+		loginPage.loginToApplicationInputs();
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardLeaveManagementPage.leaveManagementLinks();
