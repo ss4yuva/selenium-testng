@@ -1,6 +1,9 @@
 package urBuddi.Tests;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,28 +12,36 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import Common.CommonMethods;
 import urBuddi.Pages.DashBoardLeaveManagementPage;
 import urBuddi.Pages.LeaveManagementPage;
 import urBuddi.Pages.LoginPage;
 
-public class ApplyAndCancelLeaveTestSpec extends BaseMethods {
+public class Test_Apply_Cancel_LeaveTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardLeaveManagementPage dashBoardLeaveManagementPage;
 	LeaveManagementPage leaveManagementPage;
-	CommonMethods cm;
+
+	String url, username, password;
+	Properties p;
 
 	@BeforeTest
-	public void browserLaunch() {
+	public void browserLaunch() throws IOException {
 		System.out.println("Before Test");
+
+		FileInputStream file = new FileInputStream(
+				"D:\\Automation\\selenium-testng\\test-data\\credentials.properties");
+		p = new Properties();
+		p.load(file);
+
+		url = p.getProperty("url");
+		username = p.getProperty("email");
+		password = p.getProperty("password");
 
 		driver = getDriver();
-		System.out.println("Before Test");
-
-		driver.get("https://dev.urbuddi.com/login");
+		driver.get(url);
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
@@ -43,7 +54,7 @@ public class ApplyAndCancelLeaveTestSpec extends BaseMethods {
 	public void verifyApplyAndCancelLeaveIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
-		loginPage.loginToApplicationInputs();
+		loginPage.loginToApplication(username, password);
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardLeaveManagementPage.leaveManagementLinks();

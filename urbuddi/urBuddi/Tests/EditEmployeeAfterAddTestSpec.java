@@ -1,6 +1,10 @@
 package urBuddi.Tests;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,34 +16,49 @@ import Common.BaseMethods;
 import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.LoginPage;
+import urBuddi.Pages.EditEmployeePage;
 
-public class Test02_AddEmployeeTestSpec extends BaseMethods {
+public class EditEmployeeAfterAddTestSpec extends BaseMethods {
+
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
 	AddEmployeeWithEmployeeRolePage addEmployeePage;
+	EditEmployeePage editEmployeePage;
+
+	String url, username, password;
+	Properties p;
 
 	@BeforeTest
-	public void browserLaunch() {
+	public void browserLaunch() throws IOException {
 		System.out.println("Before Test");
 
-		driver = getDriver();
+		FileInputStream file = new FileInputStream(
+				"D:\\Automation\\selenium-testng\\test-data\\credentials.properties");
+		p = new Properties();
+		p.load(file);
 
-		driver.get("https://dev.urbuddi.com/login");
+		url = p.getProperty("url");
+		username = p.getProperty("email");
+		password = p.getProperty("password");
+
+		driver = getDriver();
+		driver.get(url);
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
 		addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
+		editEmployeePage = new EditEmployeePage(wait, driver);
 	}
 
 	@Test
-	public void verifyAddEmployeeIsSuccessful() throws InterruptedException {
-		System.out.println("Test");
+	public void verifyEditEmployeeAfterAddingIsSuccessful() throws InterruptedException {
+		System.out.println("Actual Test");
 
-		loginPage.loginToApplicationInputs();
+		loginPage.loginToApplication(username, password);
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
@@ -47,6 +66,13 @@ public class Test02_AddEmployeeTestSpec extends BaseMethods {
 		addEmployeePage.verifyAddEmployeePage();
 		addEmployeePage.addEmployeeInputs();
 		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
+
+		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeePage.empIDInput);
+		editEmployeePage.clickOnEditButton();
+		editEmployeePage.verifyEditEmployeePage();
+		editEmployeePage.enterEditEmployeePageTestData();
+		editEmployeePage.searchEditEmployeeDetailsWithEditedFirstAndLastName();
+		editEmployeePage.verifyEditEmployeeDetailsWithEditedFirstAndLastName();
 
 		loginPage.logoutToApplication();
 	}

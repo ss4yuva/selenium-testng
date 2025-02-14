@@ -1,6 +1,9 @@
 package urBuddi.Tests;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,51 +12,62 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithHRRole;
+import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
 import urBuddi.Pages.EditEmployeePage;
 import urBuddi.Pages.LoginPage;
 
-public class Test07_Add_Edit_Delete_EmployeeWithHRRole extends BaseMethods {
+public class Test003_Add_Edit_Delete_EmployeeWithEmployeeRoleTestSpec extends BaseMethods {
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithHRRole addEmployeeWithHRRolePage;
+	AddEmployeeWithEmployeeRolePage addEmployeeWithEMployeeRolePage;
 	EditEmployeePage editEmployeePage;
 	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
 
+	String url, username, password;
+	Properties p;
+
 	@BeforeTest
-	public void browserLaunch() {
+	public void browserLaunch() throws IOException {
 		System.out.println("Before Test");
 
-		driver = getDriver();
+		FileInputStream file = new FileInputStream(
+				"D:\\Automation\\selenium-testng\\test-data\\credentials.properties");
+		p = new Properties();
+		p.load(file);
 
-		driver.get("https://dev.urbuddi.com/login");
+		url = p.getProperty("url");
+		username = p.getProperty("email");
+		password = p.getProperty("password");
+
+		driver = getDriver();
+		driver.get(url);
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeeWithHRRolePage = new AddEmployeeWithHRRole(wait, driver);
+		addEmployeeWithEMployeeRolePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
 		editEmployeePage = new EditEmployeePage(wait, driver);
 		deleteAddEmployeeAfterEditPage = new DeleteAddEmployeeAfterEditPage(wait, driver);
 	}
 
 	@Test
-	public void verifyAddEditDeleteEmployeeWithHRRoleIsSuccessful() throws InterruptedException {
+	public void verifyAddEditDeleteEmployeeWithAdminRoleIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
-		loginPage.loginToApplicationInputs();
+		loginPage.loginToApplication(username, password);
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		addEmployeeWithHRRolePage.addEmployeeInputs();
-		addEmployeeWithHRRolePage.verifyAddEmployeeSuccessful(addEmployeeWithHRRolePage.empIDInput);
+		addEmployeeWithEMployeeRolePage.addEmployeeInputs();
+		addEmployeeWithEMployeeRolePage.verifyAddEmployeeSuccessful(addEmployeeWithEMployeeRolePage.empIDInput);
 
-		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithHRRolePage.empIDInput);
+		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithEMployeeRolePage.empIDInput);
 		editEmployeePage.clickOnEditButton();
 		editEmployeePage.verifyEditEmployeePage();
 		editEmployeePage.enterEditEmployeePageTestData();
@@ -62,7 +76,7 @@ public class Test07_Add_Edit_Delete_EmployeeWithHRRole extends BaseMethods {
 
 		deleteAddEmployeeAfterEditPage.deleteEditEmployeeWithSearchedFirstAndLastName();
 		deleteAddEmployeeAfterEditPage
-				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithHRRolePage.empIDInput);
+				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithEMployeeRolePage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}
@@ -72,4 +86,5 @@ public class Test07_Add_Edit_Delete_EmployeeWithHRRole extends BaseMethods {
 		System.out.println("After Test");
 		driver.close();
 	}
+
 }

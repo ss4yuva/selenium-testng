@@ -1,9 +1,11 @@
 package urBuddi.Tests;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -13,38 +15,46 @@ import Common.BaseMethods;
 import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.LoginPage;
-import urBuddi.Pages.DeleteAddEmployee;
 
-public class Test03_DeleteAddEmployeeTestSpec extends BaseMethods {
-
+public class AddEmployeeTestSpec extends BaseMethods {
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
 	AddEmployeeWithEmployeeRolePage addEmployeePage;
-	DeleteAddEmployee deleteAddEmployee;
+
+	String url, username, password;
+	Properties p;
 
 	@BeforeTest
-	public void browserLaunch() {
+	public void browserLaunch() throws IOException {
 		System.out.println("Before Test");
+
+		FileInputStream file = new FileInputStream(
+				"D:\\Automation\\selenium-testng\\test-data\\credentials.properties");
+		p = new Properties();
+		p.load(file);
+
+		url = p.getProperty("url");
+		username = p.getProperty("email");
+		password = p.getProperty("password");
 
 		driver = getDriver();
 
-		driver.get("https://dev.urbuddi.com/login");
+		driver.get(url);
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
 		addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
-		deleteAddEmployee = new DeleteAddEmployee(wait, driver);
 	}
 
 	@Test
-	public void verifyAddAndDeleteEmployeeIsSuccessful() throws InterruptedException {
+	public void verifyAddEmployeeIsSuccessful() throws InterruptedException {
 		System.out.println("Test");
 
-		loginPage.loginToApplicationInputs();
+		loginPage.loginToApplication(username, password);
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
@@ -52,9 +62,6 @@ public class Test03_DeleteAddEmployeeTestSpec extends BaseMethods {
 		addEmployeePage.verifyAddEmployeePage();
 		addEmployeePage.addEmployeeInputs();
 		addEmployeePage.verifyAddEmployeeSuccessful(addEmployeePage.empIDInput);
-
-		deleteAddEmployee.searchAndDeleteAddEmployee();
-		deleteAddEmployee.verifyAddEmployeeAfterDelete(addEmployeePage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}

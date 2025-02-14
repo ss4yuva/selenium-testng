@@ -3,20 +3,55 @@
 <suite name="Failed suite [UrBuddi testng]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="UrBuddi Testspecs(failed)">
     <classes>
-      <class name="urBuddi.Tests.Test06_Add_Edit_DeleteEmployeeWithAdminRoleTestSpec">
+      <class name="urBuddi.Tests.Test009_Add_Edit_Delete_EmployeeWithPGQualification">
         <methods>
-          <include name="close"/>
-          <include name="verifyAddEMployeeIsSuccessful"/>
-          <include name="browserLaunch"/>
-        </methods>
-      </class> <!-- urBuddi.Tests.Test06_Add_Edit_DeleteEmployeeWithAdminRoleTestSpec -->
-      <class name="urBuddi.Tests.Test05_DeleteAddEmployeeAfterEditTestSpec">
-        <methods>
-          <include name="verifyLoginIsSuccessful"/>
+          <include name="verifyAddEditDeleteEmployeeWithPGQualificationIsSuccessful"/>
           <include name="close"/>
           <include name="browserLaunch"/>
         </methods>
-      </class> <!-- urBuddi.Tests.Test05_DeleteAddEmployeeAfterEditTestSpec -->
+      </class> <!-- urBuddi.Tests.Test009_Add_Edit_Delete_EmployeeWithPGQualification -->
+      <class name="urBuddi.Tests.Test007_Add_Edit_Delete_EmployeeWithDegreeQualification">
+        <methods>
+          <include name="close"/>
+          <include name="verifyAddEditDeleteEmployeeWithDegreeQualificationIsSuccessful"/>
+          <include name="browserLaunch"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test007_Add_Edit_Delete_EmployeeWithDegreeQualification -->
+      <class name="urBuddi.Tests.Test006_Add_Edit_Delete_EmployeeWithLeadRole">
+        <methods>
+          <include name="browserLaunch"/>
+          <include name="close"/>
+          <include name="verifyAddEditDeleteEmployeeWithLeadRoleIsSuccessful"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test006_Add_Edit_Delete_EmployeeWithLeadRole -->
+      <class name="urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithBTechQualification">
+        <methods>
+          <include name="close"/>
+          <include name="verifyAddEditDeleteEmployeeWithBTechQualificationIsSuccessful"/>
+          <include name="browserLaunch"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithBTechQualification -->
+      <class name="urBuddi.Tests.Test004_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec">
+        <methods>
+          <include name="browserLaunch"/>
+          <include name="close"/>
+          <include name="verifyAddEditDeleteEmployeeWithAdminRoleIsSuccessful"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test004_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec -->
+      <class name="urBuddi.Tests.Test005_Add_Edit_Delete_EmployeeWithHRRole">
+        <methods>
+          <include name="close"/>
+          <include name="verifyAddEditDeleteEmployeeWithHRRoleIsSuccessful"/>
+          <include name="browserLaunch"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test005_Add_Edit_Delete_EmployeeWithHRRole -->
+      <class name="urBuddi.Tests.Test003_Add_Edit_Delete_EmployeeWithEmployeeRoleTestSpec">
+        <methods>
+          <include name="close"/>
+          <include name="verifyAddEditDeleteEmployeeWithAdminRoleIsSuccessful"/>
+          <include name="browserLaunch"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test003_Add_Edit_Delete_EmployeeWithEmployeeRoleTestSpec -->
     </classes>
   </test> <!-- UrBuddi Testspecs(failed) -->
 </suite> <!-- Failed suite [UrBuddi testng] -->

@@ -42,32 +42,6 @@ public class LoginPage {
 		driver.findElement(loginButton).click();
 	}
 
-	public void emailInput(String userName) {
-		wait.until(ExpectedConditions.elementToBeClickable(emailInputfield));
-		driver.findElement(emailInputfield).click();
-		driver.findElement(emailInputfield).sendKeys(userName);
-	}
-
-	public void passwordInput(String password) {
-		wait.until(ExpectedConditions.elementToBeClickable(passwordInputfield));
-		driver.findElement(passwordInputfield).click();
-		driver.findElement(passwordInputfield).sendKeys(password);
-	}
-
-	public void login() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(loginButton));
-		wait.until(ExpectedConditions.elementToBeClickable(loginButton));
-		driver.findElement(loginButton).click();
-	}
-
-	public void loginToApplicationInputs() {
-		emailInput("suresh.salloju@openskale.com");
-
-		passwordInput("New@2024");
-
-		login();
-	}
-
 	public void verifyLoginIsSuccessful() {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(profileIcon));
 		Boolean profileIconDisplayed = cm.isElementDisplayed(profileIcon);

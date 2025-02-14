@@ -1,6 +1,9 @@
 package urBuddi.Tests;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,7 +18,7 @@ import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
 import urBuddi.Pages.EditEmployeePage;
 import urBuddi.Pages.LoginPage;
 
-public class Test06_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec extends BaseMethods {
+public class Test004_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
@@ -25,13 +28,24 @@ public class Test06_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec extends BaseMe
 	EditEmployeePage editEmployeePage;
 	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
 
+	String url, username, password;
+	Properties p;
+
 	@BeforeTest
-	public void browserLaunch() {
+	public void browserLaunch() throws IOException {
 		System.out.println("Before Test");
 
-		driver = getDriver();
+		FileInputStream file = new FileInputStream(
+				"D:\\Automation\\selenium-testng\\test-data\\credentials.properties");
+		p = new Properties();
+		p.load(file);
 
-		driver.get("https://dev.urbuddi.com/login");
+		url = p.getProperty("url");
+		username = p.getProperty("email");
+		password = p.getProperty("password");
+
+		driver = getDriver();
+		driver.get(url);
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
@@ -46,7 +60,7 @@ public class Test06_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec extends BaseMe
 	public void verifyAddEditDeleteEmployeeWithAdminRoleIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
-		loginPage.loginToApplicationInputs();
+		loginPage.loginToApplication(username, password);
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
