@@ -12,19 +12,19 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithDegreeQualification;
+import urBuddi.Pages.AddEmployeeWithLeadRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
 import urBuddi.Pages.EditEmployeePage;
 import urBuddi.Pages.LoginPage;
 
-public class Test007_Add_Edit_Delete_EmployeeWithDegreeQualification extends BaseMethods {
+public class Test007_Add_Edit_Delete_EmployeeWithLeadRole extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithDegreeQualification addEmployeeWithDegreeQualificationPage;
+	AddEmployeeWithLeadRolePage addEmployeeWithLeadRolePage;
 	EditEmployeePage editEmployeePage;
 	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
 
@@ -51,25 +51,24 @@ public class Test007_Add_Edit_Delete_EmployeeWithDegreeQualification extends Bas
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeeWithDegreeQualificationPage = new AddEmployeeWithDegreeQualification(wait, driver);
+		addEmployeeWithLeadRolePage = new AddEmployeeWithLeadRolePage(wait, driver);
 		editEmployeePage = new EditEmployeePage(wait, driver);
 		deleteAddEmployeeAfterEditPage = new DeleteAddEmployeeAfterEditPage(wait, driver);
 	}
 
 	@Test
-	public void verifyAddEditDeleteEmployeeWithDegreeQualificationIsSuccessful() throws InterruptedException {
-		System.out.println("Test");
+	public void verifyAddEditDeleteEmployeeWithLeadRoleIsSuccessful() throws InterruptedException {
+		System.out.println("Actual Test");
 
 		loginPage.loginToApplication(username, password);
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		addEmployeeWithDegreeQualificationPage.addEmployeeInputs();
-		addEmployeeWithDegreeQualificationPage
-				.verifyAddEmployeeSuccessful(addEmployeeWithDegreeQualificationPage.empIDInput);
+		addEmployeeWithLeadRolePage.addEmployeeInputs();
+		addEmployeeWithLeadRolePage.verifyAddEmployeeSuccessful(addEmployeeWithLeadRolePage.empIDInput);
 
-		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithDegreeQualificationPage.empIDInput);
+		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithLeadRolePage.empIDInput);
 		editEmployeePage.clickOnEditButton();
 		editEmployeePage.verifyEditEmployeePage();
 		editEmployeePage.enterEditEmployeePageTestData();
@@ -77,8 +76,8 @@ public class Test007_Add_Edit_Delete_EmployeeWithDegreeQualification extends Bas
 		editEmployeePage.verifyEditEmployeeDetailsWithEditedFirstAndLastName();
 
 		deleteAddEmployeeAfterEditPage.deleteEditEmployeeWithSearchedFirstAndLastName();
-		deleteAddEmployeeAfterEditPage.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(
-				addEmployeeWithDegreeQualificationPage.empIDInput);
+		deleteAddEmployeeAfterEditPage
+				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithLeadRolePage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}

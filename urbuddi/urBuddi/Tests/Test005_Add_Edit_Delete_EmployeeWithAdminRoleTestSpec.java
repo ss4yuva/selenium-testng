@@ -12,19 +12,19 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithPGQualification;
+import urBuddi.Pages.AddEmployeeWithAdminRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
 import urBuddi.Pages.EditEmployeePage;
 import urBuddi.Pages.LoginPage;
 
-public class Test009_Add_Edit_Delete_EmployeeWithPGQualification extends BaseMethods {
+public class Test005_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithPGQualification addEmployeeWithPGQualificationPage;
+	AddEmployeeWithAdminRolePage addEmployeeWithAdminRolePage;
 	EditEmployeePage editEmployeePage;
 	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
 
@@ -51,24 +51,24 @@ public class Test009_Add_Edit_Delete_EmployeeWithPGQualification extends BaseMet
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeeWithPGQualificationPage = new AddEmployeeWithPGQualification(wait, driver);
+		addEmployeeWithAdminRolePage = new AddEmployeeWithAdminRolePage(wait, driver);
 		editEmployeePage = new EditEmployeePage(wait, driver);
 		deleteAddEmployeeAfterEditPage = new DeleteAddEmployeeAfterEditPage(wait, driver);
 	}
 
 	@Test
-	public void verifyAddEditDeleteEmployeeWithPGQualificationIsSuccessful() throws InterruptedException {
-		System.out.println("Test");
+	public void verifyAddEditDeleteEmployeeWithAdminRoleIsSuccessful() throws InterruptedException {
+		System.out.println("Actual Test");
 
 		loginPage.loginToApplication(username, password);
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		addEmployeeWithPGQualificationPage.addEmployeeInputs();
-		addEmployeeWithPGQualificationPage.verifyAddEmployeeSuccessful(addEmployeeWithPGQualificationPage.empIDInput);
+		addEmployeeWithAdminRolePage.addEmployeeInputs();
+		addEmployeeWithAdminRolePage.verifyAddEmployeeSuccessful(addEmployeeWithAdminRolePage.empIDInput);
 
-		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithPGQualificationPage.empIDInput);
+		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithAdminRolePage.empIDInput);
 		editEmployeePage.clickOnEditButton();
 		editEmployeePage.verifyEditEmployeePage();
 		editEmployeePage.enterEditEmployeePageTestData();
@@ -77,7 +77,7 @@ public class Test009_Add_Edit_Delete_EmployeeWithPGQualification extends BaseMet
 
 		deleteAddEmployeeAfterEditPage.deleteEditEmployeeWithSearchedFirstAndLastName();
 		deleteAddEmployeeAfterEditPage
-				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithPGQualificationPage.empIDInput);
+				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithAdminRolePage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}
@@ -87,5 +87,4 @@ public class Test009_Add_Edit_Delete_EmployeeWithPGQualification extends BaseMet
 		System.out.println("After Test");
 		driver.close();
 	}
-
 }

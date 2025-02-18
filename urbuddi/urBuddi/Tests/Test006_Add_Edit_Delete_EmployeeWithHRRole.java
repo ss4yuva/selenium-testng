@@ -12,20 +12,18 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithBTechQualification;
-import urBuddi.Pages.AddEmployeeWithDegreeQualification;
+import urBuddi.Pages.AddEmployeeWithHRRole;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
 import urBuddi.Pages.EditEmployeePage;
 import urBuddi.Pages.LoginPage;
 
-public class Test008_Add_Edit_Delete_EmployeeWithBTechQualification extends BaseMethods {
-
+public class Test006_Add_Edit_Delete_EmployeeWithHRRole extends BaseMethods {
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithBTechQualification addEmployeeWithBTechQualificationPage;
+	AddEmployeeWithHRRole addEmployeeWithHRRolePage;
 	EditEmployeePage editEmployeePage;
 	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
 
@@ -34,8 +32,6 @@ public class Test008_Add_Edit_Delete_EmployeeWithBTechQualification extends Base
 
 	@BeforeTest
 	public void browserLaunch() throws IOException {
-		System.out.println("Before Test");
-
 		System.out.println("Before Test");
 
 		FileInputStream file = new FileInputStream(
@@ -54,13 +50,13 @@ public class Test008_Add_Edit_Delete_EmployeeWithBTechQualification extends Base
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeeWithBTechQualificationPage = new AddEmployeeWithBTechQualification(wait, driver);
+		addEmployeeWithHRRolePage = new AddEmployeeWithHRRole(wait, driver);
 		editEmployeePage = new EditEmployeePage(wait, driver);
 		deleteAddEmployeeAfterEditPage = new DeleteAddEmployeeAfterEditPage(wait, driver);
 	}
 
 	@Test
-	public void verifyAddEditDeleteEmployeeWithBTechQualificationIsSuccessful() throws InterruptedException {
+	public void verifyAddEditDeleteEmployeeWithHRRoleIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
 		loginPage.loginToApplication(username, password);
@@ -68,11 +64,10 @@ public class Test008_Add_Edit_Delete_EmployeeWithBTechQualification extends Base
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		addEmployeeWithBTechQualificationPage.addEmployeeInputs();
-		addEmployeeWithBTechQualificationPage
-				.verifyAddEmployeeSuccessful(addEmployeeWithBTechQualificationPage.empIDInput);
+		addEmployeeWithHRRolePage.addEmployeeInputs();
+		addEmployeeWithHRRolePage.verifyAddEmployeeSuccessful(addEmployeeWithHRRolePage.empIDInput);
 
-		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithBTechQualificationPage.empIDInput);
+		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithHRRolePage.empIDInput);
 		editEmployeePage.clickOnEditButton();
 		editEmployeePage.verifyEditEmployeePage();
 		editEmployeePage.enterEditEmployeePageTestData();
@@ -80,8 +75,8 @@ public class Test008_Add_Edit_Delete_EmployeeWithBTechQualification extends Base
 		editEmployeePage.verifyEditEmployeeDetailsWithEditedFirstAndLastName();
 
 		deleteAddEmployeeAfterEditPage.deleteEditEmployeeWithSearchedFirstAndLastName();
-		deleteAddEmployeeAfterEditPage.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(
-				addEmployeeWithBTechQualificationPage.empIDInput);
+		deleteAddEmployeeAfterEditPage
+				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithHRRolePage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}
@@ -91,5 +86,4 @@ public class Test008_Add_Edit_Delete_EmployeeWithBTechQualification extends Base
 		System.out.println("After Test");
 		driver.close();
 	}
-
 }

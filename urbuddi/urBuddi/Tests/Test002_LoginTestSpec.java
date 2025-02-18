@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import Common.BaseMethods;
 import urBuddi.Pages.LoginPage;
 
-public class Test001_LoginTestSpec extends BaseMethods {
+public class Test002_LoginTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;

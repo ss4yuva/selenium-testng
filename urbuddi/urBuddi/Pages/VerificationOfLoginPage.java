@@ -16,10 +16,10 @@ public class VerificationOfLoginPage {
 	static ChromeDriver chrome;
 	CommonMethods cm;
 
-	public VerificationOfLoginPage(WebDriverWait w, WebDriver d, ChromeDriver c) {
+	public VerificationOfLoginPage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
-		this.chrome = c;
+
 		cm = new CommonMethods(wait, driver);
 	}
 

@@ -12,19 +12,19 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithAdminRolePage;
+import urBuddi.Pages.AddEmployeeWithOtherQualifications;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
 import urBuddi.Pages.EditEmployeePage;
 import urBuddi.Pages.LoginPage;
 
-public class Test004_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec extends BaseMethods {
+public class Test011_Add_Edit_Delete_EmployeeWithOtherQualification extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithAdminRolePage addEmployeeWithAdminRolePage;
+	AddEmployeeWithOtherQualifications addEmployeeWithOtherQualificationPage;
 	EditEmployeePage editEmployeePage;
 	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
 
@@ -51,24 +51,25 @@ public class Test004_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec extends BaseM
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeeWithAdminRolePage = new AddEmployeeWithAdminRolePage(wait, driver);
+		addEmployeeWithOtherQualificationPage = new AddEmployeeWithOtherQualifications(wait, driver);
 		editEmployeePage = new EditEmployeePage(wait, driver);
 		deleteAddEmployeeAfterEditPage = new DeleteAddEmployeeAfterEditPage(wait, driver);
 	}
 
 	@Test
-	public void verifyAddEditDeleteEmployeeWithAdminRoleIsSuccessful() throws InterruptedException {
-		System.out.println("Actual Test");
+	public void verifyAddEditDeleteEmployeeWithPGQualificationIsSuccessful() throws InterruptedException {
+		System.out.println("Test");
 
 		loginPage.loginToApplication(username, password);
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		addEmployeeWithAdminRolePage.addEmployeeInputs();
-		addEmployeeWithAdminRolePage.verifyAddEmployeeSuccessful(addEmployeeWithAdminRolePage.empIDInput);
+		addEmployeeWithOtherQualificationPage.addEmployeeInputs();
+		addEmployeeWithOtherQualificationPage
+				.verifyAddEmployeeSuccessful(addEmployeeWithOtherQualificationPage.empIDInput);
 
-		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithAdminRolePage.empIDInput);
+		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithOtherQualificationPage.empIDInput);
 		editEmployeePage.clickOnEditButton();
 		editEmployeePage.verifyEditEmployeePage();
 		editEmployeePage.enterEditEmployeePageTestData();
@@ -76,8 +77,8 @@ public class Test004_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec extends BaseM
 		editEmployeePage.verifyEditEmployeeDetailsWithEditedFirstAndLastName();
 
 		deleteAddEmployeeAfterEditPage.deleteEditEmployeeWithSearchedFirstAndLastName();
-		deleteAddEmployeeAfterEditPage
-				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithAdminRolePage.empIDInput);
+		deleteAddEmployeeAfterEditPage.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(
+				addEmployeeWithOtherQualificationPage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}
@@ -87,4 +88,5 @@ public class Test004_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec extends BaseM
 		System.out.println("After Test");
 		driver.close();
 	}
+
 }

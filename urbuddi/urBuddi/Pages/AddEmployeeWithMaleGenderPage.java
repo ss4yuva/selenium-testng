@@ -14,7 +14,7 @@ import org.testng.Assert;
 
 import Common.CommonMethods;
 
-public class AddEmployeeWithOtherQualifications {
+public class AddEmployeeWithMaleGenderPage {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
@@ -23,7 +23,7 @@ public class AddEmployeeWithOtherQualifications {
 	int employeeIDRadomNumber;
 	public String empIDInput;
 
-	public AddEmployeeWithOtherQualifications(WebDriverWait w, WebDriver d) {
+	public AddEmployeeWithMaleGenderPage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 		random = new Random();
@@ -208,21 +208,21 @@ public class AddEmployeeWithOtherQualifications {
 		String inputEmail = "qa" + emailRandom + "@gmail.com";
 		email(inputEmail);
 
-		role("Employee");
+		role("Lead");
 
-		int randomPassword = randomNumber.nextInt(100);
+		int randomPassword = randomNumber.nextInt(1000);
 		password("abcd@" + randomPassword);
 
 		dob("28-08-1992");
 
 		joiningDate();
 
-		qualifications("Other");
+		qualifications("B.Tech");
 
 		String departmentRandomText = generateRandomString(6);
 		department(departmentRandomText);
 
-		gender("Female");
+		gender("Male");
 
 		int mobileNumberRadomNumber = randomNumber.nextInt(1000000000);
 		mobileNumber(mobileNumberRadomNumber);

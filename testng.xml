@@ -5,14 +5,20 @@
 	<test name="UrBuddi Testspecs">
 		<classes>
 			<class name="urBuddi.Tests.Test_Apply_Cancel_LeaveTestSpec" />
-			<class name="urBuddi.Tests.Test001_LoginTestSpec" />
-			<class name="urBuddi.Tests.Test003_Add_Edit_Delete_EmployeeWithEmployeeRoleTestSpec" />
-			<class name="urBuddi.Tests.Test004_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec" />
-			<class name="urBuddi.Tests.Test005_Add_Edit_Delete_EmployeeWithHRRole" />
-			<class name="urBuddi.Tests.Test006_Add_Edit_Delete_EmployeeWithLeadRole" />
-			<class name="urBuddi.Tests.Test007_Add_Edit_Delete_EmployeeWithDegreeQualification" />
-			<class name="urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithBTechQualification" />
-			<class name="urBuddi.Tests.Test009_Add_Edit_Delete_EmployeeWithPGQualification" />
+			<class name="urBuddi.Tests.Test001_LoginPageTestSpec" />
+			<class name="urBuddi.Tests.Test002_LoginTestSpec" />
+			<class name="urBuddi.Tests.Test003_LoginFunctionalityTestSpec" />
+			<class name="urBuddi.Tests.Test004_Add_Edit_Delete_EmployeeWithEmployeeRoleTestSpec" />
+			<class name="urBuddi.Tests.Test005_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec" />
+			<class name="urBuddi.Tests.Test006_Add_Edit_Delete_EmployeeWithHRRole" />
+			<class name="urBuddi.Tests.Test007_Add_Edit_Delete_EmployeeWithLeadRole" />
+			<class name="urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithDegreeQualification" />
+			<class name="urBuddi.Tests.Test009_Add_Edit_Delete_EmployeeWithBTechQualification" />
+			<class name="urBuddi.Tests.Test010_Add_Edit_Delete_EmployeeWithPGQualification" />
+			<class name="urBuddi.Tests.Test011_Add_Edit_Delete_EmployeeWithOtherQualification" />
+			<class name="urBuddi.Tests.Test012_Add_Edit_Delete_EmployeeWithMaleGenderTestSpec" />
+			<class name="urBuddi.Tests.Test013_Add_Edit_Delete_EmployeeWithFemaleGenderRole" />
+			<class name="urBuddi.Tests.Test014_Add_Edit_Delete_EmployeWithOthersGenderTestSpec" />
 			
 		</classes>
 	</test>

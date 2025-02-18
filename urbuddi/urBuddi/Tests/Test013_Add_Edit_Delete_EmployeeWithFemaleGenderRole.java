@@ -12,18 +12,19 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
+import urBuddi.Pages.AddEmployeeWithFemaleGenderPage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
 import urBuddi.Pages.EditEmployeePage;
 import urBuddi.Pages.LoginPage;
 
-public class Test003_Add_Edit_Delete_EmployeeWithEmployeeRoleTestSpec extends BaseMethods {
+public class Test013_Add_Edit_Delete_EmployeeWithFemaleGenderRole extends BaseMethods {
+
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithEmployeeRolePage addEmployeeWithEMployeeRolePage;
+	AddEmployeeWithFemaleGenderPage addEmployeeWithFemaleGenderPage;
 	EditEmployeePage editEmployeePage;
 	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
 
@@ -50,24 +51,24 @@ public class Test003_Add_Edit_Delete_EmployeeWithEmployeeRoleTestSpec extends Ba
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeeWithEMployeeRolePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
+		addEmployeeWithFemaleGenderPage = new AddEmployeeWithFemaleGenderPage(wait, driver);
 		editEmployeePage = new EditEmployeePage(wait, driver);
 		deleteAddEmployeeAfterEditPage = new DeleteAddEmployeeAfterEditPage(wait, driver);
 	}
 
 	@Test
-	public void verifyAddEditDeleteEmployeeWithAdminRoleIsSuccessful() throws InterruptedException {
-		System.out.println("Actual Test");
+	public void verifyAddEditDeleteEmployeeWithFemaleGenderIsSuccessful() throws InterruptedException {
+		System.out.println("Test");
 
 		loginPage.loginToApplication(username, password);
 		loginPage.verifyLoginIsSuccessful();
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		addEmployeeWithEMployeeRolePage.addEmployeeInputs();
-		addEmployeeWithEMployeeRolePage.verifyAddEmployeeSuccessful(addEmployeeWithEMployeeRolePage.empIDInput);
+		addEmployeeWithFemaleGenderPage.addEmployeeInputs();
+		addEmployeeWithFemaleGenderPage.verifyAddEmployeeSuccessful(addEmployeeWithFemaleGenderPage.empIDInput);
 
-		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithEMployeeRolePage.empIDInput);
+		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithFemaleGenderPage.empIDInput);
 		editEmployeePage.clickOnEditButton();
 		editEmployeePage.verifyEditEmployeePage();
 		editEmployeePage.enterEditEmployeePageTestData();
@@ -76,7 +77,7 @@ public class Test003_Add_Edit_Delete_EmployeeWithEmployeeRoleTestSpec extends Ba
 
 		deleteAddEmployeeAfterEditPage.deleteEditEmployeeWithSearchedFirstAndLastName();
 		deleteAddEmployeeAfterEditPage
-				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithEMployeeRolePage.empIDInput);
+				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithFemaleGenderPage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}
