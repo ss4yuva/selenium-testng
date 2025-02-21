@@ -1,4 +1,4 @@
-package urBuddi.Tests;
+package urBuddi.Pages;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

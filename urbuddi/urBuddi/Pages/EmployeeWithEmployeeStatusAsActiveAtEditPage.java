@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 import Common.CommonMethods;
 
-public class EditEmployeeWithEmployeeStatusAsActivePage {
+public class EmployeeWithEmployeeStatusAsActiveAtEditPage {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
@@ -16,7 +16,7 @@ public class EditEmployeeWithEmployeeStatusAsActivePage {
 
 	String editEmployeeFName, editEmployeeLName;
 
-	public EditEmployeeWithEmployeeStatusAsActivePage(WebDriverWait w, WebDriver d) {
+	public EmployeeWithEmployeeStatusAsActiveAtEditPage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 		cm = new CommonMethods(wait, driver);
@@ -39,6 +39,8 @@ public class EditEmployeeWithEmployeeStatusAsActivePage {
 
 	// Search With Edit Employee After Details Edited
 	By searchField = By.xpath("//*[@aria-label='NAME Filter Input']");
+
+	By activeEmpStatus = By.xpath("//*[text()='Active']");
 
 	public void searchNewEmployeeWithEmpID(String empID) throws InterruptedException {
 
@@ -89,10 +91,10 @@ public class EditEmployeeWithEmployeeStatusAsActivePage {
 
 	public void enterEditEmployeePageTestData() {
 
-		editEmployeeFName = "First Name";
+		editEmployeeFName = "First";
 		enterFirstName(editEmployeeFName);
 
-		editEmployeeLName = "Last Name";
+		editEmployeeLName = "Last";
 		enterLastName(editEmployeeLName);
 
 		enterEmployeeStatus("Active");
@@ -109,19 +111,15 @@ public class EditEmployeeWithEmployeeStatusAsActivePage {
 		driver.findElement(searchField).sendKeys(editEmployeeFName + " " + editEmployeeLName);
 	}
 
-	public void verifyEditEmployeeDetailsWithEditedFirstAndLastName() {
+	public void verifyEditEmployeeDetailsWithActiveStatus() {
 
-		By employeeSearchFirstAndLastNameValue = By
-				.xpath("//*[text()='" + editEmployeeFName + " " + editEmployeeLName + "']");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(activeEmpStatus));
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeSearchFirstAndLastNameValue));
-
-		Boolean afterEditEmployeeWithFirstAndLastNameEditedDetailsIsDisplayed = cm
-				.isElementDisplayed(employeeSearchFirstAndLastNameValue);
-		System.out.println("After Edit Employee First And Last Name With Edited Details Is Displayed?=="
-				+ afterEditEmployeeWithFirstAndLastNameEditedDetailsIsDisplayed);
-		Assert.assertTrue(afterEditEmployeeWithFirstAndLastNameEditedDetailsIsDisplayed,
-				"After Edit Employee First And Last Name With Edited Details Is Not Showing");
+		Boolean afterEditEmployeeWithActiveStatusIsDisplayed = cm.isElementDisplayed(activeEmpStatus);
+		System.out.println("After Edit Employee First And Last Name With Active Status Is Displayed?=="
+				+ afterEditEmployeeWithActiveStatusIsDisplayed);
+		Assert.assertTrue(afterEditEmployeeWithActiveStatusIsDisplayed,
+				"After Edit Employee First And Last Name With Active Status Is Not Showing");
 	}
 
 }

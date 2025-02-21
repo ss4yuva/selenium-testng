@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-21T10:34:03 IST" name="Default suite" finished-at="2025-02-21T10:34:14 IST" duration-ms="11059">
+  <suite started-at="2025-02-21T16:13:36 IST" name="Default suite" finished-at="2025-02-21T16:13:56 IST" duration-ms="19911">
     <groups>
     </groups>
-    <test started-at="2025-02-21T10:34:03 IST" name="Default test" finished-at="2025-02-21T10:34:14 IST" duration-ms="11059">
-      <class name="urBuddi.Tests.Test_Apply_Cancel_LeaveTestSpec">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:urBuddi.Tests.Test_Apply_Cancel_LeaveTestSpec@5a56cdac]" started-at="2025-02-21T10:34:03 IST" name="browserLaunch" finished-at="2025-02-21T10:34:06 IST" duration-ms="3302" status="PASS">
+    <test started-at="2025-02-21T16:13:36 IST" name="Default test" finished-at="2025-02-21T16:13:56 IST" duration-ms="19911">
+      <class name="urBuddi.Tests.Test015_Add_Edit_Delete_EmployeeWithActiveStatusTestSpec">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:urBuddi.Tests.Test015_Add_Edit_Delete_EmployeeWithActiveStatusTestSpec@5a56cdac]" started-at="2025-02-21T16:13:36 IST" name="browserLaunch" finished-at="2025-02-21T16:13:41 IST" duration-ms="4913" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="verifyApplyAndCancelLeaveIsSuccessful()[pri:0, instance:urBuddi.Tests.Test_Apply_Cancel_LeaveTestSpec@5a56cdac]" started-at="2025-02-21T10:34:06 IST" name="verifyApplyAndCancelLeaveIsSuccessful" finished-at="2025-02-21T10:34:13 IST" duration-ms="7556" status="PASS">
+        <test-method signature="verifyAddEditDeleteEmployeeWithActiveStatusIsSuccessful()[pri:0, instance:urBuddi.Tests.Test015_Add_Edit_Delete_EmployeeWithActiveStatusTestSpec@5a56cdac]" started-at="2025-02-21T16:13:41 IST" name="verifyAddEditDeleteEmployeeWithActiveStatusIsSuccessful" finished-at="2025-02-21T16:13:55 IST" duration-ms="14747" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyApplyAndCancelLeaveIsSuccessful -->
-        <test-method is-config="true" signature="close()[pri:0, instance:urBuddi.Tests.Test_Apply_Cancel_LeaveTestSpec@5a56cdac]" started-at="2025-02-21T10:34:13 IST" name="close" finished-at="2025-02-21T10:34:14 IST" duration-ms="160" status="PASS">
+        </test-method> <!-- verifyAddEditDeleteEmployeeWithActiveStatusIsSuccessful -->
+        <test-method is-config="true" signature="close()[pri:0, instance:urBuddi.Tests.Test015_Add_Edit_Delete_EmployeeWithActiveStatusTestSpec@5a56cdac]" started-at="2025-02-21T16:13:55 IST" name="close" finished-at="2025-02-21T16:13:56 IST" duration-ms="213" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-      </class> <!-- urBuddi.Tests.Test_Apply_Cancel_LeaveTestSpec -->
+      </class> <!-- urBuddi.Tests.Test015_Add_Edit_Delete_EmployeeWithActiveStatusTestSpec -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

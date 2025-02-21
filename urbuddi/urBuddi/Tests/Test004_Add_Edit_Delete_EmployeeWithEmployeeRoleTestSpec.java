@@ -52,7 +52,7 @@ public class Test004_Add_Edit_Delete_EmployeeWithEmployeeRoleTestSpec extends Ba
 	}
 
 	@Test
-	public void verifyAddEditDeleteEmployeeWithAdminRoleIsSuccessful() throws InterruptedException {
+	public void verifyAddEditDeleteEmployeeWithEmployeeRoleIsSuccessful() throws InterruptedException {
 		System.out.println("Actual Test");
 
 		loginPage.loginToApplication(username, password);

@@ -53,7 +53,7 @@ public class Test011_Add_Edit_Delete_EmployeeWithOtherQualification extends Base
 	}
 
 	@Test
-	public void verifyAddEditDeleteEmployeeWithPGQualificationIsSuccessful() throws InterruptedException {
+	public void verifyAddEditDeleteEmployeeWithOtherQualificationIsSuccessful() throws InterruptedException {
 		System.out.println("Test");
 
 		loginPage.loginToApplication(username, password);

@@ -11,20 +11,20 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithOthersGenderPage;
+import urBuddi.Pages.AddEmployeeWithAdminRolePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
-import urBuddi.Pages.EditEmployeePage;
+import urBuddi.Pages.EmployeeWithEmployeeStatusAsActiveAtEditPage;
 import urBuddi.Pages.LoginPage;
 
-public class Test014_Add_Edit_Delete_EmployeWithOthersGenderTestSpec extends BaseMethods {
+public class Test015_Add_Edit_Delete_EmployeeWithActiveStatusTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithOthersGenderPage addEmployeeWithOthersGenderPage;
-	EditEmployeePage editEmployeePage;
+	AddEmployeeWithAdminRolePage addEmployeeWithAdminRolePage;
+	EmployeeWithEmployeeStatusAsActiveAtEditPage employeeWithEmployeeStatusAsActiveAtEditPage;
 	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
 
 	String url, username, password;
@@ -47,13 +47,13 @@ public class Test014_Add_Edit_Delete_EmployeWithOthersGenderTestSpec extends Bas
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeeWithOthersGenderPage = new AddEmployeeWithOthersGenderPage(wait, driver);
-		editEmployeePage = new EditEmployeePage(wait, driver);
+		addEmployeeWithAdminRolePage = new AddEmployeeWithAdminRolePage(wait, driver);
+		employeeWithEmployeeStatusAsActiveAtEditPage = new EmployeeWithEmployeeStatusAsActiveAtEditPage(wait, driver);
 		deleteAddEmployeeAfterEditPage = new DeleteAddEmployeeAfterEditPage(wait, driver);
 	}
 
 	@Test
-	public void verifyAddEditDeleteEmployeeWithOthersGenderIsSuccessful() throws InterruptedException {
+	public void verifyAddEditDeleteEmployeeWithActiveStatusIsSuccessful() throws InterruptedException {
 		System.out.println("Test");
 
 		loginPage.loginToApplication(username, password);
@@ -61,19 +61,20 @@ public class Test014_Add_Edit_Delete_EmployeWithOthersGenderTestSpec extends Bas
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		addEmployeeWithOthersGenderPage.addEmployeeInputs();
-		addEmployeeWithOthersGenderPage.verifyAddEmployeeSuccessful(addEmployeeWithOthersGenderPage.empIDInput);
+		addEmployeeWithAdminRolePage.addEmployeeInputs();
+		addEmployeeWithAdminRolePage.verifyAddEmployeeSuccessful(addEmployeeWithAdminRolePage.empIDInput);
 
-		editEmployeePage.searchNewEmployeeWithEmpID(addEmployeeWithOthersGenderPage.empIDInput);
-		editEmployeePage.clickOnEditButton();
-		editEmployeePage.verifyEditEmployeePage();
-		editEmployeePage.enterEditEmployeePageTestData();
-		editEmployeePage.searchEditEmployeeDetailsWithEditedFirstAndLastName();
-		editEmployeePage.verifyEditEmployeeDetailsWithEditedFirstAndLastName();
+		employeeWithEmployeeStatusAsActiveAtEditPage
+				.searchNewEmployeeWithEmpID(addEmployeeWithAdminRolePage.empIDInput);
+		employeeWithEmployeeStatusAsActiveAtEditPage.clickOnEditButton();
+		employeeWithEmployeeStatusAsActiveAtEditPage.verifyEditEmployeePage();
+		employeeWithEmployeeStatusAsActiveAtEditPage.enterEditEmployeePageTestData();
+		employeeWithEmployeeStatusAsActiveAtEditPage.searchEditEmployeeDetailsWithEditedFirstAndLastName();
+		employeeWithEmployeeStatusAsActiveAtEditPage.verifyEditEmployeeDetailsWithActiveStatus();
 
 		deleteAddEmployeeAfterEditPage.deleteEditEmployeeWithSearchedFirstAndLastName();
 		deleteAddEmployeeAfterEditPage
-				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithOthersGenderPage.empIDInput);
+				.verifyNewlyAddedEmployeeDelettionIsSuccessfulWithEmpID(addEmployeeWithAdminRolePage.empIDInput);
 
 		loginPage.logoutToApplication();
 	}
