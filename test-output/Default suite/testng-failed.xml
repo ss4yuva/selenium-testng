@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="urBuddi.Tests.Test002_LoginFunctionalityTestSpec">
+      <class name="urBuddi.Tests.Test010_Add_Edit_Delete_EmployeeWithPGQualification">
         <methods>
-          <include name="verificationOfLoginFunctionalityIsSuccess"/>
+          <include name="verifyAddEditDeleteEmployeeWithPGQualificationIsSuccessful"/>
           <include name="browserLaunch"/>
-          <include name="browserclose"/>
+          <include name="close"/>
         </methods>
-      </class> <!-- urBuddi.Tests.Test002_LoginFunctionalityTestSpec -->
+      </class> <!-- urBuddi.Tests.Test010_Add_Edit_Delete_EmployeeWithPGQualification -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,15 +1,19 @@
 package Common;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import urBuddi.Pages.LoginPage;
-
 public class BaseMethods {
 	static WebDriver driver;
 	static WebDriverWait wait;
-	LoginPage loginPage;
+
+	String url;
+	Properties obj;
 
 	public WebDriver getDriver() {
 
@@ -21,6 +25,20 @@ public class BaseMethods {
 			driver.manage().window().maximize();
 		}
 		return driver;
+	}
+
+	public Properties getPropertiesObj() throws IOException {
+		FileInputStream file = new FileInputStream(
+				"D:\\Automation\\selenium-testng\\test-data\\credentials.properties");
+		obj = new Properties();
+		obj.load(file);
+
+		// url = p.getProperty("url");
+
+		// driver = getDriver();
+		// driver.get(url);
+
+		return obj;
 	}
 
 }

@@ -1,7 +1,5 @@
 package urBuddi.Pages;
 
-import java.util.Random;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,34 +8,18 @@ import org.testng.Assert;
 
 import Common.CommonMethods;
 
-public class EditEmployeePage {
+public class EditEmployeeWithEmployeeStatusAsActivePage {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	CommonMethods cm;
-	static Random random, randomNumber;
-	int employeeIDRadomNumber;
-	public String empIDInput;
-	int bankAccountRadomNumber, bankIFSCRadomNumber, panRadomNumber;
-	String bankIFSCNumberInput, panNumberInput;
+
 	String editEmployeeFName, editEmployeeLName;
 
-	public EditEmployeePage(WebDriverWait w, WebDriver d) {
+	public EditEmployeeWithEmployeeStatusAsActivePage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 		cm = new CommonMethods(wait, driver);
-		random = new Random();
-		randomNumber = new Random();
-	}
-
-	public static String generateRandomString(int length) {
-		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		StringBuilder randomText = new StringBuilder(length);
-		for (int i = 0; i < length; i++) {
-			int index = random.nextInt(characters.length());
-			randomText.append(characters.charAt(index));
-		}
-		return randomText.toString();
 	}
 
 	// After Add Employee Search Locators
@@ -51,11 +33,7 @@ public class EditEmployeePage {
 	// Edit Employee Page Locators
 	By firstNameInputfield = By.name("firstName");
 	By lastNameInputfield = By.name("lastName");
-
-	By bankName = By.id("bankName");
-	By bankAccountNumber = By.id("bankAccountNumber");
-	By bankIFSCNumber = By.id("ifsc");
-	By panNumber = By.id("panNumber");
+	By employeeStatusDropdown = By.id("employeeStatus");
 
 	By submitButton = By.xpath("//*[@type='submit']");
 
@@ -70,27 +48,14 @@ public class EditEmployeePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDSearchField));
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
-
-		/*
-		 * Thread.sleep(5000);
-		 * wait.until(ExpectedConditions.visibilityOfElementLocated(employeeIDCheckBox))
-		 * ; driver.findElement(employeeIDCheckBox).click(); By employeeSearchIDValue =
-		 * By.xpath("//*[text()='" + empID + "']");
-		 * 
-		 * wait.until(ExpectedConditions.visibilityOfElementLocated(
-		 * employeeIDSearchField)); driver.findElement(employeeIDSearchField).click();
-		 * driver.findElement(employeeIDSearchField).sendKeys(empID);
-		 */
 	}
 
 	public void clickOnEditButton() {
-
 		wait.until(ExpectedConditions.elementToBeClickable(editButton));
 		driver.findElement(editButton).click();
 	}
 
 	public void verifyEditEmployeePage() {
-
 		wait.until(ExpectedConditions.visibilityOfElementLocated(editEmployeeHeaderText));
 		Boolean editEmployeeHeaderTextDisplayed = cm.isElementDisplayed(editEmployeeHeaderText);
 		System.out.println("Edit Employee Page Header text Is Displayed?==" + editEmployeeHeaderTextDisplayed);
@@ -111,32 +76,10 @@ public class EditEmployeePage {
 		driver.findElement(lastNameInputfield).sendKeys(editEmployeeLastName);
 	}
 
-	public void enterBankName(String employeeBankName) {
-		wait.until(ExpectedConditions.elementToBeClickable(bankName));
-		driver.findElement(bankName).click();
-		driver.findElement(bankName).clear();
-		driver.findElement(bankName).sendKeys(employeeBankName);
-	}
-
-	public void enterBankAccountNumber(String employeebankAccountNumber) {
-		wait.until(ExpectedConditions.elementToBeClickable(bankAccountNumber));
-		driver.findElement(bankAccountNumber).click();
-		driver.findElement(bankAccountNumber).clear();
-		driver.findElement(bankAccountNumber).sendKeys(employeebankAccountNumber);
-	}
-
-	public void enterBankIFSCNumber(String employeeBankIFSCNumber) {
-		wait.until(ExpectedConditions.elementToBeClickable(bankIFSCNumber));
-		driver.findElement(bankIFSCNumber).click();
-		driver.findElement(bankIFSCNumber).clear();
-		driver.findElement(bankIFSCNumber).sendKeys(employeeBankIFSCNumber);
-	}
-
-	public void enterPANNumber(String employeePANNumber) {
-		wait.until(ExpectedConditions.elementToBeClickable(panNumber));
-		driver.findElement(panNumber).click();
-		driver.findElement(panNumber).clear();
-		driver.findElement(panNumber).sendKeys(employeePANNumber);
+	public void enterEmployeeStatus(String employeeStatus) {
+		wait.until(ExpectedConditions.elementToBeClickable(employeeStatusDropdown));
+		driver.findElement(employeeStatusDropdown).click();
+		driver.findElement(employeeStatusDropdown).sendKeys(employeeStatus);
 	}
 
 	public void clickOnSubmitButton() {
@@ -146,39 +89,13 @@ public class EditEmployeePage {
 
 	public void enterEditEmployeePageTestData() {
 
-		editEmployeeFName = "ASDF";
+		editEmployeeFName = "First Name";
 		enterFirstName(editEmployeeFName);
 
-		editEmployeeLName = "QWER";
+		editEmployeeLName = "Last Name";
 		enterLastName(editEmployeeLName);
 
-		String bankName = "AXIS";
-		enterBankName(bankName);
-
-		String bankAccountingNumber = "00987654321";
-		enterBankAccountNumber(bankAccountingNumber);
-
-		String bankISFSCNumber = "OW0012345678";
-		enterBankIFSCNumber(bankISFSCNumber);
-
-		String employeePanNumber = "OW12345678";
-		enterPANNumber(employeePanNumber);
-
-		/*
-		 * RANDOM TEST DATA Thread.sleep(2000); String bankNameRandomText =
-		 * generateRandomString(5); enterBankName(bankNameRandomText);
-		 * 
-		 * Thread.sleep(2000); int bankAccountRadomNumber =
-		 * randomNumber.nextInt(1000000000); String bankNumberInput =
-		 * "1"+bankAccountRadomNumber; enterBankAccountNumber(bankNumberInput);
-		 * 
-		 * Thread.sleep(2000); bankIFSCRadomNumber = randomNumber.nextInt(1000000000);
-		 * bankIFSCNumberInput = "OW"+bankIFSCRadomNumber;
-		 * enterBankIFSCNumber(bankIFSCNumberInput);
-		 * 
-		 * Thread.sleep(2000); panRadomNumber = randomNumber.nextInt(1000000000);
-		 * panNumberInput = "OW"+panRadomNumber; enterPANNumber(panNumberInput);
-		 */
+		enterEmployeeStatus("Active");
 
 		clickOnSubmitButton();
 	}

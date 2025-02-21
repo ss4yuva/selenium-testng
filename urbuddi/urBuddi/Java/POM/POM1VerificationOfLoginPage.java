@@ -25,7 +25,7 @@ public class POM1VerificationOfLoginPage {
 
 		driver.get("https://dev.urbuddi.com/login");
 
-		VerificationOfLoginPage loginPage = new VerificationOfLoginPage(wait, driver, chrome);
+		VerificationOfLoginPage loginPage = new VerificationOfLoginPage(wait, driver);
 
 		loginPage.verifyUrBuddiLogo();
 		loginPage.verifyHeaderTextWelcomeToUrBuddi();

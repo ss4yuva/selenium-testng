@@ -1,6 +1,5 @@
 package urBuddi.Tests;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
@@ -31,10 +30,7 @@ public class Test_Apply_Cancel_LeaveTestSpec extends BaseMethods {
 	public void browserLaunch() throws IOException {
 		System.out.println("Before Test");
 
-		FileInputStream file = new FileInputStream(
-				"D:\\Automation\\selenium-testng\\test-data\\credentials.properties");
-		p = new Properties();
-		p.load(file);
+		p = getPropertiesObj();
 
 		url = p.getProperty("url");
 		username = p.getProperty("email");
