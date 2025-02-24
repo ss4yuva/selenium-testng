@@ -12,10 +12,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import Common.CommonMethods;
+
 public class AddEmployeeWithAdminRolePage {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
+	CommonMethods cm;
 	static Random random, randomNumber;
 	int employeeIDRadomNumber;
 	public String empIDInput;
@@ -251,18 +254,9 @@ public class AddEmployeeWithAdminRolePage {
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(employeeSearchIDValue));
 
-		Boolean empRecordPresent = isElementDisplayed(employeeSearchIDValue);
+		Boolean empRecordPresent = cm.isElementDisplayed(employeeSearchIDValue);
 		System.out.println("Add Employee with Admin Role is Created Successful?==" + empRecordPresent);
 		Assert.assertTrue(empRecordPresent, "Add Employee with Admin Role is not created");
 	}
 
-	public boolean isElementDisplayed(By loc) {
-		Boolean empRecordPresent;
-		try {
-			empRecordPresent = driver.findElement(loc).isDisplayed();
-		} catch (Exception e) {
-			empRecordPresent = true;
-		}
-		return empRecordPresent;
-	}
 }

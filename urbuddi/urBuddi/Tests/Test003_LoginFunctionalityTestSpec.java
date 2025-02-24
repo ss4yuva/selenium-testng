@@ -11,13 +11,13 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.VerificationOfLoginFunctionality;
+import urBuddi.Pages.LoginFunctionalityPage;
 
 public class Test003_LoginFunctionalityTestSpec extends BaseMethods {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
-	VerificationOfLoginFunctionality verificationOfLoginFunctionalityPage;
+	LoginFunctionalityPage loginFunctionalityPage;
 
 	String url, username, password;
 	Properties p;
@@ -37,26 +37,26 @@ public class Test003_LoginFunctionalityTestSpec extends BaseMethods {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
-		verificationOfLoginFunctionalityPage = new VerificationOfLoginFunctionality(wait, driver);
+		loginFunctionalityPage = new LoginFunctionalityPage(wait, driver);
 	}
 
 	@Test
 	public void verificationOfLoginFunctionalityIsSuccess() throws InterruptedException {
 		System.out.println("Test");
 
-		verificationOfLoginFunctionalityPage.loginWithValidCredentials(username, password);
-		verificationOfLoginFunctionalityPage.verifyLoginPage();
-		verificationOfLoginFunctionalityPage.clickOnLogout();
-		verificationOfLoginFunctionalityPage.loginWithBlankCredentials();
-		verificationOfLoginFunctionalityPage.verifyErrorMessageLoginWithBlankCredentials();
-		verificationOfLoginFunctionalityPage.loginWithInValidCredentails("ss4yuvan@gmail.com", "ss@123");
-		verificationOfLoginFunctionalityPage.verifyErrorMessageLoginWithInvalidCredentials();
-		verificationOfLoginFunctionalityPage.loginWithValidEmailAndInValidPassword(username, "ss@123");
-		verificationOfLoginFunctionalityPage.verifyErrorMessageLoginWithValidEmailAndInValidPassword();
-		verificationOfLoginFunctionalityPage.loginWithInValidEmailAndValidPassword("ss4yuvan@gmail.com", password);
-		verificationOfLoginFunctionalityPage.verifyErrorMessageLoginWithInValidEmailAndValidPassword();
-		verificationOfLoginFunctionalityPage.clickOnForgotPasswordLink();
-		verificationOfLoginFunctionalityPage.verifyForgotPasswordPage();
+		loginFunctionalityPage.loginWithValidCredentials(username, password);
+		loginFunctionalityPage.verifyLoginPage();
+		loginFunctionalityPage.clickOnLogout();
+		loginFunctionalityPage.loginWithBlankCredentials();
+		loginFunctionalityPage.verifyErrorMessageLoginWithBlankCredentials();
+		loginFunctionalityPage.loginWithInValidCredentails("ss4yuvan@gmail.com", "ss@123");
+		loginFunctionalityPage.verifyErrorMessageLoginWithInvalidCredentials();
+		loginFunctionalityPage.loginWithValidEmailAndInValidPassword(username, "ss@123");
+		loginFunctionalityPage.verifyErrorMessageLoginWithValidEmailAndInValidPassword();
+		loginFunctionalityPage.loginWithInValidEmailAndValidPassword("ss4yuvan@gmail.com", password);
+		loginFunctionalityPage.verifyErrorMessageLoginWithInValidEmailAndValidPassword();
+		loginFunctionalityPage.clickOnForgotPasswordLink();
+		loginFunctionalityPage.verifyForgotPasswordPage();
 
 	}
 

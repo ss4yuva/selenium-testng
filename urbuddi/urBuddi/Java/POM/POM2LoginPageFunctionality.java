@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import urBuddi.Pages.VerificationOfLoginFunctionality;
+import urBuddi.Pages.LoginFunctionalityPage;
 
 public class POM2LoginPageFunctionality {
 
@@ -25,7 +25,7 @@ public class POM2LoginPageFunctionality {
 
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		VerificationOfLoginFunctionality loginPageFunctionality = new VerificationOfLoginFunctionality(wait, driver);
+		LoginFunctionalityPage loginPageFunctionality = new LoginFunctionalityPage(wait, driver);
 
 		loginPageFunctionality.verifyUrBuddiLoginPage();
 		loginPageFunctionality.loginWithValidCredentials("suresh.salloju@openskale.com", "New@2024");

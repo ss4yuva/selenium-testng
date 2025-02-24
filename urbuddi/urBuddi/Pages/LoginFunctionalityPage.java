@@ -8,13 +8,13 @@ import org.testng.Assert;
 
 import Common.CommonMethods;
 
-public class VerificationOfLoginFunctionality {
+public class LoginFunctionalityPage {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	CommonMethods cm;
 
-	public VerificationOfLoginFunctionality(WebDriverWait w, WebDriver d) {
+	public LoginFunctionalityPage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 		cm = new CommonMethods(wait, driver);
