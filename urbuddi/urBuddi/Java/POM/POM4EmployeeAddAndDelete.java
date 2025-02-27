@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
+import urBuddi.Pages.AddEmployeeWithRoleAsEmployeePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
-import urBuddi.Pages.DeleteAddEmployee;
+import urBuddi.Pages.DeleteAddEmployeePage;
 import urBuddi.Pages.LoginPage;
 
 public class POM4EmployeeAddAndDelete {
@@ -31,8 +31,8 @@ public class POM4EmployeeAddAndDelete {
 
 		LoginPage loginPage = new LoginPage(wait, driver);
 		DashBoardEmployeesPage dashBoardPage = new DashBoardEmployeesPage(wait, driver);
-		AddEmployeeWithEmployeeRolePage addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
-		DeleteAddEmployee deleteAddEmployee = new DeleteAddEmployee(wait, driver);
+		AddEmployeeWithRoleAsEmployeePage addEmployeePage = new AddEmployeeWithRoleAsEmployeePage(wait, driver);
+		DeleteAddEmployeePage deleteAddEmployee = new DeleteAddEmployeePage(wait, driver);
 
 		loginPage.loginToApplication("suresh.salloju@openskale.com", "New@2024");
 		loginPage.verifyLoginIsSuccessful();

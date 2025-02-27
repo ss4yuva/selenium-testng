@@ -1,23 +1,25 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="UrBuddi testng">
-
-	<test name="UrBuddi Testspecs">
+<suite name="UrBudditestng">
+	<test name="UrBuddiTestspecs">
 		<classes>
-			<class name="urBuddi.Tests.Test001_LoginPageTestSpec" />
+			<class name="urBuddi.Tests.Test001_LoginPageVerificationTestSpec" />
 			<class name="urBuddi.Tests.Test002_LoginTestSpec" />
-			<class name="urBuddi.Tests.Test004_Add_Edit_Delete_EmployeeWithEmployeeRoleTestSpec" />
-			<class name="urBuddi.Tests.Test005_Add_Edit_Delete_EmployeeWithAdminRoleTestSpec" />
-			<class name="urBuddi.Tests.Test006_Add_Edit_Delete_EmployeeWithHRRole" />
-			<class name="urBuddi.Tests.Test007_Add_Edit_Delete_EmployeeWithLeadRole" />
-			<class name="urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithDegreeQualification" />
-			<class name="urBuddi.Tests.Test009_Add_Edit_Delete_EmployeeWithBTechQualification" />
-			<class name="urBuddi.Tests.Test010_Add_Edit_Delete_EmployeeWithPGQualification" />
-			<class name="urBuddi.Tests.Test011_Add_Edit_Delete_EmployeeWithOtherQualification" />
-			<class name="urBuddi.Tests.Test012_Add_Edit_Delete_EmployeeWithMaleGenderTestSpec" />
-			<class name="urBuddi.Tests.Test013_Add_Edit_Delete_EmployeeWithFemaleGenderRole" />
-			<class name="urBuddi.Tests.Test014_Add_Edit_Delete_EmployeWithOthersGenderTestSpec" />
-			
+			<class name="urBuddi.Tests.Test004_Add_Edit_Delete_EmployeeWithRoleAsEmployeeTestSpec" />
+			<class name="urBuddi.Tests.Test005_Add_Edit_Delete_EmployeeWithRoleAsAdminTestSpec" />
+			<class name="urBuddi.Tests.Test006_Add_Edit_Delete_EmployeeWithRoleAsHRTestSpec" />
+			<class name="urBuddi.Tests.Test007_Add_Edit_Delete_EmployeeWithRoleAsLeadTestSpec" />
+			<class name="urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithQualificationAsDegreeTestSpec" />
+			<class name="urBuddi.Tests.Test009_Add_Edit_Delete_EmployeeWithQualificationAsBTechTestSpec" />
+			<class name="urBuddi.Tests.Test010_Add_Edit_Delete_EmployeeWithQualificationAsPGTestSpec" />
+			<class name="urBuddi.Tests.Test011_Add_Edit_Delete_EmployeeWithQualificationAsOtherTestSpec" />
+			<class name="urBuddi.Tests.Test012_Add_Edit_Delete_EmployeeWithGenderAsMaleTestSpec" />
+			<class name="urBuddi.Tests.Test013_Add_Edit_Delete_EmployeeWithGenderAsFemaleTestSpec" />
+			<class name="urBuddi.Tests.Test014_Add_Edit_Delete_EmployeWithGenderAsOthersTestSpec" />
+			<class name="urBuddi.Tests.Test015_Add_Edit_Delete_EmployeeWithStatusAsActiveTestSpec" />
+			<class name="urBuddi.Tests.Test016_Add_Edit_EmployeeWithStatusAsReleasedTestSpec" />
+			<class name="urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec" />
+			<class name="urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsWFHTestSpec" />
 		</classes>
 	</test>
 </suite>

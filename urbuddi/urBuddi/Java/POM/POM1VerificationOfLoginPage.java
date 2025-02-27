@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import urBuddi.Pages.VerificationOfLoginPage;
+import urBuddi.Pages.LoginPageVerificationPage;
 
 public class POM1VerificationOfLoginPage {
 	static WebDriver driver;
@@ -25,7 +25,7 @@ public class POM1VerificationOfLoginPage {
 
 		driver.get("https://dev.urbuddi.com/login");
 
-		VerificationOfLoginPage loginPage = new VerificationOfLoginPage(wait, driver);
+		LoginPageVerificationPage loginPage = new LoginPageVerificationPage(wait, driver);
 
 		loginPage.verifyUrBuddiLogo();
 		loginPage.verifyHeaderTextWelcomeToUrBuddi();

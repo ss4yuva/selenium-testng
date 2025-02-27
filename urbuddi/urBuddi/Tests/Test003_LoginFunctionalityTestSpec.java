@@ -57,7 +57,6 @@ public class Test003_LoginFunctionalityTestSpec extends BaseMethods {
 		loginFunctionalityPage.verifyErrorMessageLoginWithInValidEmailAndValidPassword();
 		loginFunctionalityPage.clickOnForgotPasswordLink();
 		loginFunctionalityPage.verifyForgotPasswordPage();
-
 	}
 
 	@AfterTest

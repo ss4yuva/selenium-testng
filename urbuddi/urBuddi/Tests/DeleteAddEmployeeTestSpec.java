@@ -13,10 +13,10 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
+import urBuddi.Pages.AddEmployeeWithRoleAsEmployeePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.LoginPage;
-import urBuddi.Pages.DeleteAddEmployee;
+import urBuddi.Pages.DeleteAddEmployeePage;
 
 public class DeleteAddEmployeeTestSpec extends BaseMethods {
 
@@ -24,8 +24,8 @@ public class DeleteAddEmployeeTestSpec extends BaseMethods {
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithEmployeeRolePage addEmployeePage;
-	DeleteAddEmployee deleteAddEmployee;
+	AddEmployeeWithRoleAsEmployeePage addEmployeePage;
+	DeleteAddEmployeePage deleteAddEmployee;
 
 	String url, username, password;
 	Properties p;
@@ -50,8 +50,8 @@ public class DeleteAddEmployeeTestSpec extends BaseMethods {
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
-		deleteAddEmployee = new DeleteAddEmployee(wait, driver);
+		addEmployeePage = new AddEmployeeWithRoleAsEmployeePage(wait, driver);
+		deleteAddEmployee = new DeleteAddEmployeePage(wait, driver);
 	}
 
 	@Test

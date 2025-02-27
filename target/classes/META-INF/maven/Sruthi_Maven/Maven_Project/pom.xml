@@ -1,10 +1,8 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>
-	Sruthi_Maven</groupId>
+	<groupId>Sruthi_Maven</groupId>
 	<artifactId>Maven_Project</artifactId>
-	<version>
-	0.0.1-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
 		<!--
 		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->

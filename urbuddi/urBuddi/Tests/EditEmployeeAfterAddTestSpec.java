@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
-import urBuddi.Pages.AddEmployeeWithEmployeeRolePage;
+import urBuddi.Pages.AddEmployeeWithRoleAsEmployeePage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.LoginPage;
 import urBuddi.Pages.EditEmployeePage;
@@ -24,7 +24,7 @@ public class EditEmployeeAfterAddTestSpec extends BaseMethods {
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithEmployeeRolePage addEmployeePage;
+	AddEmployeeWithRoleAsEmployeePage addEmployeePage;
 	EditEmployeePage editEmployeePage;
 
 	String url, username, password;
@@ -50,7 +50,7 @@ public class EditEmployeeAfterAddTestSpec extends BaseMethods {
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeePage = new AddEmployeeWithEmployeeRolePage(wait, driver);
+		addEmployeePage = new AddEmployeeWithRoleAsEmployeePage(wait, driver);
 		editEmployeePage = new EditEmployeePage(wait, driver);
 	}
 

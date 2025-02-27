@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="urBuddi.Tests.Test006_Add_Edit_Delete_EmployeeWithHRRole">
+      <class name="urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec">
         <methods>
+          <include name="verifyApplyAndCancelLeaveIsSuccessful"/>
           <include name="close"/>
           <include name="browserLaunch"/>
-          <include name="verifyAddEditDeleteEmployeeWithHRRoleIsSuccessful"/>
         </methods>
-      </class> <!-- urBuddi.Tests.Test006_Add_Edit_Delete_EmployeeWithHRRole -->
+      </class> <!-- urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
