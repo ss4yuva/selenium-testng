@@ -2,54 +2,27 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-27T11:27:17 IST" name="Default suite" finished-at="2025-02-27T11:27:32 IST" duration-ms="14974">
+  <suite started-at="2025-02-28T11:17:48 IST" name="Default suite" finished-at="2025-02-28T11:17:56 IST" duration-ms="7656">
     <groups>
     </groups>
-    <test started-at="2025-02-27T11:27:17 IST" name="Default test" finished-at="2025-02-27T11:27:32 IST" duration-ms="14974">
-      <class name="urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec@5a56cdac]" started-at="2025-02-27T11:27:17 IST" name="browserLaunch" finished-at="2025-02-27T11:27:20 IST" duration-ms="3441" status="PASS">
+    <test started-at="2025-02-28T11:17:48 IST" name="Default test" finished-at="2025-02-28T11:17:56 IST" duration-ms="7656">
+      <class name="urBuddi.Tests.Test017_AddEmployeeWithSameEmailTestSpec">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:urBuddi.Tests.Test017_AddEmployeeWithSameEmailTestSpec@5a56cdac]" started-at="2025-02-28T11:17:48 IST" name="browserLaunch" finished-at="2025-02-28T11:17:51 IST" duration-ms="2968" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="verifyApplyAndCancelLeaveIsSuccessful()[pri:0, instance:urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec@5a56cdac]" started-at="2025-02-27T11:27:20 IST" name="verifyApplyAndCancelLeaveIsSuccessful" finished-at="2025-02-27T11:27:31 IST" duration-ms="11200" status="FAIL">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+        <test-method signature="verifyAddEmployeeIsSuccessful()[pri:0, instance:urBuddi.Tests.Test017_AddEmployeeWithSameEmailTestSpec@5a56cdac]" started-at="2025-02-28T11:17:51 IST" name="verifyAddEmployeeIsSuccessful" finished-at="2025-02-28T11:17:56 IST" duration-ms="4452" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[element click intercepted: Element <div class="react-datepicker__input-container">...</div> is not clickable at point (1439, 423). Other element would receive the click: <div class="sc-dhKdcB iRBpNM">...</div>
-  (Session info: chrome=133.0.6943.127)
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [81d4941ce15f02ba8f5c07bbe74d9ea1, clickElement {id=f.838CA192D84F7D339058C732F5506F9C.d.B0A01375D31499480DBC8DED15807564.e.90}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.127, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: C:\Users\Lenovo\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54459}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54459/devtoo..., se:cdpVersion: 133.0.6943.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (81d4941ce15f02ba8f5c07bbe74d9ea1)] -> xpath: (//*[@class='react-datepicker__input-container'])[2]]
-Session ID: 81d4941ce15f02ba8f5c07bbe74d9ea1]]>
+              <![CDATA[Add Employee with Employee Role is not created expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <div class="react-datepicker__input-container">...</div> is not clickable at point (1439, 423). Other element would receive the click: <div class="sc-dhKdcB iRBpNM">...</div>
-  (Session info: chrome=133.0.6943.127)
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [81d4941ce15f02ba8f5c07bbe74d9ea1, clickElement {id=f.838CA192D84F7D339058C732F5506F9C.d.B0A01375D31499480DBC8DED15807564.e.90}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.127, chrome: {chromedriverVersion: 133.0.6943.141 (2a5d6da0d61..., userDataDir: C:\Users\Lenovo\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54459}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54459/devtoo..., se:cdpVersion: 133.0.6943.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (81d4941ce15f02ba8f5c07bbe74d9ea1)] -> xpath: (//*[@class='react-datepicker__input-container'])[2]]
-Session ID: 81d4941ce15f02ba8f5c07bbe74d9ea1
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at urBuddi.Pages.ApplyLeaveWithRequestTypeAsLeavePage.monthPicker(ApplyLeaveWithRequestTypeAsLeavePage.java:139)
-at urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec.verifyApplyAndCancelLeaveIsSuccessful(Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec.java:63)
+              <![CDATA[java.lang.AssertionError: Add Employee with Employee Role is not created expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at urBuddi.Pages.AddEmployeeWithSameEmailErrorPage.verifyErrorMessageIsPresentSuccessful(AddEmployeeWithSameEmailErrorPage.java:245)
+at urBuddi.Tests.Test017_AddEmployeeWithSameEmailTestSpec.verifyAddEmployeeIsSuccessful(Test017_AddEmployeeWithSameEmailTestSpec.java:65)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -80,15 +53,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyApplyAndCancelLeaveIsSuccessful -->
-        <test-method is-config="true" signature="close()[pri:0, instance:urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec@5a56cdac]" started-at="2025-02-27T11:27:31 IST" name="close" finished-at="2025-02-27T11:27:32 IST" duration-ms="281" status="PASS">
+        </test-method> <!-- verifyAddEmployeeIsSuccessful -->
+        <test-method is-config="true" signature="close()[pri:0, instance:urBuddi.Tests.Test017_AddEmployeeWithSameEmailTestSpec@5a56cdac]" started-at="2025-02-28T11:17:56 IST" name="close" finished-at="2025-02-28T11:17:56 IST" duration-ms="167" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-      </class> <!-- urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec -->
+      </class> <!-- urBuddi.Tests.Test017_AddEmployeeWithSameEmailTestSpec -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
