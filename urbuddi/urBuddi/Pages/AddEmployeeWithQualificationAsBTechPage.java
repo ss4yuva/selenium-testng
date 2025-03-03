@@ -258,8 +258,8 @@ public class AddEmployeeWithQualificationAsBTechPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(qualificationAsBtechField));
 
 		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(qualificationAsBtechField);
-		System.out.println("Add Employee with Employee Role is Created Successful?==" + eemployeeRecordIsPresent);
-		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Employee Role is not created");
+		System.out.println("Add Employee with Qualification As BTech is Created Successful?==" + eemployeeRecordIsPresent);
+		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Qualification As BTech is not created");
 	}
 
 

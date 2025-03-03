@@ -258,8 +258,8 @@ public class AddEmployeeWithQualificationAsPGPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(qualificationAsPGField));
 
 		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(qualificationAsPGField);
-		System.out.println("Add Employee with Employee Role is Created Successful?==" + eemployeeRecordIsPresent);
-		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Employee Role is not created");
+		System.out.println("Add Employee with Qualification As PG is Created Successful?==" + eemployeeRecordIsPresent);
+		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Qualification As PG is not created");
 	}
 
 }

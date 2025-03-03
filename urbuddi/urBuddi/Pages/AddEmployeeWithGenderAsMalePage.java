@@ -258,8 +258,8 @@ public class AddEmployeeWithGenderAsMalePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(genderAsMaleField));
 
 		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(genderAsMaleField);
-		System.out.println("Add Employee with Employee Role is Created Successful?==" + eemployeeRecordIsPresent);
-		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Employee Role is not created");
+		System.out.println("Add Employee with Gender As Male is Created Successful?==" + eemployeeRecordIsPresent);
+		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Gender As Male is not created");
 	}
 
 }

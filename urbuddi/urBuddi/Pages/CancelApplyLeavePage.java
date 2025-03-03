@@ -69,8 +69,8 @@ public class CancelApplyLeavePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(cancelReasonText));
 		wait.until(ExpectedConditions.elementToBeClickable(cancelReasonText));
 		Boolean cancelRequestTextDisplayed = cm.isElementDisplayed(cancelReasonText);
-		System.out.println("Cancel Request text is Displayed?==" + cancelRequestTextDisplayed);
-		Assert.assertTrue(cancelRequestTextDisplayed, "Cancel Request text is not Displayed");
+		System.out.println("Leave Cancel Request text is Displayed?==" + cancelRequestTextDisplayed);
+		Assert.assertTrue(cancelRequestTextDisplayed, "Leave Cancel Request text is not Displayed");
 	}
 
 }

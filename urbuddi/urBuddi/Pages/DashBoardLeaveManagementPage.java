@@ -42,8 +42,8 @@ public class DashBoardLeaveManagementPage {
 	public void verifyApplyLeavePage() {
 		wait.until(ExpectedConditions.elementToBeClickable(applyLeavePageText));
 		Boolean applyLeaveTextDisplayed = cm.isElementDisplayed(applyLeavePageText);
-		System.out.println("Apply Leave text is Displayed?==" + applyLeaveTextDisplayed);
-		Assert.assertTrue(applyLeaveTextDisplayed, "Apply Leave text is not displayed");
+		System.out.println("Apply Leave Page Header Text is Displayed?==" + applyLeaveTextDisplayed);
+		Assert.assertTrue(applyLeaveTextDisplayed, "Apply Leave Page Header Text is not displayed");
 	}
 
 }

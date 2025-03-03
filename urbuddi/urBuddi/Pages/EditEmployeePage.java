@@ -45,7 +45,7 @@ public class EditEmployeePage {
 	By employeeIDSearchField = By.xpath("(//*[@class='ag-input-field-input ag-text-field-input'])[1]");
 
 	// Edit Employee Locators
-	By editButton = By.xpath("//*[@class='ag-cell ag-cell-not-inline-editing ag-cell-normal-height ag-cell-value']");
+	By editButton = By.xpath("(//*[@class='ag-cell ag-cell-not-inline-editing ag-cell-normal-height ag-cell-value'])[1]");
 	By editEmployeeHeaderText = By.xpath("//*[text()='Edit Employee']");
 
 	// Edit Employee Page Locators

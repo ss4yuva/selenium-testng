@@ -258,7 +258,7 @@ public class AddEmployeeWithRoleAsEmployeePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(roleAsEmployeeField));
 
 		Boolean employeeRecordIsPresent = cm.isElementDisplayed(roleAsEmployeeField);
-		System.out.println("Add Employee with Employee Role is Created Successful?==" + employeeRecordIsPresent);
-		Assert.assertTrue(employeeRecordIsPresent, "Add Employee with Employee Role is not created");
+		System.out.println("Add Employee with Role As Employee is Created Successful?==" + employeeRecordIsPresent);
+		Assert.assertTrue(employeeRecordIsPresent, "Add Employee with Role As Employee is not created");
 	}
 }

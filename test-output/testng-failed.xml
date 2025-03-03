@@ -1,15 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [UrBudditestng]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="UrBuddiTestspecs(failed)">
     <classes>
-      <class name="urBuddi.Tests.Test017_AddEmployeeWithSameEmailTestSpec">
+      <class name="urBuddi.Tests.Test014_Add_Edit_Delete_EmployeWithGenderAsOthersTestSpec">
+        <methods>
+          <include name="browserLaunch"/>
+          <include name="close"/>
+          <include name="verifyAddEditDeleteEmployeeWithOthersGenderIsSuccessful"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test014_Add_Edit_Delete_EmployeWithGenderAsOthersTestSpec -->
+      <class name="urBuddi.Tests.Test013_Add_Edit_Delete_EmployeeWithGenderAsFemaleTestSpec">
+        <methods>
+          <include name="verifyAddEditDeleteEmployeeWithFemaleGenderIsSuccessful"/>
+          <include name="close"/>
+          <include name="browserLaunch"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test013_Add_Edit_Delete_EmployeeWithGenderAsFemaleTestSpec -->
+      <class name="urBuddi.Tests.Test010_Add_Edit_Delete_EmployeeWithQualificationAsPGTestSpec">
+        <methods>
+          <include name="verifyAddEditDeleteEmployeeWithPGQualificationIsSuccessful"/>
+          <include name="browserLaunch"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test010_Add_Edit_Delete_EmployeeWithQualificationAsPGTestSpec -->
+      <class name="urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec">
+        <methods>
+          <include name="verifyApplyAndCancelLeaveIsSuccessful"/>
+          <include name="close"/>
+          <include name="browserLaunch"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec -->
+      <class name="urBuddi.Tests.Test016_Add_Edit_EmployeeWithStatusAsReleasedTestSpec">
+        <methods>
+          <include name="browserLaunch"/>
+          <include name="close"/>
+          <include name="verifyAddEditEmployeeWithReleasedStatusIsSuccessful"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test016_Add_Edit_EmployeeWithStatusAsReleasedTestSpec -->
+      <class name="urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithQualificationAsDegreeTestSpec">
+        <methods>
+          <include name="verifyAddEditDeleteEmployeeWithDegreeQualificationIsSuccessful"/>
+          <include name="browserLaunch"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithQualificationAsDegreeTestSpec -->
+      <class name="urBuddi.Tests.Test009_Add_Edit_Delete_EmployeeWithQualificationAsBTechTestSpec">
+        <methods>
+          <include name="browserLaunch"/>
+          <include name="verifyAddEditDeleteEmployeeWithBTechQualificationIsSuccessful"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test009_Add_Edit_Delete_EmployeeWithQualificationAsBTechTestSpec -->
+      <class name="urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsWFHTestSpec">
+        <methods>
+          <include name="browserLaunch"/>
+          <include name="verifyApplyAndCancelLeaveIsSuccessful"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsWFHTestSpec -->
+      <class name="urBuddi.Tests.Test015_Add_Edit_Delete_EmployeeWithStatusAsActiveTestSpec">
+        <methods>
+          <include name="close"/>
+          <include name="verifyAddEditDeleteEmployeeWithActiveStatusIsSuccessful"/>
+          <include name="browserLaunch"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test015_Add_Edit_Delete_EmployeeWithStatusAsActiveTestSpec -->
+      <class name="urBuddi.Tests.Test012_Add_Edit_Delete_EmployeeWithGenderAsMaleTestSpec">
+        <methods>
+          <include name="verifyAddEditDeleteEmployeeWithMaleGenderIsSuccessful"/>
+          <include name="close"/>
+          <include name="browserLaunch"/>
+        </methods>
+      </class> <!-- urBuddi.Tests.Test012_Add_Edit_Delete_EmployeeWithGenderAsMaleTestSpec -->
+      <class name="urBuddi.Tests.Test011_Add_Edit_Delete_EmployeeWithQualificationAsOtherTestSpec">
         <methods>
           <include name="close"/>
           <include name="browserLaunch"/>
-          <include name="verifyAddEmployeeIsSuccessful"/>
+          <include name="verifyAddEditDeleteEmployeeWithOtherQualificationIsSuccessful"/>
         </methods>
-      </class> <!-- urBuddi.Tests.Test017_AddEmployeeWithSameEmailTestSpec -->
+      </class> <!-- urBuddi.Tests.Test011_Add_Edit_Delete_EmployeeWithQualificationAsOtherTestSpec -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- UrBuddiTestspecs(failed) -->
+</suite> <!-- Failed suite [UrBudditestng] -->

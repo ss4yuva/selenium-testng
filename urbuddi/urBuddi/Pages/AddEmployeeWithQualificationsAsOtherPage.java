@@ -258,8 +258,8 @@ public class AddEmployeeWithQualificationsAsOtherPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(qualificationAsOtherField));
 
 		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(qualificationAsOtherField);
-		System.out.println("Add Employee with Employee Role is Created Successful?==" + eemployeeRecordIsPresent);
-		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Employee Role is not created");
+		System.out.println("Add Employee with Qualification As Other is Created Successful?==" + eemployeeRecordIsPresent);
+		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Qualification As Other is not created");
 	}
 
 }

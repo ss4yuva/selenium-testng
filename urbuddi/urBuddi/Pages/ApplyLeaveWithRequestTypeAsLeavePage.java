@@ -154,8 +154,8 @@ public class ApplyLeaveWithRequestTypeAsLeavePage {
 		wait.until(ExpectedConditions.elementToBeClickable(leaveAppliedRow));
 
 		Boolean leaveappliedRowDisplayed = cm.isElementDisplayed(requestTypeAsLeaveField);
-		System.out.println("Leave applied Row is Displayed?==" + leaveappliedRowDisplayed);
-		Assert.assertTrue(leaveappliedRowDisplayed, "Leave Applied row is not displayed");
+		System.out.println("Leave applied With Leave Option Row is Displayed?==" + leaveappliedRowDisplayed);
+		Assert.assertTrue(leaveappliedRowDisplayed, "Leave Applied With Leave Option row is not displayed");
 	}
 
 }

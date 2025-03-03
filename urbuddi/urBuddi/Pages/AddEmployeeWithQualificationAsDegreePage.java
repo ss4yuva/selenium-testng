@@ -258,8 +258,8 @@ public class AddEmployeeWithQualificationAsDegreePage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(qualificationAsDegreeField));
 
 		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(qualificationAsDegreeField);
-		System.out.println("Add Employee with Employee Role is Created Successful?==" + eemployeeRecordIsPresent);
-		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Employee Role is not created");
+		System.out.println("Add Employee with Qualification As Degree is Created Successful?==" + eemployeeRecordIsPresent);
+		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Qualification As Degree is not created");
 	}
 
 }

@@ -258,8 +258,8 @@ public class AddEmployeeWithRoleAsLeadPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(roleAsLeadField));
 
 		Boolean eemployeeRecordIsPresent = cm.isElementDisplayed(roleAsLeadField);
-		System.out.println("Add Employee with Employee Role is Created Successful?==" + eemployeeRecordIsPresent);
-		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Employee Role is not created");
+		System.out.println("Add Employee with Role As Lead is Created Successful?==" + eemployeeRecordIsPresent);
+		Assert.assertTrue(eemployeeRecordIsPresent, "Add Employee with Role As Lead is not created");
 	}
 
 }

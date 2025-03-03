@@ -241,8 +241,8 @@ public class AddEmployeeWithSameEmailErrorPage {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(idOrEmailExistError));
 
 		Boolean errormessageIsPresent = cm.isElementDisplayed(idOrEmailExistError);
-		System.out.println("Add Employee with Employee Role is Created Successful?==" + errormessageIsPresent);
-		Assert.assertTrue(errormessageIsPresent, "Add Employee with Employee Role is not created");
+		System.out.println("Add Employee with Same Email Error Message Is Correct?==" + errormessageIsPresent);
+		Assert.assertTrue(errormessageIsPresent, "Add Employee with Same Email Error Message is not Correct");
 	}
 
 }

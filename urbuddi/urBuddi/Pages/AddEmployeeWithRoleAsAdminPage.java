@@ -259,8 +259,8 @@ public class AddEmployeeWithRoleAsAdminPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(roleAsAdminField));
 
 		Boolean empRecordPresent = cm.isElementDisplayed(roleAsAdminField);
-		System.out.println("Add Employee with Admin Role is Created Successful?==" + empRecordPresent);
-		Assert.assertTrue(empRecordPresent, "Add Employee with Admin Role is not created");
+		System.out.println("Add Employee with Role As Admin is Created Successful?==" + empRecordPresent);
+		Assert.assertTrue(empRecordPresent, "Add Employee with Role As Admin is not created");
 
 	}
 
