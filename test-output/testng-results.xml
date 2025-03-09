@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-03T17:09:41 IST" name="Default suite" finished-at="2025-03-03T17:11:02 IST" duration-ms="80938">
+    <groups>
+    </groups>
+    <test started-at="2025-03-03T17:09:41 IST" name="Default test" finished-at="2025-03-03T17:11:02 IST" duration-ms="80938">
+      <class name="urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithQualificationAsDegreeTestSpec">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithQualificationAsDegreeTestSpec@5a56cdac]" started-at="2025-03-03T17:09:41 IST" name="browserLaunch" finished-at="2025-03-03T17:09:45 IST" duration-ms="3508" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserLaunch -->
+        <test-method signature="verifyAddEditDeleteEmployeeWithDegreeQualificationIsSuccessful()[pri:0, instance:urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithQualificationAsDegreeTestSpec@5a56cdac]" started-at="2025-03-03T17:09:45 IST" name="verifyAddEditDeleteEmployeeWithDegreeQualificationIsSuccessful" finished-at="2025-03-03T17:11:02 IST" duration-ms="77112" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAddEditDeleteEmployeeWithDegreeQualificationIsSuccessful -->
+        <test-method is-config="true" signature="close()[pri:0, instance:urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithQualificationAsDegreeTestSpec@5a56cdac]" started-at="2025-03-03T17:11:02 IST" name="close" finished-at="2025-03-03T17:11:02 IST" duration-ms="267" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- urBuddi.Tests.Test008_Add_Edit_Delete_EmployeeWithQualificationAsDegreeTestSpec -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

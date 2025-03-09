@@ -30,7 +30,7 @@ public class LoginPage {
 	By profileIcon = By.xpath("//*[@class='profile-icon-container']");
 
 	// Logout
-	By lagoutButton = By.xpath("//*[@class='logout-btn-nav']");
+	By logoutButton = By.xpath("//*[@class='logout-btn-nav']");
 	By logoutPopupYes = By.xpath("//*[text()='Yes']");
 
 	public void loginToApplication(String userName, String password) {
@@ -50,8 +50,8 @@ public class LoginPage {
 	}
 
 	public void logoutToApplication() {
-		wait.until(ExpectedConditions.elementToBeClickable(lagoutButton));
-		driver.findElement(lagoutButton).click();
+		wait.until(ExpectedConditions.elementToBeClickable(logoutButton));
+		driver.findElement(logoutButton).click();
 
 		wait.until(ExpectedConditions.elementToBeClickable(logoutPopupYes));
 		driver.findElement(logoutPopupYes).click();
