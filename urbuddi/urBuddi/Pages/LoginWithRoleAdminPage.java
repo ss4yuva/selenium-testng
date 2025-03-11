@@ -33,6 +33,10 @@ public class LoginWithRoleAdminPage {
 		driver.findElement(loginButton).click();
 	}
 	
+	public void verifyLoginWithAdminRole() {
+		
+	}
+	
 	
 	
 }

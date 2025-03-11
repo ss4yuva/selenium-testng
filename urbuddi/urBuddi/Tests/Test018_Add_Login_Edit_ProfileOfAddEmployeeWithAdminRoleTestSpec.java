@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -15,6 +16,7 @@ import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
 import urBuddi.Pages.EditEmployeePage;
 import urBuddi.Pages.LoginPage;
+import urBuddi.Pages.LoginWithRoleAdminPage;
 
 public class Test018_Add_Login_Edit_ProfileOfAddEmployeeWithAdminRoleTestSpec extends BaseMethods {
 	static WebDriver driver;
@@ -22,8 +24,7 @@ public class Test018_Add_Login_Edit_ProfileOfAddEmployeeWithAdminRoleTestSpec ex
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
 	AddEmployeeWithRoleAsAdminPage addEmployeeWithRoleAsAdminPage;
-	EditEmployeePage editEmployeePage;
-	DeleteAddEmployeeAfterEditPage deleteAddEmployeeAfterEditPage;
+	LoginWithRoleAdminPage loginWithRoleAdminPage;
 
 	String url, username, password;
 	Properties p;
@@ -46,8 +47,7 @@ public class Test018_Add_Login_Edit_ProfileOfAddEmployeeWithAdminRoleTestSpec ex
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
 		addEmployeeWithRoleAsAdminPage = new AddEmployeeWithRoleAsAdminPage(wait, driver);
-		editEmployeePage = new EditEmployeePage(wait, driver);
-		deleteAddEmployeeAfterEditPage = new DeleteAddEmployeeAfterEditPage(wait, driver);
+		loginWithRoleAdminPage = new LoginWithRoleAdminPage(wait, driver);
 	}
 
 	@Test
@@ -62,5 +62,14 @@ public class Test018_Add_Login_Edit_ProfileOfAddEmployeeWithAdminRoleTestSpec ex
 		addEmployeeWithRoleAsAdminPage.addEmployeeInputs();
 		addEmployeeWithRoleAsAdminPage.verifyAddEmployeeSuccessful(addEmployeeWithRoleAsAdminPage.empIDInput);
 
-}
+		loginPage.logoutToApplication();
+
+		loginWithRoleAdminPage.loginToApplicationWithRoleAsAdmin("admin"+emailRandom+"@gmail.com", "admin@"+randomPassword+"A");
+	}
+
+	@AfterTest
+	public void close() {
+		System.out.println("After Test");
+		driver.close();
+	}
 }

@@ -18,6 +18,7 @@
 			<class name="urBuddi.Tests.Test014_Add_Edit_Delete_EmployeWithGenderAsOthersTestSpec" />
 			<class name="urBuddi.Tests.Test015_Add_Edit_Delete_EmployeeWithStatusAsActiveTestSpec" />
 			<class name="urBuddi.Tests.Test016_Add_Edit_EmployeeWithStatusAsReleasedTestSpec" />
+			<class name="urBuddi.Tests.Test017_AddEmployeeWithSameEmailTestSpec" />
 			<class name="urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsLeaveTestSpec" />
 			<class name="urBuddi.Tests.Test_Apply_Cancel_LeaveWithRequestTypeAsWFHTestSpec" />
 		</classes>
