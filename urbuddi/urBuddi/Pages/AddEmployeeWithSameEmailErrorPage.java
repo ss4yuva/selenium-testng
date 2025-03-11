@@ -199,7 +199,7 @@ public class AddEmployeeWithSameEmailErrorPage {
 		empIDInput = "OW" + employeeIDRadomNumber;
 		employeeID(empIDInput);
 
-		email("test@gmail.com");
+		email("optim@gmail.com");
 
 		role("Lead");
 
@@ -238,7 +238,7 @@ public class AddEmployeeWithSameEmailErrorPage {
 
 	public void verifyErrorMessageIsPresentSuccessful() {
 
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(idOrEmailExistError));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(idOrEmailExistError));
 
 		Boolean errormessageIsPresent = cm.isElementDisplayed(idOrEmailExistError);
 		System.out.println("Add Employee with Same Email Error Message Is Correct?==" + errormessageIsPresent);
