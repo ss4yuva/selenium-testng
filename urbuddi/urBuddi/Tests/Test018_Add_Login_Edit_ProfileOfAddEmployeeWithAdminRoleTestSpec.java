@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Common.BaseMethods;
+import urBuddi.Pages.AddEmployeeWithRanodmEmailAndPasswordWithRoleAdminPage;
 import urBuddi.Pages.AddEmployeeWithRoleAsAdminPage;
 import urBuddi.Pages.DashBoardEmployeesPage;
 import urBuddi.Pages.DeleteAddEmployeeAfterEditPage;
@@ -23,7 +24,7 @@ public class Test018_Add_Login_Edit_ProfileOfAddEmployeeWithAdminRoleTestSpec ex
 	static WebDriverWait wait;
 	LoginPage loginPage;
 	DashBoardEmployeesPage dashBoardEmployeesPage;
-	AddEmployeeWithRoleAsAdminPage addEmployeeWithRoleAsAdminPage;
+	AddEmployeeWithRanodmEmailAndPasswordWithRoleAdminPage addEmployeeWithRanodmEmailAndPasswordPage;
 	LoginWithRoleAdminPage loginWithRoleAdminPage;
 
 	String url, username, password;
@@ -46,7 +47,7 @@ public class Test018_Add_Login_Edit_ProfileOfAddEmployeeWithAdminRoleTestSpec ex
 
 		loginPage = new LoginPage(wait, driver);
 		dashBoardEmployeesPage = new DashBoardEmployeesPage(wait, driver);
-		addEmployeeWithRoleAsAdminPage = new AddEmployeeWithRoleAsAdminPage(wait, driver);
+		addEmployeeWithRanodmEmailAndPasswordPage = new AddEmployeeWithRanodmEmailAndPasswordWithRoleAdminPage(wait, driver);
 		loginWithRoleAdminPage = new LoginWithRoleAdminPage(wait, driver);
 	}
 
@@ -59,17 +60,17 @@ public class Test018_Add_Login_Edit_ProfileOfAddEmployeeWithAdminRoleTestSpec ex
 
 		dashBoardEmployeesPage.clickOnEmployeesButton();
 
-		addEmployeeWithRoleAsAdminPage.addEmployeeInputs();
-		addEmployeeWithRoleAsAdminPage.verifyAddEmployeeSuccessful(addEmployeeWithRoleAsAdminPage.empIDInput);
+		addEmployeeWithRanodmEmailAndPasswordPage.addEmployeeInputs();
+		addEmployeeWithRanodmEmailAndPasswordPage.verifyAddEmployeeSuccessful(addEmployeeWithRanodmEmailAndPasswordPage.empIDInput);
 
 		loginPage.logoutToApplication();
 
-		loginWithRoleAdminPage.loginToApplicationWithRoleAsAdmin("admin"+emailRandom+"@gmail.com", "admin@"+randomPassword+"A");
+		loginWithRoleAdminPage.loginToApplicationWithRoleAsAdmin(addEmployeeWithRanodmEmailAndPasswordPage.inputEmail, addEmployeeWithRanodmEmailAndPasswordPage.inputPassword);
 	}
 
-	@AfterTest
+/*	@AfterTest
 	public void close() {
 		System.out.println("After Test");
 		driver.close();
 	}
-}
+*/}

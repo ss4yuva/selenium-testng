@@ -20,7 +20,7 @@ public class AddEmployeeWithRoleAsAdminPage {
 	static WebDriverWait wait;
 	CommonMethods cm;
 	static Random random, randomNumber;
-	public int employeeIDRadomNumber, emailRandom, randomPassword;
+	public int employeeIDRadomNumber;
 	public String empIDInput;
 
 	public AddEmployeeWithRoleAsAdminPage(WebDriverWait w, WebDriver d) {
@@ -203,14 +203,14 @@ public class AddEmployeeWithRoleAsAdminPage {
 		empIDInput = "OW" + employeeIDRadomNumber;
 		employeeID(empIDInput);
 
-		emailRandom = randomNumber.nextInt(10000);
-		String inputEmail = "admin"+emailRandom+"@gmail.com";
+		int emailRandom = randomNumber.nextInt(10000);
+		String inputEmail = "qa" + emailRandom + "@gmail.com";
 		email(inputEmail);
 
 		role("Admin");
 
-		randomPassword = randomNumber.nextInt(100);
-		password("admin@"+randomPassword+"A");
+		int randomPassword = randomNumber.nextInt(100);
+		password("abcd@" + randomPassword);
 
 		dob("28-08-1992");
 

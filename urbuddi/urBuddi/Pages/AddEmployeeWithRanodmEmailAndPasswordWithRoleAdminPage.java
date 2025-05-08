@@ -14,15 +14,16 @@ import org.testng.Assert;
 
 import Common.CommonMethods;
 
-public class AddEmployeeWithRoleAsEmployeePage {
+public class AddEmployeeWithRanodmEmailAndPasswordWithRoleAdminPage {
+
 	static WebDriver driver;
 	static WebDriverWait wait;
 	CommonMethods cm;
 	static Random random, randomNumber;
-	int employeeIDRadomNumber;
-	public String empIDInput;
+	public int employeeIDRadomNumber;
+	public String inputEmail, inputPassword, empIDInput;
 
-	public AddEmployeeWithRoleAsEmployeePage(WebDriverWait w, WebDriver d) {
+	public AddEmployeeWithRanodmEmailAndPasswordWithRoleAdminPage(WebDriverWait w, WebDriver d) {
 		this.driver = d;
 		this.wait = w;
 		random = new Random();
@@ -67,9 +68,8 @@ public class AddEmployeeWithRoleAsEmployeePage {
 	By certificateDropdownValue = By.name("Intermediate");
 	By addButton = By.xpath("//*[text()='Add']");
 
-	// Home Page After Add Employee Search and Delete Locators
 	By employeeIDSearchField = By.xpath("//*[@aria-label='EMP ID Filter Input']");
-	By roleAsEmployeeField = By.xpath("//*[text()='Employee']");
+	By roleAsAdminField = By.xpath("//*[text()='Admin']");
 
 	By employeeIDCheckBox = By.xpath("//*[@class='ag-selection-checkbox']");
 	By deleteIcon = By.xpath("//*[@class='deleteIcon']");
@@ -204,13 +204,14 @@ public class AddEmployeeWithRoleAsEmployeePage {
 		employeeID(empIDInput);
 
 		int emailRandom = randomNumber.nextInt(10000);
-		String inputEmail = "qa" + emailRandom + "@gmail.com";
+		inputEmail = "admin" + emailRandom + "@gmail.com";
 		email(inputEmail);
 
-		role("Employee");
+		role("Admin");
 
 		int randomPassword = randomNumber.nextInt(100);
-		password("abcd@" + randomPassword);
+		inputPassword = "admin@" + randomPassword + "A";
+		password(inputPassword);
 
 		dob("28-08-1992");
 
@@ -240,6 +241,7 @@ public class AddEmployeeWithRoleAsEmployeePage {
 		reporting("suresh.salloju@openskale.com");
 
 		addButton();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(".//*[text()='Add']")));
 	}
 
 	public void verifyAddEmployeeSuccessful(String empID) {
@@ -254,10 +256,12 @@ public class AddEmployeeWithRoleAsEmployeePage {
 		driver.findElement(employeeIDSearchField).click();
 		driver.findElement(employeeIDSearchField).sendKeys(empID);
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(roleAsEmployeeField));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(roleAsAdminField));
 
-		Boolean employeeRecordIsPresent = cm.isElementDisplayed(roleAsEmployeeField);
-		System.out.println("Add Employee with Role As Employee is Created Successful?==" + employeeRecordIsPresent);
-		Assert.assertTrue(employeeRecordIsPresent, "Add Employee with Role As Employee is not created");
+		Boolean empRecordPresent = cm.isElementDisplayed(roleAsAdminField);
+		System.out.println("Add Employee with Role As Admin is Created Successful?==" + empRecordPresent);
+		Assert.assertTrue(empRecordPresent, "Add Employee with Role As Admin is not created");
+
 	}
+
 }
